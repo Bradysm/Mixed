@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -17,17 +16,29 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
-                    return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
+                //If User Presses Account Icon on Nav Bar
+                case R.id.navigation_account:
+                    setContentView(R.layout.fragment_account);
+
+                    break;
+
+                //If User Presses Drinks Icon on Nav Bar
+                case R.id.navigation_drinks:
+                    setContentView(R.layout.fragment_drink);
+
+                    break;
+
+                //If User Presses Settings Icon on Nav Bar
+                case R.id.navigation_settings:
+                    setContentView(R.layout.fragment_settings);
+
+                    break;
+
+                default:
+                    return false;
             }
-            return false;
+            //keepNavBar();
+            return true;
         }
     };
 
@@ -36,9 +47,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+        keepNavBar();
+    }
+
+    private void keepNavBar(){
+        //Creates Bottom Navigation Bar When App Opens
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
-
 }
