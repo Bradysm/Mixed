@@ -7,8 +7,7 @@ For use with the Adafruit Motor Shield v2
 ---->  http://www.adafruit.com/products/1438
 */
 
-#include <Wire.h>
-#include <Adafruit_MotorShield.h>
+#include "Mixy.h"
 
 // Create the motor shield object with the default I2C address
 // we will have to create a specific I2C address in the future
@@ -20,15 +19,9 @@ Adafruit_MotorShield AFMS = Adafruit_MotorShield();
 Adafruit_DCMotor *shield1Motor1 = AFMS.getMotor(1);
 Adafruit_DCMotor *shield1Motor2 = AFMS.getMotor(2);
 
-// method prototypes
-void shotOfVodka(Adafruit_DCMotor *motor, int time);
-void cranberryPour(Adafruit_DCMotor *motor, int time);
 
 // boolean varaiables
 bool poured;
-
-// constants
-const int SHOT_TIME = 30000;
 
 void setup() {
   Serial.begin(9600);           // set up Serial library at 9600 bps
@@ -54,7 +47,7 @@ that will allow us to listen to bluetooth.
 */
 void loop() {
   // pour one vodka cran
-  while(!poured){
+  if(!poured){
     shotOfVodka(shield1Motor1, (SHOT_TIME/2));
     cranberryPour(shield1Motor2, 30000);
     poured = true;
@@ -68,7 +61,10 @@ void loop() {
   delay(1000);
 }
 
-// this method will pour one shot of vodka
+/* this method will pour vodka for the 
+ *  duration of the time given as the parameter
+ *  @param time-time in miliseconds for vodka to pour
+*/
 void shotOfVodka(Adafruit_DCMotor *motor, int time){
   motor->run(FORWARD);
   delay(time);
