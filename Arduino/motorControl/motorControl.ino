@@ -114,6 +114,7 @@ Consistantly running listening loop
 that will allow us to listen to bluetooth.
 */
 void loop() {
+  delay(5000);
   // pour one vodka cran
   if(drinkChoice != 0){
     // run through a list of drinks
@@ -146,7 +147,7 @@ void loop() {
         margarita(tequila, margaritaMix);
         break;
       case 10:
-        tomCollins(gin, lemonJuice, tonic, simpleSyrup);
+        tomCollins(gin, lemonJuice, club, simpleSyrup);
         break;
       case 11:
         daquiri(rum, limeJuice, simpleSyrup);
@@ -156,6 +157,12 @@ void loop() {
         break;
       case 13:
         lemonMarg(tequila, lemonJuice, simpleSyrup);
+        break;
+      case 14:
+        gimlet(gin, limeJuice, simpleSyrup);
+        break;
+      case 15:
+        ginRickey(gin, limeJuice, club);
         break;
       default: // catch any invalid number
         break;
@@ -183,6 +190,8 @@ void loop() {
   // wait for one second
   delay(1000);
 }
+
+// <-----------------VODKA---------------------->
 
 /*
  * This method will make one vodka cranberry 
@@ -226,53 +235,6 @@ void vodkaRedBull(Adafruit_DCMotor *vodka, Adafruit_DCMotor *redBull){
 }
 
 /**
- * This method will make one coke and rum drink
- * This drink contains four ounces of coke
- * and 1 2/3 ounces of rum
- * This drink should be served with lime
- * 
- * @param-vodka: pointer to vodka motor
- * @param-redbull: pointer to redbull motor
- */
-void cokeAndRum(Adafruit_DCMotor *rum, Adafruit_DCMotor *coke){
-  drinkPour(rum, (long)(ONE_OUNCE * 4));
-  drinkPour(coke, (long)(ONE_OUNCE * 1.667));
-}
-
-/**
- * This method will make one tequila sunrise
- * This drink contains 3 ounces of OJ
- * 1 1/2 ounce of tequila and a half ounce
- * of grenadine
- * 
- * @param-tequila: pointer to tequila motor
- * @param-oj: pointer to OJ motor
- * @param-grenadine: pointer to grenadine motor
- * 
-  */
-void tequilaSunrise(Adafruit_DCMotor *tequila, Adafruit_DCMotor *oj, Adafruit_DCMotor *grenadine){
-  drinkPour(tequila, (long)(ONE_OUNCE * 1.5));
-  drinkPour(oj, (long)(ONE_OUNCE * 3));
-  drinkPour(grenadine, (long)(ONE_OUNCE * 0.5));
-}
-
-/**
- * This method will make one gin and tonic
- * This drink contains 3 ounces of gin
- * 4 ounces of tonic
- * This drink should be served with ice
- * and lime juice
- * 
- * @param-gin: pointer to gin motor
- * @param-tonic: pointer to tonic motor
- * 
-  */
-void ginAndTonic(Adafruit_DCMotor *gin, Adafruit_DCMotor *tonic){
-  drinkPour(gin, (long)(ONE_OUNCE * 3));
-  drinkPour(tonic, (long)(ONE_OUNCE * 4));
-}
-
-/**
  * This method will make one vodka-tonic
  * This drink contains 2 ounces of vodka
  * 4 ounces of tonic
@@ -307,42 +269,21 @@ void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor
 }
 
 
-/**
- * This method will make one margarita mix
- * This drink contains 1 ounce of tequilla
- * 3 ounces of jose quervo margarita mix
- * This drink should be served with ice
- * and lime
- * 
- * @param-tequilla: pointer to tequilla motor
- * @param-margaritaMix: pointer to margaritaMix motor
- * 
-  */
-void margarita(Adafruit_DCMotor *tequilla, Adafruit_DCMotor *margaritaMix){
-  drinkPour(tequilla, ONE_OUNCE);
-  drinkPour(margaritaMix, (long)(ONE_OUNCE *3));
-}
-
+// <-------------------RUM---------------------->
 
 /**
- * This method will make one Tom Collins
- * This drink contains 1 1/2 ounce of gin
- * 2 ounces of tonic and 1/2 ounce of simple syrup
- * This drink should be served with ice and a lemon
+ * This method will make one coke and rum drink
+ * This drink contains four ounces of coke
+ * and 1 2/3 ounces of rum
+ * This drink should be served with lime
  * 
- * @param-gin: pointer to gin motor
- * @param-lemonJuice: pointer to lemon juice motor
- * @param-tonic: pointer to tonic motor
- * @param-simpleSyrup: pointer to tonic motor
- * 
-  */
-void tomCollins(Adafruit_DCMotor *gin, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *tonic, Adafruit_DCMotor *simpleSyrup){
-  drinkPour(gin, (long)(ONE_OUNCE * 1.5));
-  drinkPour(lemonJuice, ONE_OUNCE);
-  drinkPour(tonic, TWO_OUNCES);
-  drinkPour(simpleSyrup, (long)(ONE_OUNCE * 0.5));
+ * @param-vodka: pointer to vodka motor
+ * @param-redbull: pointer to redbull motor
+ */
+void cokeAndRum(Adafruit_DCMotor *rum, Adafruit_DCMotor *coke){
+  drinkPour(rum, (long)(ONE_OUNCE * 4));
+  drinkPour(coke, (long)(ONE_OUNCE * 1.667));
 }
-
 
 /**
  * This method will make one daquiri
@@ -377,6 +318,7 @@ void rumSpritz(Adafruit_DCMotor *rum, Adafruit_DCMotor *club){
   drinkPour(club, (long)(ONE_OUNCE * 3));
 }
 
+// <-------------------TEQUILA---------------------->
 
 /**
  * This method will make one lemon margarita
@@ -395,6 +337,112 @@ void lemonMarg(Adafruit_DCMotor *tequila, Adafruit_DCMotor *lemonJuice, Adafruit
   drinkPour(simpleSyrup, (long)(ONE_OUNCE * .75));
 }
 
+/**
+ * This method will make one tequila sunrise
+ * This drink contains 3 ounces of OJ
+ * 1 1/2 ounce of tequila and a half ounce
+ * of grenadine
+ * 
+ * @param-tequila: pointer to tequila motor
+ * @param-oj: pointer to OJ motor
+ * @param-grenadine: pointer to grenadine motor
+ * 
+  */
+void tequilaSunrise(Adafruit_DCMotor *tequila, Adafruit_DCMotor *oj, Adafruit_DCMotor *grenadine){
+  drinkPour(tequila, (long)(ONE_OUNCE * 1.5));
+  drinkPour(oj, (long)(ONE_OUNCE * 3));
+  drinkPour(grenadine, (long)(ONE_OUNCE * 0.5));
+}
+
+/**
+ * This method will make one margarita mix
+ * This drink contains 1 ounce of tequilla
+ * 3 ounces of jose quervo margarita mix
+ * This drink should be served with ice
+ * and lime
+ * 
+ * @param-tequilla: pointer to tequilla motor
+ * @param-margaritaMix: pointer to margaritaMix motor
+ * 
+  */
+void margarita(Adafruit_DCMotor *tequilla, Adafruit_DCMotor *margaritaMix){
+  drinkPour(tequilla, ONE_OUNCE);
+  drinkPour(margaritaMix, (long)(ONE_OUNCE *3));
+}
+
+// <------------------GIN--------------------->
+
+/**
+ * This method will make one gin and tonic
+ * This drink contains 3 ounces of gin
+ * 4 ounces of tonic
+ * This drink should be served with ice
+ * and lime juice
+ * 
+ * @param-gin: pointer to gin motor
+ * @param-tonic: pointer to tonic motor
+ * 
+  */
+void ginAndTonic(Adafruit_DCMotor *gin, Adafruit_DCMotor *tonic){
+  drinkPour(gin, (long)(ONE_OUNCE * 3));
+  drinkPour(tonic, (long)(ONE_OUNCE * 4));
+}
+
+/**
+ * This method will make one Tom Collins
+ * This drink contains 1 1/2 ounce of gin
+ * 2 ounces of club and 1/2 ounce of simple syrup
+ * This drink should be served with ice and a lemon
+ * 
+ * @param-gin: pointer to gin motor
+ * @param-lemonJuice: pointer to lemon juice motor
+ * @param-club: pointer to tonic motor
+ * @param-simpleSyrup: pointer to tonic motor
+ * 
+  */
+void tomCollins(Adafruit_DCMotor *gin, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *club, Adafruit_DCMotor *simpleSyrup){
+  drinkPour(gin, (long)(ONE_OUNCE * 1.5));
+  drinkPour(lemonJuice, ONE_OUNCE);
+  drinkPour(club, TWO_OUNCES);
+  drinkPour(simpleSyrup, (long)(ONE_OUNCE * 0.5));
+}
+
+
+/**
+ * This method will make one gimlet cocktail
+ * This drink contains 2 1/2 ounces of gin
+ * and 1/2 ounces of lime juice and 1/2 ounce simple syrup
+ * This drink should be served with ice and a lime,
+ * or in a chilled glass
+ * 
+ * @param-gin: pointer to gin motor
+ * @param-limeJuice: pointer to lime juice motor
+ * @param-simpleSyrup: pointer to simple syrup motor
+ * 
+  */
+void gimlet(Adafruit_DCMotor *gin, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *simpleSyrup){
+  drinkPour(gin, (long)(ONE_OUNCE * 2.50));
+  drinkPour(limeJuice, (long)(ONE_OUNCE * 0.50));
+  drinkPour(simpleSyrup, (long)(ONE_OUNCE * 0.50));
+}
+
+
+/**
+ * This method will make one gin rickey
+ * This drink contains 2 ounces of gin
+ * and one ounce of lime juice and 4 ounces of club
+ * This drink should be served with ice and a lime
+ * 
+ * @param-gin: pointer to gin motor
+ * @param-limeJuice: pointer to lime juice motor
+ * @param-club: pointer to club motor
+ * 
+  */
+void ginRickey(Adafruit_DCMotor *gin, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *club){
+  drinkPour(gin, TWO_OUNCES);
+  drinkPour(limeJuice, ONE_OUNCE);
+  drinkPour(club, (long)(ONE_OUNCE * 4));
+}
 
 /*
  * This method will be the main method used to
