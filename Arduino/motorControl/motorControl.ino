@@ -164,6 +164,12 @@ void loop() {
       case 15:
         ginRickey(gin, limeJuice, club);
         break;
+      case 16:
+        saltyDog(gin, grapefruit);
+        break;
+      case 17:
+        madras(vodka, cranberry, orangeJuice);
+        break;
       default: // catch any invalid number
         break;
     }
@@ -250,6 +256,7 @@ void vodkaTonic(Adafruit_DCMotor *vodka, Adafruit_DCMotor *tonic){
   drinkPour(tonic, (long)(ONE_OUNCE * 4));
 }
 
+
 /**
  * This method will make one sea breeze drink
  * This drink contains 4 ounces of cranberry
@@ -266,6 +273,24 @@ void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor
   drinkPour(vodka, (long)(ONE_OUNCE * 1.333));
   drinkPour(cran, (long)(ONE_OUNCE * 4));
   drinkPour(grapefruit, ONE_OUNCE);
+}
+
+/**
+ * This method will make one madras drink
+ * This drink contains 3 ounces of cranberry
+ * 1 1/2 ounces of vodka and one ounce of orange juice
+ * This drink should be served with ice
+ * and lime juice/wedge
+ * 
+ * @param-vodka: pointer to vodka motor
+ * @param-cran: pointer to cranberry motor
+ * @param-grapefruit: pointer to grapefruit motor
+ * 
+  */
+void madras(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *oj){
+  drinkPour(vodka, (long)(ONE_OUNCE * 1.50));
+  drinkPour(cran, (long)(ONE_OUNCE * 3));
+  drinkPour(oj, ONE_OUNCE); 
 }
 
 
@@ -407,6 +432,21 @@ void tomCollins(Adafruit_DCMotor *gin, Adafruit_DCMotor *lemonJuice, Adafruit_DC
   drinkPour(simpleSyrup, (long)(ONE_OUNCE * 0.5));
 }
 
+/**
+ * This method will make one salty dog
+ * This drink contains 2 ounces of gin
+ * 4 ounces of grapefruit juice
+ * This drink should be served with salt on the rim
+ * and ice. Add a lime if desired
+ * 
+ * @param-gin: pointer to gin motor
+ * @param-grapefruit: pointer to grapefruit juice motor
+ * 
+  */
+void saltyDog(Adafruit_DCMotor *gin, Adafruit_DCMotor *grapefruit){
+  drinkPour(gin, TWO_OUNCES);
+  drinkPour(grapefruit, (long)(ONE_OUNCE * 4));
+}
 
 /**
  * This method will make one gimlet cocktail
