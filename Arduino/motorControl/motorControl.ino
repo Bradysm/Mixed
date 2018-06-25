@@ -10,14 +10,16 @@
 // Create the motor shield object with the default I2C address
 // we will have to create a specific I2C address in the future
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
+// Adafruit_MotorShield AFMS2 = Adafruit_MotorShield(); // need to add a stacking value
+// Adafruit_MotorShield AFMS3 = Adafruit_MotorShield(); // need to add a stacking value
 // Or, create it with a different I2C address (say for stacking)
 // Adafruit_MotorShield AFMS = Adafruit_MotorShield(0x61); 
 
 // Select which 'port' M1, M2, M3 or M4. In this case, M1
 Adafruit_DCMotor *vodka = AFMS.getMotor(1); // M1 shield 1
 Adafruit_DCMotor *cranberry = AFMS.getMotor(2); // M2 shield 1
-Adafruit_DCMotor *orangeJuice = AFMS.getMotor(3); // M3 shield 
-Adafruit_DCMotor *tequila = AFMS.getMotor(4); // M4 shield 
+Adafruit_DCMotor *orangeJuice = AFMS.getMotor(3); // M3 shield 1
+Adafruit_DCMotor *tequila = AFMS.getMotor(4); // M4 shield 1
 
 // drink variable that is used to define drinks
 int drinkChoice;
@@ -43,7 +45,8 @@ void setup() {
   orangeJuice->run(RELEASE);
   tequila->run(RELEASE);
 
-  drinkChoice = 0; // this will be the no-op value
+  // no-op drink value
+  drinkChoice = 0; 
 }
 
 /*
@@ -193,6 +196,22 @@ void vodkaTonic(Adafruit_DCMotor *vodka, Adafruit_DCMotor *tonic){
   drinkPour(tonic, (long)(ONE_OUNCE * 4));
 }
 
+/**
+ * This method will make one sea breeze drink
+ * This drink contains 4 ounces of cranberry
+ * 1 1/3 ounces of vodka and one ounce of grapefruit
+ * This drink should be served with ice
+ * and lime juice/wedge
+ * 
+ * @param-vodka: pointer to vodka motor
+ * @param-tonic: pointer to tonic motor
+ * 
+  */
+void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *grapefruit){
+  drinkPour(vodka, (long)(ONE_OUNCE * 1.333));
+  drinkPour(cran, (long)(ONE_OUNCE * 4));
+  drinkPour(grapefruit, ONE_OUNCE);
+}
 
 /*
  * This method will be the main method used to

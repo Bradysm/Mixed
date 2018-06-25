@@ -9,6 +9,7 @@ void cokeAndRum(Adafruit_DCMotor *rum, Adafruit_DCMotor *coke);
 void tequilaSunrise(Adafruit_DCMotor *tequila, Adafruit_DCMotor *oj, Adafruit_DCMotor *grenadine);
 void ginAndTonic(Adafruit_DCMotor *gin, Adafruit_DCMotor *tonic);
 void vodkaTonic(Adafruit_DCMotor *vodka, Adafruit_DCMotor *tonic);
+void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *grapefruit);
 
 // drink pour prototype
 void drinkPour(Adafruit_DCMotor *motor, long time);
