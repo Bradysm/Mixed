@@ -1,10 +1,8 @@
-/* 
-This is a test sketch for the Adafruit assembled Motor Shield for Arduino v2
-It won't work with v1.x motor shields! Only for the v2's with built in PWM
-control
-
-For use with the Adafruit Motor Shield v2 
----->  http://www.adafruit.com/products/1438
+/*
+ * This code is used as the main runner for the beerig
+ * all drinks are defined within the code and allow for variable
+ * time thus enabling varying strength within the drinks.
+ * This will allow for more customizability in the future.
 */
 
 #include "Mixy.h"
@@ -48,8 +46,8 @@ that will allow us to listen to bluetooth.
 void loop() {
   // pour one vodka cran
   if(!poured){
-    shotOfVodka(shield1Motor1, (SHOT_TIME/2));
-    cranberryPour(shield1Motor2, 30000);
+    vodkaPour(shield1Motor1, ONE_OUNCE);
+    cranberryPour(shield1Motor2, TWO_OUNCES);
     poured = true;
   }
 
@@ -65,18 +63,113 @@ void loop() {
  *  duration of the time given as the parameter
  *  @param time-time in miliseconds for vodka to pour
 */
-void shotOfVodka(Adafruit_DCMotor *motor, int time){
+void vodkaPour(Adafruit_DCMotor *motor, int time){
   motor->run(FORWARD);
   delay(time);
   motor->run(RELEASE);
 }
 
+/* this will pour rum for the alotted
+  amount of time passed
+  @param time-time in miliseconds for pour
+*/
+void rumPour(Adafruit_DCMotor *motor, int time){
+  motor->run(FORWARD);
+  delay(time);
+  motor->run(RELEASE);
+}
+
+/* this will pour gin for the alotted
+  amount of time passed
+  @param time-time in miliseconds for pour
+*/
+void ginPour(Adafruit_DCMotor *motor, int time){
+  motor->run(FORWARD);
+  delay(time);
+  motor->run(RELEASE);
+}
+
+/* this will pour tequila for the alotted
+  amount of time passed
+  @param time-time in miliseconds for pour
+*/
+void tequilaPour(Adafruit_DCMotor *motor, int time){
+  motor->run(FORWARD);
+  delay(time);
+  motor->run(RELEASE);
+}
+
+
 /* this will pour cranberry juice for the alotted
   amount of time passed
+  @param time-time in miliseconds for pour
 */
 void cranberryPour(Adafruit_DCMotor *motor, int time){
   motor->run(FORWARD);
   delay(time);
   motor->run(RELEASE);
 }
+
+/* this will pour grapefruit juice for the alotted
+  amount of time passed
+  @param time-time in miliseconds for pour
+*/
+void grapefruitPour(Adafruit_DCMotor *motor, int time){
+  motor->run(FORWARD);
+  delay(time);
+  motor->run(RELEASE);
+}
+
+/* this will pour orange juice for the alotted
+  amount of time passed
+  @param time-time in miliseconds for pour
+*/
+void ojPour(Adafruit_DCMotor *motor, int time){
+  motor->run(FORWARD);
+  delay(time);
+  motor->run(RELEASE);
+}
+
+/* this will pour coke for the alotted
+  amount of time passed
+  @param time-time in miliseconds for pour
+*/
+void cokePour(Adafruit_DCMotor *motor, int time){
+  motor->run(FORWARD);
+  delay(time);
+  motor->run(RELEASE);
+}
+
+/* this will pour tonic for the alotted
+  amount of time passed
+  @param time-time in miliseconds for pour
+*/
+void tonicPour(Adafruit_DCMotor *motor, int time){
+  motor->run(FORWARD);
+  delay(time);
+  motor->run(RELEASE);
+}
+
+/* this will pour grenadine for the alotted
+  amount of time passed
+  @param time-time in miliseconds for pour
+*/
+void grenadinePour(Adafruit_DCMotor *motor, int time){
+  motor->run(FORWARD);
+  delay(time);
+  motor->run(RELEASE);
+}
+
+/* this will pour redbull for the alotted
+  amount of time passed
+  @param time-time in miliseconds for pour
+*/
+void redBullPour(Adafruit_DCMotor *motor, int time){
+  motor->run(FORWARD);
+  delay(time);
+  motor->run(RELEASE);
+}
+
+
+
 
