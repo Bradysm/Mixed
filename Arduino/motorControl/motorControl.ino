@@ -33,7 +33,7 @@ Adafruit_DCMotor *gin = AFMS2.getMotor(4);
 Adafruit_DCMotor *rum = AFMS2.getMotor(1);
 Adafruit_DCMotor *coke = AFMS2.getMotor(2);
 Adafruit_DCMotor *grapefruit = AFMS2.getMotor(3);
-Adafruit_DCMotor *lemonJuice = AFMS2.getMotor(4);
+Adafruit_DCMotor *margaritaMix = AFMS2.getMotor(4);
 
 // drink variable that is used to define drinks
 int drinkChoice;
@@ -52,12 +52,38 @@ void setup() {
   orangeJuice->run(FORWARD);
   tequila->setSpeed(250);
   tequila->run(FORWARD);
+
+  redBull->setSpeed(250);
+  redBull->run(FORWARD);
+  tonic->setSpeed(250);
+  tonic->run(FORWARD);
+  grenadine->setSpeed(250);
+  grenadine->run(FORWARD);
+  gin->setSpeed(250);
+  gin->run(FORWARD);
+
+  rum->setSpeed(250);
+  rum->run(FORWARD);
+  coke->setSpeed(250);
+  coke->run(FORWARD);
+  grapefruit->setSpeed(250);
+  grapefruit->run(FORWARD);
+  margaritaMix->setSpeed(250);
+  margaritaMix->run(FORWARD);
   
-  // turn on motor
+  // release motors
   vodka->run(RELEASE);
   cranberry->run(RELEASE);
   orangeJuice->run(RELEASE);
   tequila->run(RELEASE);
+  redBull->run(RELEASE);
+  tonic->run(RELEASE);
+  grenadine->run(RELEASE);
+  gin->run(RELEASE);
+  rum->run(RELEASE);
+  coke->run(RELEASE);
+  grapefruit->run(RELEASE);
+  margaritaMix->run(RELEASE);
 
   // no-op drink value
   drinkChoice = 0; 
@@ -96,6 +122,9 @@ void loop() {
       case 8:
         seaBreeze(vodka, cranberry, grapefruit);
         break;
+      case 9:
+        margarita(tequila, margaritaMix);
+        break;
       default: // catch any invalid number
         break;
     }
@@ -107,6 +136,14 @@ void loop() {
   cranberry->run(RELEASE);
   orangeJuice->run(RELEASE);
   tequila->run(RELEASE);
+  redBull->run(RELEASE);
+  tonic->run(RELEASE);
+  grenadine->run(RELEASE);
+  gin->run(RELEASE);
+  rum->run(RELEASE);
+  coke->run(RELEASE);
+  grapefruit->run(RELEASE);
+  margaritaMix->run(RELEASE);
   
   // wait for one second
   delay(1000);
@@ -232,6 +269,23 @@ void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor
   drinkPour(vodka, (long)(ONE_OUNCE * 1.333));
   drinkPour(cran, (long)(ONE_OUNCE * 4));
   drinkPour(grapefruit, ONE_OUNCE);
+}
+
+
+/**
+ * This method will make one margarita mix
+ * This drink contains 1 ounce of tequilla
+ * 3 ounces of jose quervo margarita mix
+ * This drink should be served with ice
+ * and lime
+ * 
+ * @param-tequilla: pointer to tequilla motor
+ * @param-margaritaMix: pointer to margaritaMix motor
+ * 
+  */
+void margarita(Adafruit_DCMotor *tequilla, Adafruit_DCMotor *margaritaMix){
+  drinkPour(tequilla, ONE_OUNCE);
+  drinkPour(margaritaMix, (long)(ONE_OUNCE *3));
 }
 
 /*
