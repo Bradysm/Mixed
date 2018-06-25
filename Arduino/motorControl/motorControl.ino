@@ -189,7 +189,7 @@ void ginAndTonic(Adafruit_DCMotor *gin, Adafruit_DCMotor *tonic){
  * 
   */
 void vodkaTonic(Adafruit_DCMotor *vodka, Adafruit_DCMotor *tonic){
-  drinkPour(vodka, (long)(ONE_OUNCE * 2));
+  drinkPour(vodka, TWO_OUNCES);
   drinkPour(tonic, (long)(ONE_OUNCE * 4));
 }
 
