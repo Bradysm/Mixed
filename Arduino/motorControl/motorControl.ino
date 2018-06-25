@@ -9,7 +9,7 @@
 
 // Create the motor shield object with the default I2C address
 // we will have to create a specific I2C address in the future
-Adafruit_MotorShield AFMS = Adafruit_MotorShield(0x61); 
+Adafruit_MotorShield AFMS = Adafruit_MotorShield(/*0x61*/); 
 Adafruit_MotorShield AFMS2 = Adafruit_MotorShield(0x62); // need to add a stacking value
 Adafruit_MotorShield AFMS3 = Adafruit_MotorShield(0x63); // need to add a stacking value
 Adafruit_MotorShield AFMS4 = Adafruit_MotorShield(0x64);
@@ -106,7 +106,7 @@ void setup() {
   club->run(RELEASE);
 
   // no-op drink value
-  drinkChoice = 0; 
+  drinkChoice = 1; 
 }
 
 /*
