@@ -116,7 +116,7 @@ that will allow us to listen to bluetooth.
 void loop() {
   // pour one vodka cran
   if(drinkChoice != 0){
-    // run through a switchcase list
+    // run through a list of drinks
     switch(drinkChoice){
       case 1:
         vodkaCranberry(vodka, cranberry);
@@ -153,6 +153,9 @@ void loop() {
         break;
       case 12:
         rumSpritz(rum, club);
+        break;
+      case 13:
+        lemonMarg(tequila, lemonJuice, simpleSyrup);
         break;
       default: // catch any invalid number
         break;
@@ -366,14 +369,32 @@ void daquiri(Adafruit_DCMotor *rum, Adafruit_DCMotor *limeJuice, Adafruit_DCMoto
  * This drink should be served with ice and a lime
  * 
  * @param-rum: pointer to rum motor
- * @param-limeJuice: pointer to lime juice motor
- * @param-simpleSyrup: pointer to tonic motor
+ * @param-club: pointer to club soda motor
  * 
   */
 void rumSpritz(Adafruit_DCMotor *rum, Adafruit_DCMotor *club){
   drinkPour(rum, (long)(ONE_OUNCE * 1.5));
   drinkPour(club, (long)(ONE_OUNCE * 3));
 }
+
+
+/**
+ * This method will make one lemon margarita
+ * This drink contains 2 ounces of tequila
+ * and 1 1/2 ounces of lemon juice and 3/4 ounce simple syrup
+ * This drink should be served with ice and a lemon
+ * 
+ * @param-tequila: pointer to tequila motor
+ * @param-lemonJuice: pointer to lemon juice motor
+ * @param-simpleSyrup: pointer to simple syrup motor
+ * 
+  */
+void lemonMarg(Adafruit_DCMotor *tequila, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *simpleSyrup){
+  drinkPour(tequila, TWO_OUNCES);
+  drinkPour(lemonJuice, (long)(ONE_OUNCE * 1.5));
+  drinkPour(simpleSyrup, (long)(ONE_OUNCE * .75));
+}
+
 
 /*
  * This method will be the main method used to
