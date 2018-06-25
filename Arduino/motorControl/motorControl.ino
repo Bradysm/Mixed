@@ -12,6 +12,7 @@
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(0x61); 
 Adafruit_MotorShield AFMS2 = Adafruit_MotorShield(0x62); // need to add a stacking value
 Adafruit_MotorShield AFMS3 = Adafruit_MotorShield(0x63); // need to add a stacking value
+Adafruit_MotorShield AFMS4 = Adafruit_MotorShield(0x64);
 
 // Adafruit_MotorShield AFMS3 = Adafruit_MotorShield(); // need to add a stacking value
 // Or, create it with a different I2C address (say for stacking)
@@ -30,10 +31,16 @@ Adafruit_DCMotor *grenadine = AFMS2.getMotor(3);
 Adafruit_DCMotor *gin = AFMS2.getMotor(4);
 
 // from shield 3
-Adafruit_DCMotor *rum = AFMS2.getMotor(1);
-Adafruit_DCMotor *coke = AFMS2.getMotor(2);
-Adafruit_DCMotor *grapefruit = AFMS2.getMotor(3);
-Adafruit_DCMotor *margaritaMix = AFMS2.getMotor(4);
+Adafruit_DCMotor *rum = AFMS3.getMotor(1);
+Adafruit_DCMotor *coke = AFMS3.getMotor(2);
+Adafruit_DCMotor *grapefruit = AFMS3.getMotor(3);
+Adafruit_DCMotor *margaritaMix = AFMS3.getMotor(4);
+
+// from shield 4
+Adafruit_DCMotor *simpleSyrup = AFMS4.getMotor(1);
+Adafruit_DCMotor *lemonJuice = AFMS4.getMotor(2);
+Adafruit_DCMotor *limeJuice = AFMS4.getMotor(3);
+Adafruit_DCMotor *club = AFMS4.getMotor(4);
 
 // drink variable that is used to define drinks
 int drinkChoice;
@@ -70,6 +77,15 @@ void setup() {
   grapefruit->run(FORWARD);
   margaritaMix->setSpeed(250);
   margaritaMix->run(FORWARD);
+
+  simpleSyrup->setSpeed(250);
+  simpleSyrup->run(FORWARD);
+  lemonJuice->setSpeed(250);
+  lemonJuice->run(FORWARD);
+  limeJuice->setSpeed(250);
+  limeJuice->run(FORWARD);
+  club->setSpeed(250);
+  club->run(FORWARD);
   
   // release motors
   vodka->run(RELEASE);
@@ -84,6 +100,10 @@ void setup() {
   coke->run(RELEASE);
   grapefruit->run(RELEASE);
   margaritaMix->run(RELEASE);
+  simpleSyrup->run(RELEASE);
+  lemonJuice->run(RELEASE);
+  limeJuice->run(RELEASE);
+  club->run(RELEASE);
 
   // no-op drink value
   drinkChoice = 0; 
@@ -125,6 +145,15 @@ void loop() {
       case 9:
         margarita(tequila, margaritaMix);
         break;
+      case 10:
+        tomCollins(gin, lemonJuice, tonic, simpleSyrup);
+        break;
+      case 11:
+        daquiri(rum, limeJuice, simpleSyrup);
+        break;
+      case 12:
+        rumSpritz(rum, club);
+        break;
       default: // catch any invalid number
         break;
     }
@@ -144,6 +173,9 @@ void loop() {
   coke->run(RELEASE);
   grapefruit->run(RELEASE);
   margaritaMix->run(RELEASE);
+  simpleSyrup->run(RELEASE);
+  lemonJuice->run(RELEASE);
+  limeJuice->run(RELEASE);
   
   // wait for one second
   delay(1000);
@@ -286,6 +318,61 @@ void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor
 void margarita(Adafruit_DCMotor *tequilla, Adafruit_DCMotor *margaritaMix){
   drinkPour(tequilla, ONE_OUNCE);
   drinkPour(margaritaMix, (long)(ONE_OUNCE *3));
+}
+
+
+/**
+ * This method will make one Tom Collins
+ * This drink contains 1 1/2 ounce of gin
+ * 2 ounces of tonic and 1/2 ounce of simple syrup
+ * This drink should be served with ice and a lemon
+ * 
+ * @param-gin: pointer to gin motor
+ * @param-lemonJuice: pointer to lemon juice motor
+ * @param-tonic: pointer to tonic motor
+ * @param-simpleSyrup: pointer to tonic motor
+ * 
+  */
+void tomCollins(Adafruit_DCMotor *gin, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *tonic, Adafruit_DCMotor *simpleSyrup){
+  drinkPour(gin, (long)(ONE_OUNCE * 1.5));
+  drinkPour(lemonJuice, ONE_OUNCE);
+  drinkPour(tonic, TWO_OUNCES);
+  drinkPour(simpleSyrup, (long)(ONE_OUNCE * 0.5));
+}
+
+
+/**
+ * This method will make one daquiri
+ * This drink contains 2 ounces of rum
+ * 1 ounce of lime juice and 1/2 ounce of simple syrup
+ * This drink should be served with ice
+ * 
+ * @param-rum: pointer to rum motor
+ * @param-limeJuice: pointer to lime juice motor
+ * @param-simpleSyrup: pointer to tonic motor
+ * 
+  */
+void daquiri(Adafruit_DCMotor *rum, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *simpleSyrup){
+  drinkPour(rum, TWO_OUNCES);
+  drinkPour(limeJuice, ONE_OUNCE);
+  drinkPour(simpleSyrup, (long)(ONE_OUNCE * 0.5));
+}
+
+
+/**
+ * This method will make one rum spritz
+ * This drink contains 1 1/2 ounces of rum
+ * and 3 ounces of club soda
+ * This drink should be served with ice and a lime
+ * 
+ * @param-rum: pointer to rum motor
+ * @param-limeJuice: pointer to lime juice motor
+ * @param-simpleSyrup: pointer to tonic motor
+ * 
+  */
+void rumSpritz(Adafruit_DCMotor *rum, Adafruit_DCMotor *club){
+  drinkPour(rum, (long)(ONE_OUNCE * 1.5));
+  drinkPour(club, (long)(ONE_OUNCE * 3));
 }
 
 /*
