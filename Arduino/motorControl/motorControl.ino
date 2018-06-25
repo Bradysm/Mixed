@@ -9,8 +9,10 @@
 
 // Create the motor shield object with the default I2C address
 // we will have to create a specific I2C address in the future
-Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
-// Adafruit_MotorShield AFMS2 = Adafruit_MotorShield(); // need to add a stacking value
+Adafruit_MotorShield AFMS = Adafruit_MotorShield(0x61); 
+Adafruit_MotorShield AFMS2 = Adafruit_MotorShield(0x62); // need to add a stacking value
+Adafruit_MotorShield AFMS3 = Adafruit_MotorShield(0x63); // need to add a stacking value
+
 // Adafruit_MotorShield AFMS3 = Adafruit_MotorShield(); // need to add a stacking value
 // Or, create it with a different I2C address (say for stacking)
 // Adafruit_MotorShield AFMS = Adafruit_MotorShield(0x61); 
@@ -20,6 +22,18 @@ Adafruit_DCMotor *vodka = AFMS.getMotor(1); // M1 shield 1
 Adafruit_DCMotor *cranberry = AFMS.getMotor(2); // M2 shield 1
 Adafruit_DCMotor *orangeJuice = AFMS.getMotor(3); // M3 shield 1
 Adafruit_DCMotor *tequila = AFMS.getMotor(4); // M4 shield 1
+
+// from shield 2
+Adafruit_DCMotor *redBull = AFMS2.getMotor(1);
+Adafruit_DCMotor *tonic = AFMS2.getMotor(2);
+Adafruit_DCMotor *grenadine = AFMS2.getMotor(3);
+Adafruit_DCMotor *gin = AFMS2.getMotor(4);
+
+// from shield 3
+Adafruit_DCMotor *rum = AFMS2.getMotor(1);
+Adafruit_DCMotor *coke = AFMS2.getMotor(2);
+Adafruit_DCMotor *grapefruit = AFMS2.getMotor(3);
+Adafruit_DCMotor *lemonJuice = AFMS2.getMotor(4);
 
 // drink variable that is used to define drinks
 int drinkChoice;
@@ -65,16 +79,22 @@ void loop() {
         screwdriver(vodka, orangeJuice);
         break;
       case 3:
-        // vodkaRedBull(vodka, redBull);
+        vodkaRedBull(vodka, redBull);
         break;
       case 4:
-        // tequilaSunrise(tequila, orangeJuice, grenadine);
+        tequilaSunrise(tequila, orangeJuice, grenadine);
         break;
       case 5:
-        // ginAndTonic(gin, tonic);
+        ginAndTonic(gin, tonic);
         break;
       case 6:
-        // vodkaTonic(vodka, tonic);
+        vodkaTonic(vodka, tonic);
+        break;
+      case 7:
+        cokeAndRum(coke, rum);
+        break;
+      case 8:
+        seaBreeze(vodka, cranberry, grapefruit);
         break;
       default: // catch any invalid number
         break;
@@ -204,7 +224,8 @@ void vodkaTonic(Adafruit_DCMotor *vodka, Adafruit_DCMotor *tonic){
  * and lime juice/wedge
  * 
  * @param-vodka: pointer to vodka motor
- * @param-tonic: pointer to tonic motor
+ * @param-cran: pointer to cranberry motor
+ * @param-grapefruit: pointer to grapefruit motor
  * 
   */
 void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *grapefruit){
