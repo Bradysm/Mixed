@@ -284,7 +284,7 @@ void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor
  * 
  * @param-vodka: pointer to vodka motor
  * @param-cran: pointer to cranberry motor
- * @param-grapefruit: pointer to grapefruit motor
+ * @param-oj: pointer to orange juice motor
  * 
   */
 void madras(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *oj){
@@ -293,6 +293,14 @@ void madras(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *o
   drinkPour(oj, ONE_OUNCE); 
 }
 
+/**
+ * this method will pour one shot of vodka
+ * 
+ * @param-vodka: pointer to vodka motor
+ */
+void vodkaShot(Adafruit_DCMotor *vodka){
+  drinkPour(vodka, TWO_OUNCES);
+}
 
 // <-------------------RUM---------------------->
 
@@ -384,16 +392,26 @@ void tequilaSunrise(Adafruit_DCMotor *tequila, Adafruit_DCMotor *oj, Adafruit_DC
  * This drink contains 1 ounce of tequilla
  * 3 ounces of jose quervo margarita mix
  * This drink should be served with ice
- * and lime
+ * and lime. Add salt to the rim
  * 
- * @param-tequilla: pointer to tequilla motor
+ * @param-tequila: pointer to tequilla motor
  * @param-margaritaMix: pointer to margaritaMix motor
  * 
   */
-void margarita(Adafruit_DCMotor *tequilla, Adafruit_DCMotor *margaritaMix){
-  drinkPour(tequilla, ONE_OUNCE);
+void margarita(Adafruit_DCMotor *tequila, Adafruit_DCMotor *margaritaMix){
+  drinkPour(tequila, ONE_OUNCE);
   drinkPour(margaritaMix, (long)(ONE_OUNCE *3));
 }
+
+/**
+ * this method will pour one shot of tequila
+ * 
+ * @param-tequila: pointer to vodka motor
+ */
+void tequilaShot(Adafruit_DCMotor *tequila){
+  drinkPour(tequila, TWO_OUNCES);
+}
+
 
 // <------------------GIN--------------------->
 

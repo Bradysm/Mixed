@@ -19,6 +19,8 @@ void gimlet(Adafruit_DCMotor *gin, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor
 void ginRickey(Adafruit_DCMotor *gin, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *club);
 void saltyDog(Adafruit_DCMotor *gin, Adafruit_DCMotor *grapefruit);
 void madras(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *oj);
+void vodkaShot(Adafruit_DCMotor *vodka);
+void tequilaShot(Adafruit_DCMotor *tequila);
 
 // drink pour prototype
 void drinkPour(Adafruit_DCMotor *motor, long time);
