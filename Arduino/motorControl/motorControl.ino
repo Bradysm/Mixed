@@ -1,4 +1,7 @@
 /*
+ * @author- Brady Murphy
+ * @version-June 27, 2018
+ * 
  * This code is used as the main runner for the beerig
  * all drinks are defined within the code and allow for variable
  * time thus enabling varying strength within the drinks.

@@ -1,3 +1,8 @@
+/**
+ * @author- Brady Murphy
+ * @version-June 27, 2018
+ */
+
 #include <Wire.h>
 #include <Adafruit_MotorShield.h>
 
