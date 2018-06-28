@@ -173,6 +173,15 @@ void loop() {
       case 17:
         madras(vodka, cranberry, orangeJuice);
         break;
+      case 18:
+        vodkaShot(vodka);
+        break;
+      case 19:
+        tequilaShot(tequila);
+        break;
+      case 20:
+        rumShot(rum);
+        break;
       default: // catch any invalid number
         break;
     }
@@ -352,6 +361,16 @@ void daquiri(Adafruit_DCMotor *rum, Adafruit_DCMotor *limeJuice, Adafruit_DCMoto
 void rumSpritz(Adafruit_DCMotor *rum, Adafruit_DCMotor *club){
   drinkPour(rum, (long)(ONE_OUNCE * 1.5));
   drinkPour(club, (long)(ONE_OUNCE * 3));
+}
+
+
+/**
+ * this method will pour one shot of rum
+ * 
+ * @param-rum: pointer to rum motor
+ */
+void rumShot(Adafruit_DCMotor *rum){
+  drinkPour(rum, TWO_OUNCES);
 }
 
 // <-------------------TEQUILA---------------------->
