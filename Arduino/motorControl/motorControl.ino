@@ -1,4 +1,7 @@
 /*
+ * @author- Brady Murphy
+ * @version-June 27, 2018
+ * 
  * This code is used as the main runner for the beerig
  * all drinks are defined within the code and allow for variable
  * time thus enabling varying strength within the drinks.
@@ -6,8 +9,6 @@
 */
 
 #include "Mixy.h"
-
-
 
 
 // Create the motor shield object with the default I2C address
@@ -45,11 +46,113 @@ Adafruit_DCMotor *lemonJuice = AFMS4.getMotor(2);
 Adafruit_DCMotor *limeJuice = AFMS4.getMotor(3);
 Adafruit_DCMotor *club = AFMS4.getMotor(4);
 
+/*=========================================================================
+    APPLICATION SETTINGS
+    FACTORYRESET_ENABLE       Perform a factory reset when running this sketch
+   
+                              Enabling this will put your Bluefruit LE module
+                              in a 'known good' state and clear any config
+                              data set in previous sketches or projects, so
+                              running this at least once is a good idea.
+   
+                              When deploying your project, however, you will
+                              want to disable factory reset by setting this
+                              value to 0.  If you are making changes to your
+                              Bluefruit LE device via AT commands, and those
+                              changes aren't persisting across resets, this
+                              is the reason why.  Factory reset will erase
+                              the non-volatile memory where config data is
+                              stored, setting it back to factory default
+                              values.
+       
+                              Some sketches that require you to bond to a
+                              central device (HID mouse, keyboard, etc.)
+                              won't work at all with this feature enabled
+                              since the factory reset will clear all of the
+                              bonding data stored on the chip, meaning the
+                              central device won't be able to reconnect.
+    MINIMUM_FIRMWARE_VERSION  Minimum firmware version to have some new features
+    MODE_LED_BEHAVIOUR        LED activity, valid options are
+                              "DISABLE" or "MODE" or "BLEUART" or
+                              "HWUART"  or "SPI"  or "MANUAL"
+    -----------------------------------------------------------------------*/
+    #define FACTORYRESET_ENABLE         1
+    #define MINIMUM_FIRMWARE_VERSION    "0.6.6"
+    #define MODE_LED_BEHAVIOUR          "MODE"
+/*=========================================================================*/
+
+
+/* ...hardware SPI, using SCK/MOSI/MISO hardware SPI pins and then user selected CS/IRQ/RST */
+Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
+
 // drink variable that is used to define drinks
 int drinkChoice;
 
+
 void setup() {
-  Serial.begin(9600);           // set up Serial library at 9600 bps
+  /************* SET UP BLUETOOTH*****************/
+  Serial.begin(115200);
+  Serial.println(F("<-------------- BOOTING PROCESS --------------->"));
+  Serial.println(F("------------------------------------------------"));
+
+  /* Initialise the module */
+  Serial.print(F("Initialising the Bluefruit LE module: "));
+
+  if ( !ble.begin(VERBOSE_MODE) )
+  {
+    error(F("Couldn't find Bluefruit, make sure it's in CoMmanD mode & check wiring?"));
+  }
+  Serial.println( F("OK!") );
+
+  if ( FACTORYRESET_ENABLE )
+  {
+    /* Perform a factory reset to make sure everything is in a known state */
+    Serial.println(F("Performing a factory reset: "));
+    if ( ! ble.factoryReset() ){
+      error(F("Couldn't factory reset"));
+    }
+  }
+
+  /* Disable command echo from Bluefruit */
+  ble.echo(false);
+
+  Serial.println("Requesting Bluefruit info:");
+  /* Print Bluefruit information */
+  ble.info();
+
+  Serial.println(F("Please use Adafruit Bluefruit LE app to connect in UART mode"));
+  Serial.println(F("Then Enter characters to send to Bluefruit"));
+  Serial.println();
+
+  ble.verbose(false);  // debug info is a little annoying after this point!
+
+  /* Wait for connection */
+  while (! ble.isConnected()) {
+      delay(500);
+  }
+
+  Serial.println(F("******************************"));
+
+  // LED Activity command is only supported from 0.6.6
+  if ( ble.isVersionAtLeast(MINIMUM_FIRMWARE_VERSION) )
+  {
+    // Change Mode LED Activity
+    Serial.println(F("Change LED activity to " MODE_LED_BEHAVIOUR));
+    ble.sendCommandCheckOK("AT+HWModeLED=" MODE_LED_BEHAVIOUR);
+  }
+
+  // Set module to DATA mode
+  Serial.println( F("Switching to DATA mode!") );
+  ble.setMode(BLUEFRUIT_MODE_DATA);
+
+  Serial.println(F("******************************"));
+   /************* SET UP BLUETOOTH*****************/
+
+  /************* SET UP MOTORS*****************/
+  Serial.println(F("******************************"));
+  Serial.println();
+  Serial.println(F("<----------- Initializing Beerig ----------->"));
+  Serial.println(F("******************************"));
   AFMS.begin();  // create with the default frequency 1.6KHz
   //AFMS.begin(1000);  // OR with a different frequency, say 1KHz
   
@@ -107,46 +210,26 @@ void setup() {
   lemonJuice->run(RELEASE);
   limeJuice->run(RELEASE);
   club->run(RELEASE);
-
+  /************* SET UP MOTORS*****************/
   // no-op drink value
-  drinkChoice = 1; 
+  drinkChoice = 0; 
 }
 
 /*
 Consistantly running listening loop
 that will allow us to listen to bluetooth.
 */
-void loop() { 
-
-/******************************/
-
-  
-  uint16_t input;
-
-  if(input & 0xFFFF == 0x0001) {
-    if(GINTONIC) {
-      // make drink
-    }
-    else if(TEQSUNRISE) {
-
-    }
-    
-  }
-  else if(input $ 0xFFFF == 0x0002) {
-    // make drink
-  }
-  else if() {
-    // make drink
+void loop() {
+  // read in the bluetooth data if available
+  if(ble.available()){
+    drinkChoice = ble.read();
+    Serial.print("Drink Choice: ");
+    drinkChoice = lowerCaseToInt(drinkChoice);
+    Serial.println(drinkChoice);
+    ble.flush();
   }
 
-
-
-/******************************/
-
-
-
-  delay(5000);
-  // pour one vodka cran
+  // check to see if a drink was ordered
   if(drinkChoice != 0){
     // run through a list of drinks
     switch(drinkChoice){
@@ -248,6 +331,8 @@ void loop() {
  * @param-cran: pointer to cranberry juice motor
 */
 void vodkaCranberry(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran){
+  Serial.println("Vodka Cranberry");
+  Serial.println();
   drinkPour(vodka, ONE_OUNCE);
   drinkPour(cran, (long)(ONE_OUNCE * 4.5));
 }
@@ -262,6 +347,8 @@ void vodkaCranberry(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran){
  * @param-oj: pointer to orange juice motor
  */
 void screwdriver(Adafruit_DCMotor *vodka, Adafruit_DCMotor *oj){
+  Serial.println("Screwdriver");
+  Serial.println();
   drinkPour(vodka, (long)(ONE_OUNCE * 1.75));
   drinkPour(oj, (long)(ONE_OUNCE * 3.5));
 }
@@ -276,6 +363,8 @@ void screwdriver(Adafruit_DCMotor *vodka, Adafruit_DCMotor *oj){
  * @param-redbull: pointer to redbull motor
  */
 void vodkaRedBull(Adafruit_DCMotor *vodka, Adafruit_DCMotor *redBull){
+  Serial.println("Vodka RedBull");
+  Serial.println();
   drinkPour(vodka, TWO_OUNCES);
   drinkPour(redBull, (long)(ONE_OUNCE * 4));
 }
@@ -292,6 +381,8 @@ void vodkaRedBull(Adafruit_DCMotor *vodka, Adafruit_DCMotor *redBull){
  * 
   */
 void vodkaTonic(Adafruit_DCMotor *vodka, Adafruit_DCMotor *tonic){
+  Serial.println("Vodka Tonic");
+  Serial.println();
   drinkPour(vodka, TWO_OUNCES);
   drinkPour(tonic, (long)(ONE_OUNCE * 4));
 }
@@ -310,6 +401,8 @@ void vodkaTonic(Adafruit_DCMotor *vodka, Adafruit_DCMotor *tonic){
  * 
   */
 void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *grapefruit){
+  Serial.println("Sea Breeze");
+  Serial.println();
   drinkPour(vodka, (long)(ONE_OUNCE * 1.333));
   drinkPour(cran, (long)(ONE_OUNCE * 4));
   drinkPour(grapefruit, ONE_OUNCE);
@@ -328,6 +421,8 @@ void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor
  * 
   */
 void madras(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *oj){
+  Serial.println("Madras");
+  Serial.println();
   drinkPour(vodka, (long)(ONE_OUNCE * 1.50));
   drinkPour(cran, (long)(ONE_OUNCE * 3));
   drinkPour(oj, ONE_OUNCE); 
@@ -339,6 +434,8 @@ void madras(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *o
  * @param-vodka: pointer to vodka motor
  */
 void vodkaShot(Adafruit_DCMotor *vodka){
+  Serial.println("Vodka Shot");
+  Serial.println();
   drinkPour(vodka, TWO_OUNCES);
 }
 
@@ -354,6 +451,8 @@ void vodkaShot(Adafruit_DCMotor *vodka){
  * @param-redbull: pointer to redbull motor
  */
 void cokeAndRum(Adafruit_DCMotor *rum, Adafruit_DCMotor *coke){
+  Serial.println("Coke and Rum");
+  Serial.println();
   drinkPour(rum, (long)(ONE_OUNCE * 4));
   drinkPour(coke, (long)(ONE_OUNCE * 1.667));
 }
@@ -370,6 +469,8 @@ void cokeAndRum(Adafruit_DCMotor *rum, Adafruit_DCMotor *coke){
  * 
   */
 void daquiri(Adafruit_DCMotor *rum, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *simpleSyrup){
+  Serial.println("Daquiri");
+  Serial.println();
   drinkPour(rum, TWO_OUNCES);
   drinkPour(limeJuice, ONE_OUNCE);
   drinkPour(simpleSyrup, (long)(ONE_OUNCE * 0.5));
@@ -387,6 +488,8 @@ void daquiri(Adafruit_DCMotor *rum, Adafruit_DCMotor *limeJuice, Adafruit_DCMoto
  * 
   */
 void rumSpritz(Adafruit_DCMotor *rum, Adafruit_DCMotor *club){
+  Serial.println("Rum Spritz");
+  Serial.println();
   drinkPour(rum, (long)(ONE_OUNCE * 1.5));
   drinkPour(club, (long)(ONE_OUNCE * 3));
 }
@@ -398,6 +501,8 @@ void rumSpritz(Adafruit_DCMotor *rum, Adafruit_DCMotor *club){
  * @param-rum: pointer to rum motor
  */
 void rumShot(Adafruit_DCMotor *rum){
+  Serial.println("Rum Shot");
+  Serial.println();
   drinkPour(rum, TWO_OUNCES);
 }
 
@@ -415,6 +520,8 @@ void rumShot(Adafruit_DCMotor *rum){
  * 
   */
 void lemonMarg(Adafruit_DCMotor *tequila, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *simpleSyrup){
+  Serial.println("Lemon Margarita");
+  Serial.println();
   drinkPour(tequila, TWO_OUNCES);
   drinkPour(lemonJuice, (long)(ONE_OUNCE * 1.5));
   drinkPour(simpleSyrup, (long)(ONE_OUNCE * .75));
@@ -432,6 +539,8 @@ void lemonMarg(Adafruit_DCMotor *tequila, Adafruit_DCMotor *lemonJuice, Adafruit
  * 
   */
 void tequilaSunrise(Adafruit_DCMotor *tequila, Adafruit_DCMotor *oj, Adafruit_DCMotor *grenadine){
+  Serial.println("Tequila Sunrise");
+  Serial.println();
   drinkPour(tequila, (long)(ONE_OUNCE * 1.5));
   drinkPour(oj, (long)(ONE_OUNCE * 3));
   drinkPour(grenadine, (long)(ONE_OUNCE * 0.5));
@@ -449,6 +558,8 @@ void tequilaSunrise(Adafruit_DCMotor *tequila, Adafruit_DCMotor *oj, Adafruit_DC
  * 
   */
 void margarita(Adafruit_DCMotor *tequila, Adafruit_DCMotor *margaritaMix){
+  Serial.println("Margarita");
+  Serial.println();
   drinkPour(tequila, ONE_OUNCE);
   drinkPour(margaritaMix, (long)(ONE_OUNCE *3));
 }
@@ -459,6 +570,8 @@ void margarita(Adafruit_DCMotor *tequila, Adafruit_DCMotor *margaritaMix){
  * @param-tequila: pointer to vodka motor
  */
 void tequilaShot(Adafruit_DCMotor *tequila){
+  Serial.println("Tequila Shot");
+  Serial.println();
   drinkPour(tequila, TWO_OUNCES);
 }
 
@@ -477,6 +590,8 @@ void tequilaShot(Adafruit_DCMotor *tequila){
  * 
   */
 void ginAndTonic(Adafruit_DCMotor *gin, Adafruit_DCMotor *tonic){
+  Serial.println("Gin and Tonic");
+  Serial.println();
   drinkPour(gin, (long)(ONE_OUNCE * 3));
   drinkPour(tonic, (long)(ONE_OUNCE * 4));
 }
@@ -494,6 +609,8 @@ void ginAndTonic(Adafruit_DCMotor *gin, Adafruit_DCMotor *tonic){
  * 
   */
 void tomCollins(Adafruit_DCMotor *gin, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *club, Adafruit_DCMotor *simpleSyrup){
+  Serial.println("Tom Collins");
+  Serial.println();
   drinkPour(gin, (long)(ONE_OUNCE * 1.5));
   drinkPour(lemonJuice, ONE_OUNCE);
   drinkPour(club, TWO_OUNCES);
@@ -512,6 +629,8 @@ void tomCollins(Adafruit_DCMotor *gin, Adafruit_DCMotor *lemonJuice, Adafruit_DC
  * 
   */
 void saltyDog(Adafruit_DCMotor *gin, Adafruit_DCMotor *grapefruit){
+  Serial.println("Salty Dog");
+  Serial.println();
   drinkPour(gin, TWO_OUNCES);
   drinkPour(grapefruit, (long)(ONE_OUNCE * 4));
 }
@@ -529,6 +648,8 @@ void saltyDog(Adafruit_DCMotor *gin, Adafruit_DCMotor *grapefruit){
  * 
   */
 void gimlet(Adafruit_DCMotor *gin, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *simpleSyrup){
+  Serial.println("Gimlet");
+  Serial.println();
   drinkPour(gin, (long)(ONE_OUNCE * 2.50));
   drinkPour(limeJuice, (long)(ONE_OUNCE * 0.50));
   drinkPour(simpleSyrup, (long)(ONE_OUNCE * 0.50));
@@ -547,6 +668,8 @@ void gimlet(Adafruit_DCMotor *gin, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor
  * 
   */
 void ginRickey(Adafruit_DCMotor *gin, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *club){
+  Serial.println("Gin Rickey");
+  Serial.println();
   drinkPour(gin, TWO_OUNCES);
   drinkPour(limeJuice, ONE_OUNCE);
   drinkPour(club, (long)(ONE_OUNCE * 4));
@@ -565,5 +688,21 @@ void drinkPour(Adafruit_DCMotor *motor, long time){
   motor->run(FORWARD);
   delay(time);
   motor->run(RELEASE);
+}
+
+/**
+ * this will convert an ASCII value to int
+ * for example, 'a' will result in 1
+ * 
+ * @param val- value in ASCII of a lowercase letter
+ */
+int lowerCaseToInt(int val){
+  return (val-96);
+}
+
+// A small helper
+void error(const __FlashStringHelper*err) {
+  Serial.println(err);
+  while (1);
 }
 
