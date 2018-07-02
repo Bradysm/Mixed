@@ -89,6 +89,7 @@
         android:clickable="true"
         android:contentDescription="@string/Start_Partying"
         android:focusable="true"
+        android:onClick="startPartyModeActivity"
         android:foregroundGravity="bottom"
         android:src="@drawable/partymode_button" />
 

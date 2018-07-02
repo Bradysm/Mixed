@@ -38,7 +38,8 @@
         </activity>
         <activity android:name=".RumActivity" />
         <activity android:name=".GinActivity" />
-        <activity android:name=".VodkaActivity"></activity>
+        <activity android:name=".VodkaActivity" />
+        <activity android:name=".PartyModeActivity"></activity>
     </application>
 
 </manifest>

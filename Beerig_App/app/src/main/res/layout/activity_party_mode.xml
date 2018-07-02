@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PartyModeActivity">
+
+    <ImageView
+        android:id="@+id/beerig_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/Start_Partying"
+        android:foregroundGravity="center"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/beerig_logo"
+        android:tint="@color/very_light_grey"/>
+
+    <ImageView
+        android:id="@+id/party_time_logo"
+        android:contentDescription="@string/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/party_title"
+        android:background="@android:color/transparent"/>
+
+    <ImageView
+        android:id="@+id/party_mode_description"
+        android:contentDescription="@string/Start_Partying"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/party_description_para"
+        android:layout_below="@id/party_time_logo"
+        android:background="@android:color/transparent" />
+
+    <ImageButton
+        android:id="@+id/go_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/Start_Partying"
+        android:src="@drawable/party_button"
+        android:background="@android:color/transparent"
+        android:layout_below="@id/party_mode_description"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="-50dp"/>
+
+    <ImageView
+        android:id="@+id/lime_and_dime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/Start_Partying"
+        android:src="@drawable/lime_and_dime_para"
+        android:background="@android:color/transparent"
+        android:layout_below="@id/go_button"
+        />
+
+</RelativeLayout>

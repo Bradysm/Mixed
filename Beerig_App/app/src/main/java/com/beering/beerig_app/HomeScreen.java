@@ -37,4 +37,9 @@ public class HomeScreen extends AppCompatActivity {
         Intent vodkaActivity = new Intent(this, VodkaActivity.class);
         HomeScreen.this.startActivity(vodkaActivity);
     }
+
+    public void startPartyModeActivity(View view){
+        Intent partyModeActivity = new Intent(this, PartyModeActivity.class);
+        HomeScreen.this.startActivity(partyModeActivity);
+    }
 }
