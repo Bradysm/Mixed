@@ -21,8 +21,24 @@
         <activity
             android:name=".HomeScreen"
             android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".TequilaActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.PICK_ACTIVITY" />
+
+                <category android:name="android.intent.category.APP_BROWSER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RumActivity" />
+        <activity android:name=".GinActivity" />
+        <activity android:name=".VodkaActivity"></activity>
     </application>
 
 </manifest>

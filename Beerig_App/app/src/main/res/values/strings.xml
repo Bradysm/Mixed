@@ -2,4 +2,8 @@
     <string name="app_name">Beerig</string>
     <string name="Beerig_Logo">Beerig Logo</string>
     <string name="Start_Partying">Start Partying</string>
+    <string name="tequila">Tequila</string>
+    <string name="rum">Rum</string>
+    <string name="gin">Gin</string>
+    <string name="vodka">Vodka</string>
 </resources>
