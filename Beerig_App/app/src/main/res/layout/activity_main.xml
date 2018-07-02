@@ -6,11 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/background"
+    android:background="@drawable/background" >
 
-    >
+    
+    <!-- Background Image for main activity -->
+    <!-- Use if android:background in RelativeLayout is not working -->
+    <!--
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
 
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+     -->
+
+    <!-- Image for the 'Beerig - Personal Bartender' Logo -->
     <ImageView
         android:id="@+id/Beerig_Logo"
         android:contentDescription="@string/Beerig_Logo"
@@ -24,6 +37,9 @@
 
         android:src="@drawable/beerig_logo" />
 
+
+    <!-- Image for the Start Partying Button -->
+    <!-- This Button will take you to the home screen for the app -->
     <ImageButton
         android:id="@+id/Start_Partying"
         android:contentDescription="@string/Start_Partying"
@@ -32,13 +48,12 @@
 
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        
+
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
 
         android:background="@android:color/transparent"
-        android:src="@drawable/start_partying_button"
-        />
+        android:src="@drawable/start_partying_button" />
 
 
 </RelativeLayout>
