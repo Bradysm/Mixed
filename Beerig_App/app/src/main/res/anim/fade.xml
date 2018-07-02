@@ -4,15 +4,17 @@
     android:interpolator="@android:anim/accelerate_interpolator">
 
     <alpha
-        android:fromAlpha="0"
-        android:toAlpha="1"
-        android:duration="1000" >
+        android:startOffset="2000"
+        android:fromAlpha="1"
+        android:toAlpha="0"
+        android:duration="2000" >
     </alpha>
 
     <alpha
-        android:fromAlpha="1"
-        android:toAlpha="0"
-        android:duration="1000" >
+
+        android:fromAlpha="0"
+        android:toAlpha="1"
+        android:duration="2000" >
     </alpha>
 
 
