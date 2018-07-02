@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Beerig_App</string>
+    <string name="Beerig_Logo">Beerig Logo</string>
+    <string name="Start_Partying">Start Partying</string>
 </resources>
