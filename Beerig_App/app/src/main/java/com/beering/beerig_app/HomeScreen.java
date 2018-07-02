@@ -11,8 +11,13 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
+
+
     }
 
+    // Methods to Open each Drink Activity
+    // Activates when the user presses on the Tequila, Rum, Gin, or Vodka button
     public void startTequilaActivity(View view){
         Intent tequilaIntent = new Intent(this, TequilaActivity.class);
         HomeScreen.this.startActivity(tequilaIntent);
