@@ -1,5 +1,22 @@
+/**
+ * @author- Brady Murphy
+ * @version-June 27, 2018
+ */
+
 #include <Wire.h>
 #include <Adafruit_MotorShield.h>
+#include <Arduino.h>
+#include <SPI.h>
+#include "BluefruitConfig.h"
+#include "Adafruit_BLE.h"
+#include "Adafruit_BluefruitLE_SPI.h"
+#include "Adafruit_BluefruitLE_UART.h"
+
+#if SOFTWARE_SERIAL_AVAILABLE
+  #include <SoftwareSerial.h>
+#endif
+
+
 
 // full drink prototypes
 void vodkaCranberry(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran);
@@ -21,11 +38,13 @@ void saltyDog(Adafruit_DCMotor *gin, Adafruit_DCMotor *grapefruit);
 void madras(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *oj);
 void vodkaShot(Adafruit_DCMotor *vodka);
 void tequilaShot(Adafruit_DCMotor *tequila);
-void rumShot(Adafruit_DCMotor *rum);
 
 // drink pour prototype
 void drinkPour(Adafruit_DCMotor *motor, long time);
 
+// random function
+int lowerCaseToInt(int val);
+void error(const __FlashStringHelper*err);
 
 // constants
 const long ONE_OUNCE = 15000; // measured pouring one ounce of vodka (15 sec with tube disjunction)
