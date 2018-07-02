@@ -48,7 +48,6 @@ Adafruit_DCMotor *club = AFMS4.getMotor(4);
 
 /*=========================================================================
     APPLICATION SETTINGS
-
     FACTORYRESET_ENABLE       Perform a factory reset when running this sketch
    
                               Enabling this will put your Bluefruit LE module
