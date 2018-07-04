@@ -8,17 +8,6 @@
     tools:context=".PartyModeActivity">
 
     <ImageView
-        android:id="@+id/beerig_background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/Start_Partying"
-        android:foregroundGravity="center"
-        android:layout_centerInParent="true"
-        android:background="@android:color/transparent"
-        android:src="@drawable/beerig_logo"
-        android:tint="@color/very_light_grey"/>
-
-    <ImageView
         android:id="@+id/party_time_logo"
         android:contentDescription="@string/app_name"
         android:layout_width="match_parent"
@@ -45,7 +34,9 @@
         android:background="@android:color/transparent"
         android:layout_below="@id/party_mode_description"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="-50dp"/>
+        android:layout_marginBottom="-50dp"
+        android:clickable="true"
+        android:focusable="true"/>
 
     <ImageView
         android:id="@+id/lime_and_dime"
