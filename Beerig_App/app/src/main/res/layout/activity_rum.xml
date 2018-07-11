@@ -15,18 +15,20 @@
         android:src="@drawable/rum_title"
         android:foregroundGravity="top"
         />
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rum_screen_title">
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/rum_screen_title"
         android:stretchColumns="*">
 
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp" >
+            android:layout_margin="8dp">
 
             <ImageButton
                 android:layout_height="wrap_content"
@@ -65,6 +67,46 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            >
+
+            <ImageButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/drinkshape_container"
+                android:background="@android:color/transparent"
+                />
+
+            <ImageButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/drinkshape_container"
+                android:background="@android:color/transparent"
+                />
+
+            <ImageButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/drinkshape_container"
+                android:background="@android:color/transparent"
+                />
+
+            <ImageButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/drinkshape_container"
+                android:background="@android:color/transparent"
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
             >
 
             <ImageButton
@@ -101,5 +143,5 @@
         </TableRow>
 
     </TableLayout>
-
+    </ScrollView>
 </RelativeLayout>
