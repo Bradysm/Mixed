@@ -19,8 +19,9 @@ public class RumActivity extends AppCompatActivity {
     }
 
     public void openRumSpritz(View view){
-        ConfirmDrinkFragment rumSpritz = new ConfirmDrinkFragment();
+        DialogFragment rumSpritz = new ConfirmDrinkFragment();
 
+        rumSpritz.show(getFragmentManager(), "Rum Spritz");
 
     }
 }
