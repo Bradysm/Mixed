@@ -12,11 +12,8 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/rum"
         android:foregroundGravity="top"
-<<<<<<< HEAD
         android:src="@drawable/rum_title" />
-=======
         />
->>>>>>> aaba91f8b8543a2d3d5260dc145f34ebc0df1bde
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,25 +22,15 @@
 
         <TableLayout
             android:layout_width="match_parent"
-<<<<<<< HEAD
             android:layout_height="match_parent"
             android:stretchColumns="*">
 
-
-            <TableRow
-=======
-            android:layout_height="wrap_content"
-            android:stretchColumns="*">
-
-
            <TableRow
->>>>>>> aaba91f8b8543a2d3d5260dc145f34ebc0df1bde
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp">
 
                 <ImageButton
-<<<<<<< HEAD
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -74,7 +61,8 @@
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/drinkshape_container" />
-=======
+
+                <ImageButton
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:contentDescription="@string/app_name"
@@ -89,22 +77,12 @@
                     android:src="@drawable/drinkshape_container"
                     android:background="@android:color/transparent"
                     android:layout_margin="5dp"/>
-
-                <ImageButton
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container"
-                    android:background="@android:color/transparent"
-                    android:layout_margin="5dp"/>
->>>>>>> aaba91f8b8543a2d3d5260dc145f34ebc0df1bde
 
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-<<<<<<< HEAD
                 android:layout_margin="8dp">
 
                 <ImageButton
@@ -134,9 +112,6 @@
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/drinkshape_container" />
-=======
-                android:layout_margin="8dp"
-                >
 
                 <ImageButton
                     android:layout_height="wrap_content"
@@ -162,13 +137,11 @@
                     android:background="@android:color/transparent"
                     />
 
->>>>>>> aaba91f8b8543a2d3d5260dc145f34ebc0df1bde
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-<<<<<<< HEAD
                 android:layout_margin="8dp">
 
                 <ImageButton
@@ -198,9 +171,6 @@
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/drinkshape_container" />
-=======
-                android:layout_margin="8dp"
-                >
 
                 <ImageButton
                     android:layout_height="wrap_content"
@@ -225,10 +195,7 @@
                     android:src="@drawable/drinkshape_container"
                     android:background="@android:color/transparent"
                     />
-
->>>>>>> aaba91f8b8543a2d3d5260dc145f34ebc0df1bde
             </TableRow>
-
         </TableLayout>
     </ScrollView>
 </RelativeLayout>
