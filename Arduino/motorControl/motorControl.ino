@@ -13,8 +13,8 @@
 
 // Create the motor shield object with the default I2C address
 // we will have to create a specific I2C address in the future
-Adafruit_MotorShield AFMS = Adafruit_MotorShield(/*0x61*/); 
-Adafruit_MotorShield AFMS2 = Adafruit_MotorShield(0x62); // need to add a stacking value
+Adafruit_MotorShield AFMS = Adafruit_MotorShield(0x60); 
+Adafruit_MotorShield AFMS2 = Adafruit_MotorShield(0x61); // need to add a stacking value
 Adafruit_MotorShield AFMS3 = Adafruit_MotorShield(0x63); // need to add a stacking value
 Adafruit_MotorShield AFMS4 = Adafruit_MotorShield(0x64);
 
@@ -90,6 +90,12 @@ int drinkChoice;
 
 
 void setup() {
+  /************* SET UP MOTOR SHIELDS ************/
+  AFMS.begin();
+  AFMS2.begin();
+  AFMS3.begin();
+  AFMS4.begin();
+  
   /************* SET UP BLUETOOTH*****************/
   Serial.begin(115200);
   Serial.println(F("<-------------- BOOTING PROCESS --------------->"));
