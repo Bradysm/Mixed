@@ -38,7 +38,7 @@ public class ConfirmDrinkFragment extends Fragment {
             }
         });
 
-        
+
         return builder.create();
     }
 

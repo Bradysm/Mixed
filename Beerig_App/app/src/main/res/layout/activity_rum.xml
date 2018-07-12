@@ -7,24 +7,45 @@
     android:layout_height="match_parent"
     tools:context=".RumActivity">
 
+
     <ImageView
-        android:id="@+id/rum_screen_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/rum"
-        android:src="@drawable/rum_title"
-        android:foregroundGravity="top"
-        />
+        android:contentDescription="@string/app_name"
+        android:background="@drawable/beerig_logo_light"
+        android:foregroundGravity="center"
+        android:layout_centerInParent="true" />
+
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rum_screen_title">
+        >
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp">
+
+                <!--PlaceHolder so Rum Title is in middle -->
+                <TextView />
+
+                <ImageView
+                    android:id="@+id/rum_screen_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/rum"
+                    android:src="@drawable/rum_title"
+                    android:foregroundGravity="top"
+                    />
+
+            </TableRow>
 
 
            <TableRow
@@ -38,7 +59,8 @@
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/drinkshape_container"
                     android:background="@android:color/transparent"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp"
+                    android:onClick="openRumSpritz"/>
 
                 <ImageButton
                     android:layout_height="wrap_content"
