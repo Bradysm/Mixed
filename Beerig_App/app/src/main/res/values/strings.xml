@@ -6,4 +6,6 @@
     <string name="rum">Rum</string>
     <string name="gin">Gin</string>
     <string name="vodka">Vodka</string>
+    <string name="pour">Pour Drink!</string>
+    <string name="cancel">Cancel Order</string>
 </resources>
