@@ -15,133 +15,113 @@
         android:src="@drawable/rum_title"
         android:foregroundGravity="top"
         />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/rum_screen_title">
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:stretchColumns="*">
 
-
-        <TableRow
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp">
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                android:layout_margin="5dp"/>
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                android:layout_margin="5dp"/>
+           <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp">
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                android:layout_margin="5dp"/>
+                <ImageButton
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/drinkshape_container"
+                    android:background="@android:color/transparent"
+                    android:layout_margin="5dp"/>
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                android:layout_margin="5dp"/>
+                <ImageButton
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/drinkshape_container"
+                    android:background="@android:color/transparent"
+                    android:layout_margin="5dp"/>
 
-        </TableRow>
+                <ImageButton
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/drinkshape_container"
+                    android:background="@android:color/transparent"
+                    android:layout_margin="5dp"/>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp"
-            >
+            </TableRow>
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                >
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                />
+                <ImageButton
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/drinkshape_container"
+                    android:background="@android:color/transparent"
+                    />
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                />
+                <ImageButton
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/drinkshape_container"
+                    android:background="@android:color/transparent"
+                    />
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                />
-        </TableRow>
+                <ImageButton
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/drinkshape_container"
+                    android:background="@android:color/transparent"
+                    />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp"
-            >
+            </TableRow>
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                >
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                />
+                <ImageButton
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/drinkshape_container"
+                    android:background="@android:color/transparent"
+                    />
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                />
+                <ImageButton
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/drinkshape_container"
+                    android:background="@android:color/transparent"
+                    />
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                />
-        </TableRow>
+                <ImageButton
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/drinkshape_container"
+                    android:background="@android:color/transparent"
+                    />
 
-    </TableLayout>
+            </TableRow>
+
+        </TableLayout>
     </ScrollView>
 </RelativeLayout>
