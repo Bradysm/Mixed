@@ -217,7 +217,8 @@ void setup() {
   limeJuice->run(RELEASE);
   club->run(RELEASE);
   /************* SET UP MOTORS*****************/
-  // no-op drink value
+  
+  /************* DEFAULT DRINK ****************/
   drinkChoice = 0; 
 }
 
@@ -270,7 +271,7 @@ void loop() {
         tomCollins(gin, lemonJuice, club, simpleSyrup);
         break;
       case 11:
-        daquiri(rum, limeJuice, simpleSyrup);
+        daiquiri(rum, limeJuice, simpleSyrup);
         break;
       case 12:
         rumSpritz(rum, club);
@@ -474,7 +475,7 @@ void cokeAndRum(Adafruit_DCMotor *rum, Adafruit_DCMotor *coke){
  * @param-simpleSyrup: pointer to tonic motor
  * 
   */
-void daquiri(Adafruit_DCMotor *rum, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *simpleSyrup){
+void daiquiri(Adafruit_DCMotor *rum, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *simpleSyrup){
   Serial.println("Daquiri");
   Serial.println();
   drinkPour(rum, TWO_OUNCES);
