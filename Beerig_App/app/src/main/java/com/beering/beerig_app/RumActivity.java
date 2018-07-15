@@ -33,7 +33,7 @@ public class RumActivity extends AppCompatActivity {
      */
     public void openRumSpritz(View view){
         Drink rumSpritz = list.getDrink("Rum Spritz");
-        ViewDialog dialog = new ViewDialog(this, rumSpritz.getDrinkName(), rumSpritz.getDescription());
+        ViewDialog dialog = new ViewDialog(this, rumSpritz);
         dialog.show();
 
     }
@@ -45,7 +45,7 @@ public class RumActivity extends AppCompatActivity {
      */
     public void openCokeAndRum(View view){
         Drink cokeAndRum = list.getDrink("Coke and Rum");
-        ViewDialog dialog = new ViewDialog(this, cokeAndRum.getDrinkName(), cokeAndRum.getDescription());
+        ViewDialog dialog = new ViewDialog(this, cokeAndRum);
         dialog.show();
 
     }
@@ -57,7 +57,7 @@ public class RumActivity extends AppCompatActivity {
      */
     public void openDaiquiri(View view){
         Drink daiquiri = list.getDrink("Daiquiri");
-        ViewDialog dialog = new ViewDialog(this, daiquiri.getDrinkName(), daiquiri.getDescription());
+        ViewDialog dialog = new ViewDialog(this, daiquiri);
         dialog.show();
 
     }
@@ -69,7 +69,7 @@ public class RumActivity extends AppCompatActivity {
      */
     public void openRumShot(View view){
         Drink shot = list.getDrink("Rum Shot");
-        ViewDialog dialog = new ViewDialog(this, shot.getDrinkName(), shot.getDescription());
+        ViewDialog dialog = new ViewDialog(this, shot);
         dialog.show();
 
     }

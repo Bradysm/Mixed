@@ -23,15 +23,18 @@ public class ViewDialog extends Dialog {
     public ImageButton backBtn;
     public TextView name;
     public TextView description;
+
     private String drinkName;
     private String drinkDesc;
+    private char uartChar;
 
     // constructor
-    public ViewDialog(Activity a, String name, String description) {
+    public ViewDialog(Activity a, Drink drink) {
         super(a);
         this.activity = a;
-        this.drinkName = name;
-        this.drinkDesc = description;
+        this.drinkName = drink.getDrinkName();
+        this.drinkDesc = drink.getDescription();
+        this.uartChar = drink.getUartCom();
     }
 
     @Override
@@ -48,6 +51,5 @@ public class ViewDialog extends Dialog {
         name.setText(drinkName);
 
     }
-
 }
 

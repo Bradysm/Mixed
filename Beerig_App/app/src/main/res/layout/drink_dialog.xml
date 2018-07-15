@@ -57,7 +57,7 @@
             android:src="@drawable/go_back_button"
             android:clickable="true"
             android:focusable="true"
-            android:background="@null"/>
+            android:background="@null" />
 
     </LinearLayout>
 
