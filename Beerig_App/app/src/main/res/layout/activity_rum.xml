@@ -88,8 +88,9 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="8dp">
-
+                android:layout_margin="8dp"
+                android:gravity="center">
+                <!--
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -105,7 +106,7 @@
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/drinkshape_container" />
-
+                -->
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -113,37 +114,6 @@
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/drinkshape_container" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container" />
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container" />
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container" />
-
             </TableRow>
         </TableLayout>
     </ScrollView>
