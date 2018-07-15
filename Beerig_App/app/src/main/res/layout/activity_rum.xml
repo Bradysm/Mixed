@@ -71,7 +71,8 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container" />
+                    android:src="@drawable/drinkshape_container"
+                    android:onClick="openCokeAndRum"/>
 
                <ImageButton
                    android:layout_width="wrap_content"

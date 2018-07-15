@@ -26,4 +26,11 @@ public class RumActivity extends AppCompatActivity {
         dialog.show();
 
     }
+
+    public void openCokeAndRum(View view){
+        Drink cokeAndRum = list.getDrink("Coke and Rum");
+        ViewDialog dialog = new ViewDialog(this, cokeAndRum.getDrinkName(), cokeAndRum.getDescription());
+        dialog.show();
+
+    }
 }
