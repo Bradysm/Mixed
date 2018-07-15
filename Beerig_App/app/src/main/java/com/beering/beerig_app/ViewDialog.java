@@ -35,8 +35,11 @@ public class ViewDialog extends Dialog {
         setContentView(R.layout.drink_dialog);
         drinkBtn = (ImageButton) findViewById(R.id.pour_drink);
         backBtn = (ImageButton) findViewById(R.id.go_back);
+
         description = (TextView) findViewById(R.id.drink_description);
+        description.setText(drinkDesc);
         name = (TextView) findViewById(R.id.drink_name);
+        name.setText(drinkName);
 
     }
 
