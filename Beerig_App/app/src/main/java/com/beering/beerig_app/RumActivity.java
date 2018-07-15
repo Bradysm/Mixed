@@ -9,6 +9,7 @@ import android.view.View;
 public class RumActivity extends AppCompatActivity {
 
     Bundle savedInstanceState = new Bundle();
+    private DrinkList list = new DrinkList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +21,9 @@ public class RumActivity extends AppCompatActivity {
     }
 
     public void openRumSpritz(View view){
-        ViewDialog rumSpritz = new ViewDialog(this, "Rum Spritz", "This is a spritz");
-        rumSpritz.show();
+        Drink rumSpritz = list.getDrink("Rum Spritz");
+        ViewDialog dialog = new ViewDialog(this, rumSpritz.getDrinkName(), rumSpritz.getDescription());
+        dialog.show();
 
     }
 }
