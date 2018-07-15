@@ -61,4 +61,16 @@ public class RumActivity extends AppCompatActivity {
         dialog.show();
 
     }
+
+    /**
+     * this method will open a dialog box to order a shot of rum
+     *
+     * @param view current view
+     */
+    public void openRumShot(View view){
+        Drink shot = list.getDrink("Rum Shot");
+        ViewDialog dialog = new ViewDialog(this, shot.getDrinkName(), shot.getDescription());
+        dialog.show();
+
+    }
 }
