@@ -1,5 +1,13 @@
 package com.beering.beerig_app;
 
+/**
+ * @author Brady Murphy
+ * @version July 13 2018
+ *
+ * This class represents a Drink on the list.
+ * It contains the drink name, description, and specific
+ * ASCII character that is used to send over UART to arduino
+ */
 public final class Drink {
     /**
      * instance variables used to define a Drink
