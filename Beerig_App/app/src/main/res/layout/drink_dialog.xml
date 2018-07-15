@@ -21,6 +21,7 @@
         android:textColor="#FFFFFF"
         android:gravity="center" />
 
+    <!-- Im thinking this needs to go inside of a scroll view in case it's long -->
     <TextView
         android:id="@+id/drink_name"
         android:layout_width="wrap_content"
@@ -38,7 +39,7 @@
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="8dp">
+        android:paddingBottom="24dp">
 
         <ImageButton
             android:id="@+id/go_back"
