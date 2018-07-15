@@ -6,8 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * @author Brady Murphy
+ * @author Andrew Haus
+ */
 public class RumActivity extends AppCompatActivity {
-
+    /**
+     * instance variables used for this activity
+     */
     Bundle savedInstanceState = new Bundle();
     private DrinkList list = new DrinkList();
 
@@ -20,6 +26,11 @@ public class RumActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * this method will open a dialog box to order a rum spritz drink
+     *
+     * @param view current view
+     */
     public void openRumSpritz(View view){
         Drink rumSpritz = list.getDrink("Rum Spritz");
         ViewDialog dialog = new ViewDialog(this, rumSpritz.getDrinkName(), rumSpritz.getDescription());
@@ -27,6 +38,11 @@ public class RumActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * this method will open a dialog box to order a rum and coke
+     *
+     * @param view current view
+     */
     public void openCokeAndRum(View view){
         Drink cokeAndRum = list.getDrink("Coke and Rum");
         ViewDialog dialog = new ViewDialog(this, cokeAndRum.getDrinkName(), cokeAndRum.getDescription());
@@ -34,6 +50,11 @@ public class RumActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * this method will open a dialog box to order a daiquiri
+     *
+     * @param view current view
+     */
     public void openDaiquiri(View view){
         Drink daiquiri = list.getDrink("Daiquiri");
         ViewDialog dialog = new ViewDialog(this, daiquiri.getDrinkName(), daiquiri.getDescription());

@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+@author Brady Murphy
+@version July 15 2018
+-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,8 +19,7 @@
         android:layout_marginRight="16dp"
         android:textSize="32sp"
         android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:text="Here is the text describing the drink" />
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/drink_name"
@@ -27,7 +30,6 @@
         android:layout_marginTop="72dp"
         android:fontFamily="@font/sign_painter"
         android:textColor="#FC8E85"
-        android:text="Drink Name"
         android:textSize="56sp" />
 
     <LinearLayout
@@ -43,7 +45,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/pour_it_up_button"
-            android:text="Go Back"
             android:clickable="true"
             android:focusable="true"
             android:background="@null"/>
@@ -53,7 +54,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/go_back_button"
-            android:text="Pour it up"
             android:clickable="true"
             android:focusable="true"
             android:background="@null"/>

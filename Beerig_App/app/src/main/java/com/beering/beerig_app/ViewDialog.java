@@ -1,5 +1,4 @@
 package com.beering.beerig_app;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -9,6 +8,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+/**
+ * this class is used as a basic formatting for the dialog pop up
+ * to be used for drink ordering
+ *
+ * @author Brady Murphy
+ * @version July 15 2018
+ */
 public class ViewDialog extends Dialog {
     // instance variables for the dialog
     public Activity activity;

@@ -3,6 +3,13 @@ package com.beering.beerig_app;
 import java.security.InvalidParameterException;
 import java.util.Hashtable;
 
+/**
+ * this class is used to repersent the drink list within the Beerig
+ * It contains all of the possible drinks with their descriptions
+ *
+ * @author Brady Murphy
+ * @version July 14 2018
+ */
 public final class DrinkList {
     /**
      * hashtable used to store the drink list and provide O(1) lookup
