@@ -39,7 +39,7 @@ public final class DrinkList {
         Drink tomCollins = new Drink("Tom Collins",
                 "The Tom Collins is a Collins cocktail made from gin, lemon juice, sugar, and carbonated water. " +
                         "First memorialized in writing in 1876 by Jerry Thomas.",'j');
-        Drink daiquiri = new Drink("Daquiri", "Simple daiquiri made from rum, lime juice, and simple syrup",
+        Drink daiquiri = new Drink("Daiquiri", "Simple daiquiri made from rum, lime juice, and simple syrup",
                 'k');
         Drink rumSpritz = new Drink("Rum Spritz",
                 "A simple, clean and easy drink to make consisting of rum and club soda. " +

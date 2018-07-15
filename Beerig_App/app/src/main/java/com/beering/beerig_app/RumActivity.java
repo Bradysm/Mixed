@@ -33,4 +33,11 @@ public class RumActivity extends AppCompatActivity {
         dialog.show();
 
     }
+
+    public void openDaiquiri(View view){
+        Drink daiquiri = list.getDrink("Daiquiri");
+        ViewDialog dialog = new ViewDialog(this, daiquiri.getDrinkName(), daiquiri.getDescription());
+        dialog.show();
+
+    }
 }
