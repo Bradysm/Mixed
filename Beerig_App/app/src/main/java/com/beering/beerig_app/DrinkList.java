@@ -25,9 +25,11 @@ public final class DrinkList {
 
         // create the Drink objects
         Drink vodkaCran = new Drink("Vodka Cranberry",
-                "Is made with vodka and cranberry juice. Light and refreshing. Add a lime for more flavor.", 'a');
+                "Is made with vodka and cranberry juice. Light and refreshing. Add a lime for more flavor.", 'a',
+                "1 shot of Vodka", "4 and 1/2 ounces of Cranberry", "Serve with a lime");
         Drink screwdriver = new Drink("Screwdriver",
-                "Simple drink made with vodka and Orange Juice. Nothing like having an orange drink before gameday. Go Hokies!", 'b');
+                "Simple drink made with vodka and Orange Juice. Nothing like having an orange drink before gameday. Go Hokies!", 'b',
+                "1 and 3/4 ounces vodka", "3 and 1/2 ounce of OJ", "Serve with ice");
         Drink vodkaBull = new Drink("Vodka RedBull",
                 "This drink will get you GOIN. Need a pick me up? Here you go. Contains vodka and RedBull", 'c');
         Drink tequilaSunrise = new Drink("Tequila Sunrise",
