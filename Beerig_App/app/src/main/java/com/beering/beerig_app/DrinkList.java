@@ -30,7 +30,7 @@ public final class DrinkList {
                 "Simple drink made with vodka and Orange Juice. Nothing like having an orange drink before gameday. Go Hokies!", 'b');
         Drink vodkaBull = new Drink("Vodka RedBull",
                 "This drink will get you GOIN. Need a pick me up? Here you go. Contains vodka and RedBull", 'c');
-        Drink tequilaSunrise = new Drink("Tequla Sunrise",
+        Drink tequilaSunrise = new Drink("Tequila Sunrise",
                 "Want to feel like you're in cabo before your exam? This drink compromised of OJ, Tequila, and grenadine has you covered",'d');
         Drink ginAndTonic = new Drink("Gin and Tonic",
                 "Very light drink that is refreshing after a long day. Add ice to glass and a lime for some citrus flavor", 'e');
