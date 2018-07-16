@@ -55,10 +55,10 @@ public class ViewDialog extends Dialog {
         drinkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                Toast.makeText(activity, "Pouring " + drinkName, Toast.LENGTH_SHORT)
+                Toast.makeText(activity, "Enjoy the " + drinkName, Toast.LENGTH_SHORT)
                         .show();
 
-
+                //Send Data to Arduino
             }
         });
 
