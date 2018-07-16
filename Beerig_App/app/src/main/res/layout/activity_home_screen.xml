@@ -24,7 +24,7 @@
         android:contentDescription="@string/Start_Partying"
         android:layout_alignParentStart="true"
         android:foregroundGravity="top"
-        android:src="@drawable/choose_title"/>
+        android:src="@drawable/choose_title" />
 
     <LinearLayout
         android:id="@+id/liquors"
