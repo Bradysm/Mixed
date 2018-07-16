@@ -44,13 +44,21 @@ public class ViewDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.drink_dialog);
 
+        description = (TextView) findViewById(R.id.drink_description);
+        description.setText(drinkDesc);
+        name = (TextView) findViewById(R.id.drink_name);
+        name.setText(drinkName);
+
         //If user clicks "pour it" button
+        //Use this method to send data to Arduino
         drinkBtn = (ImageButton) findViewById(R.id.pour_drink);
         drinkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
                 Toast.makeText(activity, "Pouring " + drinkName, Toast.LENGTH_SHORT)
                         .show();
+
+
             }
         });
 
@@ -64,16 +72,7 @@ public class ViewDialog extends Dialog {
             }
         });
 
-        description = (TextView) findViewById(R.id.drink_description);
-        description.setText(drinkDesc);
-        name = (TextView) findViewById(R.id.drink_name);
-        name.setText(drinkName);
-
     }
-
-
-
-
 
 }
 
