@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/drink_page_background"
     tools:context=".HomeScreen" >
 
     <ImageView
@@ -30,9 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="8dp">
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp">
 
         <ImageButton
             android:id="@+id/tequila"
