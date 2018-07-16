@@ -59,7 +59,7 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container"
+                    android:src="@drawable/rum_spritz_container"
                     android:background="@android:color/transparent"
                     android:layout_margin="8dp"
                     android:onClick="openRumSpritz"/>
@@ -72,7 +72,7 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container"
+                    android:src="@drawable/coke_and_rum_container"
                     android:onClick="openCokeAndRum"/>
 
             </TableRow>
@@ -89,7 +89,7 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container"
+                    android:src="@drawable/daiquiri_container"
                     android:onClick="openDaiquiri"/>
 
                 <ImageButton
@@ -98,37 +98,9 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container"
+                    android:src="@drawable/rum_shot"
                     android:onClick="openRumShot"/>
             </TableRow>
-            <!-- No drinks available for this row
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:gravity="center">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container" />
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container" />
-
-            </TableRow>
-
-             -->
-
         </TableLayout>
     </ScrollView>
 </RelativeLayout>

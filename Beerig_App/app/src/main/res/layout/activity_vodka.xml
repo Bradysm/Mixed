@@ -9,98 +9,135 @@
     tools:context=".VodkaActivity">
 
     <ImageView
-        android:id="@+id/vodka_screen_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:background="@drawable/beerig_logo_light"
+        android:foregroundGravity="center"
+        android:layout_centerInParent="true" />
+
+
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/vodka"
-        android:src="@drawable/vodka_title"
-        android:foregroundGravity="top"
-        />
+        >
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/vodka_screen_title"
-        android:stretchColumns="*">
-
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp" >
-
-        <ImageButton
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/drinkshape_container"
-            android:background="@android:color/transparent"
-            android:layout_margin="5dp"/>
-
-        <ImageButton
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/drinkshape_container"
-            android:background="@android:color/transparent"
-            android:layout_margin="5dp"/>
-
-        <ImageButton
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/drinkshape_container"
-            android:background="@android:color/transparent"
-            android:layout_margin="5dp"/>
-
-        <ImageButton
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/drinkshape_container"
-            android:background="@android:color/transparent"
-            android:layout_margin="5dp"/>
-
-    </TableRow>
-
-        <TableRow
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                />
+            <!-- *Row for "Vodka" Title*
+                 *Should Scroll with drink elements* -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                >
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                />
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                />
+                <ImageView
+                    android:id="@+id/vodka_screen_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/rum"
+                    android:src="@drawable/vodka_title"
+                    android:foregroundGravity="top"
+                    />
 
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/drinkshape_container"
-                android:background="@android:color/transparent"
-                />
-        </TableRow>
+            </TableRow>
 
-    </TableLayout>
+            <!-- drink row 1 -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp">
 
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/vodka_cran_container"
+                    android:background="@android:color/transparent"
+                    android:layout_margin="8dp" />
+
+
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/screwdriver_container" />
+
+            </TableRow>
+
+            <!-- drink row 2 -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/vodka_bull_container" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/vodka_tonic_container" />
+            </TableRow>
+
+            <!-- drink row 3 -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/seabreeze_container" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/madras_container" />
+            </TableRow>
+
+            <!-- drink row 4 -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/vodka_shot_container" />
+
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
 </RelativeLayout>
