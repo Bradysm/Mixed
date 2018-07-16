@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/alchohols"
+        android:layout_toRightOf="@id/liquors"
         android:background="@drawable/beerig_logo_light"
         android:contentDescription="@string/app_name" />
 
@@ -27,12 +27,12 @@
         android:src="@drawable/choose_title"/>
 
     <LinearLayout
-        android:id="@+id/alchohols"
+        android:id="@+id/liquors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="8dp">
+        android:layout_marginStart="8dp">
 
         <ImageButton
             android:id="@+id/tequila"
