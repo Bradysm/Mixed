@@ -9,12 +9,12 @@
 
     <ImageView
         android:id="@+id/main_screen_background"
-        android:contentDescription="@string/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:foregroundGravity="center"
-        android:background="@drawable/beerig_logo_light"/>
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/alchohols"
+        android:background="@drawable/beerig_logo_light"
+        android:contentDescription="@string/app_name" />
 
     <ImageView
         android:id="@+id/choose_your_drink"
@@ -25,71 +25,80 @@
         android:foregroundGravity="top"
         android:src="@drawable/choose_title"/>
 
-    <ImageButton
-        android:id="@+id/tequila"
+    <LinearLayout
+        android:id="@+id/alchohols"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="90dp"
-        android:background="@null"
-        android:contentDescription="@string/tequila"
-        android:src="@drawable/tequila_button"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:onClick="startTequilaActivity" />
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp">
 
-    <ImageButton
-        android:id="@+id/rum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tequila"
-        android:background="@null"
-        android:contentDescription="@string/rum"
-        android:src="@drawable/rum_button"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:onClick="startRumActivity"/>
+        <ImageButton
+            android:id="@+id/tequila"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:background="@null"
+            android:contentDescription="@string/tequila"
+            android:src="@drawable/tequila_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:onClick="startTequilaActivity" />
 
-    <ImageButton
-        android:id="@+id/gin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:layout_below="@id/rum"
-        android:contentDescription="@string/gin"
-        android:src="@drawable/gin_button"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:onClick="startGinActivity"/>
+        <ImageButton
+            android:id="@+id/rum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:contentDescription="@string/rum"
+            android:src="@drawable/rum_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:onClick="startRumActivity"/>
 
-    <ImageButton
-        android:id="@+id/vodka"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gin"
-        android:background="@null"
-        android:contentDescription="@string/vodka"
-        android:src="@drawable/vodka_button"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:onClick="startVodkaActivity"/>
+        <ImageButton
+            android:id="@+id/gin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:contentDescription="@string/gin"
+            android:src="@drawable/gin_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:onClick="startGinActivity"/>
+
+        <ImageButton
+            android:id="@+id/vodka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:contentDescription="@string/vodka"
+            android:src="@drawable/vodka_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:onClick="startVodkaActivity"/>
+
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/party_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="-16dp"
+        android:layout_marginBottom="-60dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:background="@android:color/transparent"
         android:clickable="true"
         android:contentDescription="@string/Start_Partying"
         android:focusable="true"
-        android:onClick="startPartyModeActivity"
         android:foregroundGravity="bottom"
+        android:onClick="startPartyModeActivity"
         android:src="@drawable/partymode_button" />
 
 </RelativeLayout>
