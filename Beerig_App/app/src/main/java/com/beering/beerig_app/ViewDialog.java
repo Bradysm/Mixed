@@ -7,6 +7,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * this class is used as a basic formatting for the dialog pop up
@@ -42,8 +43,26 @@ public class ViewDialog extends Dialog {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.drink_dialog);
+
+        //If user clicks "pour it" button
         drinkBtn = (ImageButton) findViewById(R.id.pour_drink);
+        drinkBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Toast.makeText(activity, "Pouring " + drinkName, Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
+
+        //If user clicks to cancel
+        //Take user back to Drink Activity
         backBtn = (ImageButton) findViewById(R.id.go_back);
+        backBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                dismiss();
+            }
+        });
 
         description = (TextView) findViewById(R.id.drink_description);
         description.setText(drinkDesc);
@@ -51,5 +70,10 @@ public class ViewDialog extends Dialog {
         name.setText(drinkName);
 
     }
+
+
+
+
+
 }
 

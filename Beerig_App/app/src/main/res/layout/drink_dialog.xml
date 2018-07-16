@@ -42,16 +42,19 @@
         android:paddingBottom="24dp">
 
         <ImageButton
-            android:id="@+id/go_back"
+            android:id="@+id/pour_drink"
+            android:contentDescription="@string/pour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/pour_it_up_button"
             android:clickable="true"
             android:focusable="true"
-            android:background="@null"/>
+            android:background="@null"
+             />
 
         <ImageButton
-            android:id="@+id/pour_drink"
+            android:id="@+id/go_back"
+            android:contentDescription="@string/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/go_back_button"

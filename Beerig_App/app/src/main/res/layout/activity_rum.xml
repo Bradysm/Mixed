@@ -28,14 +28,15 @@
             android:layout_height="wrap_content"
             android:stretchColumns="*">
 
-
+            <!-- *Row for "Rum" Title*
+                 *Should Scroll with drink elements* -->
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="8dp">
+                android:layout_margin="8dp"
+                android:gravity="center"
+                >
 
-                <!--PlaceHolder so Rum Title is in middle -->
-                <TextView />
 
                 <ImageView
                     android:id="@+id/rum_screen_title"
@@ -60,7 +61,7 @@
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/drinkshape_container"
                     android:background="@android:color/transparent"
-                    android:layout_margin="5dp"
+                    android:layout_margin="8dp"
                     android:onClick="openRumSpritz"/>
 
 
@@ -74,15 +75,6 @@
                     android:src="@drawable/drinkshape_container"
                     android:onClick="openCokeAndRum"/>
 
-               <ImageButton
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_margin="8dp"
-                   android:background="@android:color/transparent"
-                   android:contentDescription="@string/app_name"
-                   android:src="@drawable/drinkshape_container"
-                   android:onClick="openDaiquiri"/>
-
             </TableRow>
 
             <TableRow
@@ -90,14 +82,6 @@
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
                 android:gravity="center">
-                <!--
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -105,8 +89,9 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/drinkshape_container" />
-                -->
+                    android:src="@drawable/drinkshape_container"
+                    android:onClick="openDaiquiri"/>
+
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,6 +101,34 @@
                     android:src="@drawable/drinkshape_container"
                     android:onClick="openRumShot"/>
             </TableRow>
+            <!-- No drinks available for this row
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/drinkshape_container" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/drinkshape_container" />
+
+            </TableRow>
+
+             -->
+
         </TableLayout>
     </ScrollView>
 </RelativeLayout>
