@@ -31,9 +31,11 @@ public final class DrinkList {
                 "Simple drink made with vodka and Orange Juice. Nothing like having an orange drink before gameday. Go Hokies!", 'b',
                 "1 and 3/4 ounces vodka", "3 and 1/2 ounce of OJ", "Serve with ice");
         Drink vodkaBull = new Drink("Vodka RedBull",
-                "This drink will get you GOIN. Need a pick me up? Here you go. Contains vodka and RedBull", 'c');
+                "This drink will get you GOIN. Need a pick me up? Here you go. Contains vodka and RedBull", 'c',
+                "2 shots of Vodka", "4 Ounces of RedBull", "Serve with a lime");
         Drink tequilaSunrise = new Drink("Tequila Sunrise",
-                "Want to feel like you're in cabo before your exam? This drink compromised of OJ, Tequila, and grenadine has you covered",'d');
+                "Want to feel like you're in cabo before your exam? This drink compromised of OJ, Tequila, and grenadine has you covered",'d',
+                "3 shots of Tequila", "1 and 1/2 ounce of tequila", "1/2 of grenadine");
         Drink ginAndTonic = new Drink("Gin and Tonic",
                 "Very light drink that is refreshing after a long day. Add ice to glass and a lime for some citrus flavor", 'e');
         Drink vodkaTonic = new Drink("Vodka Tonic",
@@ -66,10 +68,13 @@ public final class DrinkList {
         Drink madras = new Drink("Madras",
                 "The Madras is a refreshing, fruity drink that lets you feel some summer anywhere. " +
                         "It consists of vodka, Oj, and cranberry juice." ,'q');
-        Drink vodkaShot = new Drink("Vodka Shot", "Well.... Hope you make it home", 'r', "1 shot of Vodka!");
+        Drink vodkaShot = new Drink("Vodka Shot", "Well.... Hope you make it home", 'r',
+                "1 shot of Vodka!");
         Drink tequilaShot = new Drink("Tequila Shot", "Make sure to get taco bell after a couple of these.", 's');
-        Drink rumShot = new Drink("Rum Shot", "Why are you doing this? Heck with it, take two!", 't');
-        Drink ginShot = new Drink("Gin Shot", "Uhh....Odd choice but okay", 'u');
+        Drink rumShot = new Drink("Rum Shot", "Why are you doing this? Heck with it, take two!", 't',
+                "1 shot of Rum!");
+        Drink ginShot = new Drink("Gin Shot", "Uhh....Odd choice but okay", 'u',
+                "1 shot of Gin!");
 
 
 
