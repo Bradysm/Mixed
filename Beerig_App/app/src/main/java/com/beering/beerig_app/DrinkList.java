@@ -38,7 +38,7 @@ public final class DrinkList {
                 "Very light drink that is refreshing after a long day. Add ice to glass and lime for some citrus flavor", 'f');
         Drink cokeAndRum = new Drink("Coke and Rum",
                 "Rum and Coke, or a Cuba Libre, is a highball cocktail consisting of cola, rum, and traditionally lime juice on ice.", 'g');
-        Drink seaBreeze = new Drink("Sea Breeze" ,
+        Drink seaBreeze = new Drink("Seabreeze" ,
                 "Cabo? Ahhhh Sea Breeze you mean. A Sea Breeze is a cocktail containing vodka with cranberry juice and grapefruit juice.", 'h');
         Drink margarita = new Drink("Margarita",
                 "Want to be Cinqo de messed up? No worries. We got your back with this marg made from Tequila and Jose Cuervo marg mix. Did someone say Tacos?",

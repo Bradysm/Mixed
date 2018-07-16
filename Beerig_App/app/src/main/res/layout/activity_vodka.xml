@@ -60,7 +60,8 @@
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/vodka_cran_container"
                     android:background="@android:color/transparent"
-                    android:layout_margin="8dp" />
+                    android:layout_margin="8dp"
+                    android:onClick="openVodkaCran"/>
 
 
 
@@ -70,7 +71,8 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/screwdriver_container" />
+                    android:src="@drawable/screwdriver_container"
+                    android:onClick="openScrewdriver"/>
 
             </TableRow>
 
@@ -87,7 +89,8 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/vodka_bull_container" />
+                    android:src="@drawable/vodka_bull_container"
+                    android:onClick="openVodkaBull"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -95,7 +98,8 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/vodka_tonic_container" />
+                    android:src="@drawable/vodka_tonic_container"
+                    android:onClick="openVodkaTonic"/>
             </TableRow>
 
             <!-- drink row 3 -->
@@ -111,7 +115,8 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/seabreeze_container" />
+                    android:src="@drawable/seabreeze_container"
+                    android:onClick="openSeabreeze"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -119,7 +124,8 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/madras_container" />
+                    android:src="@drawable/madras_container"
+                    android:onClick="openMadras"/>
             </TableRow>
 
             <!-- drink row 4 -->
@@ -135,8 +141,8 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/vodka_shot_container" />
-
+                    android:src="@drawable/vodka_shot_container"
+                    android:onClick="openVodkaShot"/>
             </TableRow>
         </TableLayout>
     </ScrollView>
