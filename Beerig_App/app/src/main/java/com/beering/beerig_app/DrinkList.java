@@ -64,10 +64,12 @@ public final class DrinkList {
         Drink madras = new Drink("Madras",
                 "The Madras is a refreshing, fruity drink that lets you feel some summer anywhere. " +
                         "It consists of vodka, Oj, and cranberry juice." ,'q');
-        Drink vodkaShot = new Drink("Vodka Shot", "Well.... Hope you make it home", 'r');
+        Drink vodkaShot = new Drink("Vodka Shot", "Well.... Hope you make it home", 'r', "1 shot of Vodka!");
         Drink tequilaShot = new Drink("Tequila Shot", "Make sure to get taco bell after a couple of these.", 's');
         Drink rumShot = new Drink("Rum Shot", "Why are you doing this? Heck with it, take two!", 't');
         Drink ginShot = new Drink("Gin Shot", "Uhh....Odd choice but okay", 'u');
+
+
 
         // add any new drinks to the hash table as created
         list.put(vodkaCran.getDrinkName(), vodkaCran);

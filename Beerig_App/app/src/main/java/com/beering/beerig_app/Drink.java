@@ -15,6 +15,8 @@ public final class Drink {
     private final String drinkName; // name of drink
     private final String description; // describes the drink
     private final char uartCom; // this will be sent to the arduino
+    private String recipe; // ingredients for each drink
+    private StringBuilder builder = new StringBuilder(); //needed to append ingredients
 
     /**
      * constructor to create a drink object
@@ -22,10 +24,16 @@ public final class Drink {
      * @param desc description of the drink and contents
      * @param uart character value which will define the drink
      */
-    public Drink(String name, String desc, char uart){
+    public Drink(String name, String desc, char uart, String... recipe) {
         this.drinkName = name;
         this.description = desc;
         this.uartCom = uart;
+
+        builder.append("Ingredients: ");
+        for(String ingred: recipe){
+            builder.append("\n>> " + ingred);
+        }
+        this.recipe = builder.toString();
     }
 
     /**
@@ -54,4 +62,16 @@ public final class Drink {
     public char getUartCom() {
         return uartCom;
     }
+
+    /**
+     * gets ingredients for drink
+     *
+     * used to display in dialog for users to see
+     *
+     * @return a String array of each ingredient
+     */
+    public String getRecipe(){
+        return recipe;
+    }
+
 }

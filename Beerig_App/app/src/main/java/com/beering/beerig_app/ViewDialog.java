@@ -9,6 +9,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Collections;
+
 /**
  * this class is used as a basic formatting for the dialog pop up
  * to be used for drink ordering
@@ -24,10 +26,12 @@ public class ViewDialog extends Dialog {
     public ImageButton backBtn;
     public TextView name;
     public TextView description;
+    public TextView recipe;
 
     private String drinkName;
     private String drinkDesc;
     private char uartChar;
+    private String drinkRecipe;
 
     // constructor
     public ViewDialog(Activity a, Drink drink) {
@@ -36,6 +40,7 @@ public class ViewDialog extends Dialog {
         this.drinkName = drink.getDrinkName();
         this.drinkDesc = drink.getDescription();
         this.uartChar = drink.getUartCom();
+        this.drinkRecipe = drink.getRecipe();
     }
 
     @Override
@@ -44,10 +49,15 @@ public class ViewDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.drink_dialog);
 
+        //Display drink name and description
         description = (TextView) findViewById(R.id.drink_description);
         description.setText(drinkDesc);
         name = (TextView) findViewById(R.id.drink_name);
         name.setText(drinkName);
+
+        //Display drink recipe
+        recipe = (TextView) findViewById(R.id.drink_recipe);
+        recipe.setText(drinkRecipe);
 
         //If user clicks "pour it" button
         //Use this method to send data to Arduino
@@ -73,6 +83,7 @@ public class ViewDialog extends Dialog {
         });
 
     }
+
 
 }
 

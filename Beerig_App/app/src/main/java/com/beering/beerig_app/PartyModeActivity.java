@@ -1,7 +1,9 @@
 package com.beering.beerig_app;
 
+import android.app.Dialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 public class PartyModeActivity extends AppCompatActivity {
@@ -18,8 +20,11 @@ public class PartyModeActivity extends AppCompatActivity {
         partyDescription.bringToFront();
         partyDescription.invalidate();
 
-
-
-
     }
+
+    public void openRandomDialog(View view){
+
+        //Drink randomDrink = new Drink()
+    }
+
 }
