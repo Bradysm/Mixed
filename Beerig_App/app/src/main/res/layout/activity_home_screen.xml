@@ -85,6 +85,15 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/bluetooth"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="16dp"/>
     <ImageButton
         android:id="@+id/party_mode"
         android:layout_width="wrap_content"
