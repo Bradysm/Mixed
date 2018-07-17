@@ -51,8 +51,7 @@
                 android:textSize="32sp"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:layout_gravity="center"
-                android:fontFamily="@font/sign_painter"/>
+                android:layout_gravity="center" />
 
         </LinearLayout>
 

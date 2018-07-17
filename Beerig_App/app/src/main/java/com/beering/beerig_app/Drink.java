@@ -31,7 +31,7 @@ public final class Drink {
 
         builder.append("Ingredients: ");
         for(String ingred: recipe){
-            builder.append("\n>> " + ingred);
+            builder.append("\n- " + ingred);
         }
         this.recipe = builder.toString();
     }

@@ -1,15 +1,13 @@
 package com.beering.beerig_app;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.Collections;
 
 /**
  * this class is used as a basic formatting for the dialog pop up
@@ -19,6 +17,7 @@ import java.util.Collections;
  * @version July 15 2018
  */
 public class ViewDialog extends Dialog {
+
     // instance variables for the dialog
     public Activity activity;
     public Dialog dialog;
