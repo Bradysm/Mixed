@@ -67,7 +67,6 @@ public class ViewDialog extends Dialog {
                 Toast.makeText(activity, "Enjoy the " + drinkName, Toast.LENGTH_SHORT)
                         .show();
 
-                //Send Data to Arduino
             }
         });
 
