@@ -158,7 +158,7 @@ void setup() {
   Serial.println(F("******************************"));
   Serial.println();
   Serial.println(F("<----------- Initializing Beerig ----------->"));
-  Serial.println(F("******************************"));
+  Serial.println(F("*********************************************"));
   AFMS.begin();  // create with the default frequency 1.6KHz
   //AFMS.begin(1000);  // OR with a different frequency, say 1KHz
   
