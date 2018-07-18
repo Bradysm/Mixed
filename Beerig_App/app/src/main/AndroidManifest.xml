@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />    <!-- Scanning: Needed for bluetooth scanning -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />      <!-- Controller: Client must have ACCESS_FINE_LOCATION permission to request PRIORITY_HIGH_ACCURACY location -->
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
 
     <!-- application -->
     <application
