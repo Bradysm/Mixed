@@ -49,22 +49,11 @@
                 android:layout_height="wrap_content"
                 android:textColor="#FFFFFF"
                 android:textSize="32sp"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:layout_gravity="center" />
+                android:layout_marginTop="16dp" />
 
         </LinearLayout>
 
-
-
-
     </ScrollView>
-
-
-
-
-
-
 
     <LinearLayout
         android:id="@+id/dialog_button_layout"

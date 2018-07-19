@@ -22,9 +22,5 @@ public class PartyModeActivity extends AppCompatActivity {
 
     }
 
-    public void openRandomDialog(View view){
-
-        //Drink randomDrink = new Drink()
-    }
 
 }
