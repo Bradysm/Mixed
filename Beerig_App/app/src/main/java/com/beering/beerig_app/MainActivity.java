@@ -1,5 +1,6 @@
 package com.beering.beerig_app;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         * This is where the UI will be generated
         * */
 
-        partyBtn = (ImageView) findViewById(R.id.Start_Partying);
+        partyBtn = findViewById(R.id.Start_Partying);
         runStartPartyingAnimation(partyBtn);
 
     }
@@ -167,6 +168,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         }
     };
 
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
 

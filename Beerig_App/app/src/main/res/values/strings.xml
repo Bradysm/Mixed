@@ -7,9 +7,8 @@
     <string name="gin">Gin</string>
     <string name="vodka">Vodka</string>
     <string name="pour">Pour Drink!</string>
-    <string name="cancel">Cancel Order</string>
+    <string name="cancel_order">Cancel Order</string>
     <string name="rum_spritz">Rum Spritz</string>
-    <string name="app_name">nRF UART v2.0</string>
     <string name="device">Device:</string>
     <string name="no_device">&lt;Select a device&gt;</string>
     <string name="select_device">Select a device</string>
