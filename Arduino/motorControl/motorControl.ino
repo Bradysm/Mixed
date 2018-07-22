@@ -104,14 +104,12 @@ void setup() {
   /* Initialise the module */
   Serial.print(F("Initialising the Bluefruit LE module: "));
 
-  if ( !ble.begin(VERBOSE_MODE) )
-  {
+  if ( !ble.begin(VERBOSE_MODE) ){
     error(F("Couldn't find Bluefruit, make sure it's in CoMmanD mode & check wiring?"));
   }
   Serial.println( F("OK!") );
 
-  if ( FACTORYRESET_ENABLE )
-  {
+  if ( FACTORYRESET_ENABLE ){
     /* Perform a factory reset to make sure everything is in a known state */
     Serial.println(F("Performing a factory reset: "));
     if ( ! ble.factoryReset() ){
@@ -140,8 +138,7 @@ void setup() {
   Serial.println(F("******************************"));
 
   // LED Activity command is only supported from 0.6.6
-  if ( ble.isVersionAtLeast(MINIMUM_FIRMWARE_VERSION) )
-  {
+  if ( ble.isVersionAtLeast(MINIMUM_FIRMWARE_VERSION) ){
     // Change Mode LED Activity
     Serial.println(F("Change LED activity to " MODE_LED_BEHAVIOUR));
     ble.sendCommandCheckOK("AT+HWModeLED=" MODE_LED_BEHAVIOUR);
@@ -152,73 +149,22 @@ void setup() {
   ble.setMode(BLUEFRUIT_MODE_DATA);
 
   Serial.println(F("******************************"));
-   /************* SET UP BLUETOOTH*****************/
+   /********** END BLUETOOTH SET UP ***********/
 
   /************* SET UP MOTORS*****************/
   Serial.println(F("******************************"));
   Serial.println();
   Serial.println(F("<----------- Initializing Beerig ----------->"));
   Serial.println(F("*********************************************"));
-  AFMS.begin();  // create with the default frequency 1.6KHz
-  //AFMS.begin(1000);  // OR with a different frequency, say 1KHz
-  
-  // Set the speed to start, from 0 (off) to 255 (max speed)
-  vodka->setSpeed(250);
-  vodka->run(FORWARD);
-  cranberry->setSpeed(250);
-  cranberry->run(FORWARD);
-  orangeJuice->setSpeed(250);
-  orangeJuice->run(FORWARD);
-  tequila->setSpeed(250);
-  tequila->run(FORWARD);
 
-  redBull->setSpeed(250);
-  redBull->run(FORWARD);
-  tonic->setSpeed(250);
-  tonic->run(FORWARD);
-  grenadine->setSpeed(250);
-  grenadine->run(FORWARD);
-  gin->setSpeed(250);
-  gin->run(FORWARD);
-
-  rum->setSpeed(250);
-  rum->run(FORWARD);
-  coke->setSpeed(250);
-  coke->run(FORWARD);
-  grapefruit->setSpeed(250);
-  grapefruit->run(FORWARD);
-  margaritaMix->setSpeed(250);
-  margaritaMix->run(FORWARD);
-
-  simpleSyrup->setSpeed(250);
-  simpleSyrup->run(FORWARD);
-  lemonJuice->setSpeed(250);
-  lemonJuice->run(FORWARD);
-  limeJuice->setSpeed(250);
-  limeJuice->run(FORWARD);
-  club->setSpeed(250);
-  club->run(FORWARD);
+  initializeMotorSpeed(vodka, cranberry, orangeJuice, tequila, redBull,  tonic, 
+    grenadine, gin, rum, coke, grapefruit, margaritaMix, simpleSyrup, lemonJuice, limeJuice);
   
-  // release motors
-  vodka->run(RELEASE);
-  cranberry->run(RELEASE);
-  orangeJuice->run(RELEASE);
-  tequila->run(RELEASE);
-  redBull->run(RELEASE);
-  tonic->run(RELEASE);
-  grenadine->run(RELEASE);
-  gin->run(RELEASE);
-  rum->run(RELEASE);
-  coke->run(RELEASE);
-  grapefruit->run(RELEASE);
-  margaritaMix->run(RELEASE);
-  simpleSyrup->run(RELEASE);
-  lemonJuice->run(RELEASE);
-  limeJuice->run(RELEASE);
-  club->run(RELEASE);
-  /************* SET UP MOTORS*****************/
-  
-  /************* DEFAULT DRINK ****************/
+  releaseMotors(vodka, cranberry, orangeJuice, tequila, redBull,  tonic, 
+    grenadine, gin, rum, coke, grapefruit, margaritaMix, simpleSyrup, lemonJuice, limeJuice);
+  /************ END MOTOR SET UP *************/
+
+  /************* DEFAULT DRINK ***************/
   drinkChoice = 0; 
 }
 
@@ -235,11 +181,6 @@ void loop() {
     Serial.println(drinkChoice);
     ble.flush();
   }
-
-  // run this as a test
-  grenadine->run(FORWARD);
-  gin->run(FORWARD);
-  delay(10000);
 
   // check to see if a drink was ordered
   if(drinkChoice != 0){
@@ -305,28 +246,15 @@ void loop() {
       case 20:
         rumShot(rum);
         break;
-      default: // catch any invalid number
+      default: // catch any invalid order number
         break;
     }
     drinkChoice = 0; // reset the drink choice
   }
 
   // turn off the motors
-  vodka->run(RELEASE);
-  cranberry->run(RELEASE);
-  orangeJuice->run(RELEASE);
-  tequila->run(RELEASE);
-  redBull->run(RELEASE);
-  tonic->run(RELEASE);
-  grenadine->run(RELEASE);
-  gin->run(RELEASE);
-  rum->run(RELEASE);
-  coke->run(RELEASE);
-  grapefruit->run(RELEASE);
-  margaritaMix->run(RELEASE);
-  simpleSyrup->run(RELEASE);
-  lemonJuice->run(RELEASE);
-  limeJuice->run(RELEASE);
+  releaseMotors(vodka, cranberry, orangeJuice, tequila, redBull,  tonic, 
+    grenadine, gin, rum, coke, grapefruit, margaritaMix, simpleSyrup, lemonJuice, limeJuice);
   
   // wait for one second
   delay(1000);
@@ -811,6 +739,82 @@ void drinkPour(Adafruit_DCMotor *motor, long time){
   motor->run(RELEASE);
 }
 
+/*
+ * This method will release all motors from running
+ * 
+ * @params-motors: pointer to every motor that is initialized
+*/
+void releaseMotors(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafruit_DCMotor *orangeJuice, Adafruit_DCMotor *tequila, Adafruit_DCMotor *redBull,
+  Adafruit_DCMotor *tonic, Adafruit_DCMotor *grenadine, Adafruit_DCMotor *gin, Adafruit_DCMotor *rum, Adafruit_DCMotor *coke, Adafruit_DCMotor *grapefruit,
+  Adafruit_DCMotor *margaritaMix, Adafruit_DCMotor *simpleSyrup, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *limeJuice){
+  vodka->run(RELEASE);
+  cranberry->run(RELEASE);
+  orangeJuice->run(RELEASE);
+  tequila->run(RELEASE);
+  redBull->run(RELEASE);
+  tonic->run(RELEASE);
+  grenadine->run(RELEASE);
+  gin->run(RELEASE);
+  rum->run(RELEASE);
+  coke->run(RELEASE);
+  grapefruit->run(RELEASE);
+  margaritaMix->run(RELEASE);
+  simpleSyrup->run(RELEASE);
+  lemonJuice->run(RELEASE);
+  limeJuice->run(RELEASE);
+  
+}
+
+/*
+ * This method will initialize the motor speed for all motors
+ * defined prior to it
+ * 
+ * @params-motors: pointer to every motor that is initialized
+*/
+void initializeMotorSpeed(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafruit_DCMotor *orangeJuice, Adafruit_DCMotor *tequila, Adafruit_DCMotor *redBull,
+  Adafruit_DCMotor *tonic, Adafruit_DCMotor *grenadine, Adafruit_DCMotor *gin, Adafruit_DCMotor *rum, Adafruit_DCMotor *coke, Adafruit_DCMotor *grapefruit,
+  Adafruit_DCMotor *margaritaMix, Adafruit_DCMotor *simpleSyrup, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *limeJuice){
+
+  // Set the speed to start, from 0 (off) to 255 (max speed)
+  vodka->setSpeed(250);
+  vodka->run(FORWARD);
+  cranberry->setSpeed(250);
+  cranberry->run(FORWARD);
+  orangeJuice->setSpeed(250);
+  orangeJuice->run(FORWARD);
+  tequila->setSpeed(250);
+  tequila->run(FORWARD);
+  
+  // shield 2
+  redBull->setSpeed(250);
+  redBull->run(FORWARD);
+  tonic->setSpeed(250);
+  tonic->run(FORWARD);
+  grenadine->setSpeed(250);
+  grenadine->run(FORWARD);
+  gin->setSpeed(250);
+  gin->run(FORWARD);
+  
+  // shield 3
+  rum->setSpeed(250);
+  rum->run(FORWARD);
+  coke->setSpeed(250);
+  coke->run(FORWARD);
+  grapefruit->setSpeed(250);
+  grapefruit->run(FORWARD);
+  margaritaMix->setSpeed(250);
+  margaritaMix->run(FORWARD);
+  
+  // shield 4
+  simpleSyrup->setSpeed(250);
+  simpleSyrup->run(FORWARD);
+  lemonJuice->setSpeed(250);
+  lemonJuice->run(FORWARD);
+  limeJuice->setSpeed(250);
+  limeJuice->run(FORWARD);
+  club->setSpeed(250);
+  club->run(FORWARD);
+}
 /**
  * this will convert an ASCII value to int
  * for example, 'a' will result in 1

@@ -47,9 +47,16 @@ void tequilaShot(Adafruit_DCMotor *tequila);
 // drink pour prototype
 void drinkPour(Adafruit_DCMotor *motor, long time);
 
-// random function
+// random functions
 int lowerCaseToInt(int val);
 void error(const __FlashStringHelper*err);
+void releaseMotors(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafruit_DCMotor *orangeJuice, Adafruit_DCMotor *tequila, Adafruit_DCMotor *redBull,
+  Adafruit_DCMotor *tonic, Adafruit_DCMotor *grenadine, Adafruit_DCMotor *gin, Adafruit_DCMotor *rum, Adafruit_DCMotor *coke, Adafruit_DCMotor *grapefruit,
+  Adafruit_DCMotor *margaritaMix, Adafruit_DCMotor *simpleSyrup, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *limeJuice);
+
+void initializeMotorSpeed(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafruit_DCMotor *orangeJuice, Adafruit_DCMotor *tequila, Adafruit_DCMotor *redBull,
+  Adafruit_DCMotor *tonic, Adafruit_DCMotor *grenadine, Adafruit_DCMotor *gin, Adafruit_DCMotor *rum, Adafruit_DCMotor *coke, Adafruit_DCMotor *grapefruit,
+  Adafruit_DCMotor *margaritaMix, Adafruit_DCMotor *simpleSyrup, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *limeJuice);
 
 // constants
 const long ONE_OUNCE = 15000; // measured pouring one ounce of vodka (15 sec with tube disjunction)
