@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main);
 
         // create bluetooth connection
         mBtAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         });
 
 
-        /* Handle Send button (This needs to be added into the dialogue)
+        // Handle Send button (This needs to be added into the dialogue)
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,14 +139,14 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
             }
         });
-        */
+
 
         /*
         * This is where the UI will be generated
         * */
 
-        partyBtn = findViewById(R.id.Start_Partying);
-        runStartPartyingAnimation(partyBtn);
+        //partyBtn = findViewById(R.id.Start_Partying);
+        //runStartPartyingAnimation(partyBtn);
 
     }
 
