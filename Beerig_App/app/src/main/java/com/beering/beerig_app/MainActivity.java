@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private static final int UART_PROFILE_CONNECTED = 20;
     private static final int UART_PROFILE_DISCONNECTED = 21;
     private static final int STATE_OFF = 10;
+    private boolean connected;
 
     // bluetooth connections
     private int mState = UART_PROFILE_DISCONNECTED;
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        connected = false;
 
         // create bluetooth connection
         mBtAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -103,15 +105,18 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
                         Intent newIntent = new Intent(MainActivity.this, DeviceListActivity.class);
                         startActivityForResult(newIntent, REQUEST_SELECT_DEVICE);
+                        connected = true;
                     } else {
                         //Disconnect button pressed
                         if (mDevice!=null)
                         {
                             mService.disconnect();
+                            connected = false;
 
                         }
                     }
                 }
+
             }
         });
 
@@ -147,9 +152,16 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
         //partyBtn = findViewById(R.id.Start_Partying);
         //runStartPartyingAnimation(partyBtn);
-
+        changeActivity();
     }
 
+
+    private void changeActivity(){
+        if(connected){
+            Intent intent = new Intent(this, HomeScreen.class);
+            MainActivity.this.startActivity(intent);
+        }
+    }
     //UART service connected/disconnected
     private ServiceConnection mServiceConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName className, IBinder rawBinder) {
@@ -401,10 +413,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     /**
      * Take user to the home screen so they can begin selecting their drink
      */
-    public void startHomeActivity(View view) {
-        Intent intent = new Intent(this, HomeScreen.class);
-        MainActivity.this.startActivity(intent);
-    }
+
 
     /**
      * Allows 'Start Partying' Button to fade in and out. Purely aesthetic addition.
