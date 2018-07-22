@@ -160,6 +160,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         if(connected){
             Intent intent = new Intent(this, HomeScreen.class);
             MainActivity.this.startActivity(intent);
+            Toast.makeText(this, R.string.enjoy_beerig, Toast.LENGTH_LONG)
+                    .show();
         }
     }
     //UART service connected/disconnected
@@ -202,13 +204,18 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                     public void run() {
                         String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
                         Log.d(TAG, "UART_CONNECT_MSG");
-                        btnConnectDisconnect.setText("Disconnect");
+                        btnConnectDisconnect.setText(R.string.disconnect);
                         edtMessage.setEnabled(true);
                         btnSend.setEnabled(true);
-                        ((TextView) findViewById(R.id.deviceName)).setText(mDevice.getName()+ " - ready");
+                        ((TextView) findViewById(R.id.deviceName)).setText(mDevice.getName() + "- Ready");
                         listAdapter.add("["+currentDateTimeString+"] Connected to: "+ mDevice.getName());
                         messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
                         mState = UART_PROFILE_CONNECTED;
+
+                        /*
+                         *Take User to Home Screen once connected to Bluetooth
+                         */
+                        changeActivity();
                     }
                 });
             }
