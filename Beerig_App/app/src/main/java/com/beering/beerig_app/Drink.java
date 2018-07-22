@@ -14,7 +14,7 @@ public final class Drink {
      */
     private final String drinkName; // name of drink
     private final String description; // describes the drink
-    private final char uartCom; // this will be sent to the arduino
+    private final String uartCom; // this will be sent to the arduino
     private String recipe; // ingredients for each drink
     private StringBuilder builder = new StringBuilder(); //needed to append ingredients
 
@@ -24,7 +24,7 @@ public final class Drink {
      * @param desc description of the drink and contents
      * @param uart character value which will define the drink
      */
-    public Drink(String name, String desc, char uart, String... recipe) {
+    public Drink(String name, String desc, String uart, String... recipe) {
         this.drinkName = name;
         this.description = desc;
         this.uartCom = uart;
@@ -57,9 +57,9 @@ public final class Drink {
     /**
      * gets the character to be sent over UART
      *
-     * @return char value to be sent over UART
+     * @return String value to be sent over UART
      */
-    public char getUartCom() {
+    public String getUartCom() {
         return uartCom;
     }
 

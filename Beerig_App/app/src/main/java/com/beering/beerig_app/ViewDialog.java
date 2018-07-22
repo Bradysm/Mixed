@@ -9,6 +9,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
+import java.util.Date;
+
 /**
  * this class is used as a basic formatting for the dialog pop up
  * to be used for drink ordering
@@ -29,7 +33,7 @@ public class ViewDialog extends Dialog {
 
     private String drinkName;
     private String drinkDesc;
-    private char uartChar;
+    private String uartChar;
     private String drinkRecipe;
 
     // constructor
@@ -66,6 +70,16 @@ public class ViewDialog extends Dialog {
             public void onClick(View view){
                 Toast.makeText(activity, "Enjoy the " + drinkName, Toast.LENGTH_SHORT)
                         .show();
+                byte[] value;
+                try {
+                    //send data to service
+                    value = uartChar.getBytes("UTF-8");
+                    MainActivity.mService.writeRXCharacteristic(value);
+
+                } catch (UnsupportedEncodingException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
 
             }
         });
