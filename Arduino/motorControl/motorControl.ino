@@ -236,6 +236,11 @@ void loop() {
     ble.flush();
   }
 
+  // run this as a test
+  grenadine->run(FORWARD);
+  gin->run(FORWARD);
+  delay(10000);
+
   // check to see if a drink was ordered
   if(drinkChoice != 0){
     // run through a list of drinks
@@ -340,8 +345,13 @@ void loop() {
 void vodkaCranberry(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran){
   Serial.println("Vodka Cranberry");
   Serial.println();
-  drinkPour(vodka, ONE_OUNCE);
-  drinkPour(cran, (long)(ONE_OUNCE * 4.5));
+  // run all motors
+  vodka->run(FORWARD);
+  cran->run(FORWARD);
+  delay(ONE_OUNCE);
+  vodka->run(RELEASE); // stop vodka
+  delay(3.5 * ONE_OUNCE);
+  cran->run(RELEASE); // stop cranberry
 }
 
 /**
@@ -356,8 +366,13 @@ void vodkaCranberry(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran){
 void screwdriver(Adafruit_DCMotor *vodka, Adafruit_DCMotor *oj){
   Serial.println("Screwdriver");
   Serial.println();
-  drinkPour(vodka, (long)(ONE_OUNCE * 1.75));
-  drinkPour(oj, (long)(ONE_OUNCE * 3.5));
+  // run all motors
+  vodka->run(FORWARD);
+  oj->run(FORWARD);
+  delay(1.75 * ONE_OUNCE);
+  vodka->run(RELEASE); // stop vodka
+  delay(1.75 * ONE_OUNCE);
+  oj->run(RELEASE); // stop oj
 }
 
 /**
@@ -372,8 +387,13 @@ void screwdriver(Adafruit_DCMotor *vodka, Adafruit_DCMotor *oj){
 void vodkaRedBull(Adafruit_DCMotor *vodka, Adafruit_DCMotor *redBull){
   Serial.println("Vodka RedBull");
   Serial.println();
-  drinkPour(vodka, TWO_OUNCES);
-  drinkPour(redBull, (long)(ONE_OUNCE * 4));
+  // run all motors
+  vodka->run(FORWARD);
+  redBull->run(FORWARD);
+  delay(TWO_OUNCES);
+  vodka->run(RELEASE); // stop vodka
+  delay(TWO_OUNCES);
+  redBull->run(RELEASE); // stop red bull
 }
 
 /**
@@ -390,8 +410,13 @@ void vodkaRedBull(Adafruit_DCMotor *vodka, Adafruit_DCMotor *redBull){
 void vodkaTonic(Adafruit_DCMotor *vodka, Adafruit_DCMotor *tonic){
   Serial.println("Vodka Tonic");
   Serial.println();
-  drinkPour(vodka, TWO_OUNCES);
-  drinkPour(tonic, (long)(ONE_OUNCE * 4));
+  // run all motors
+  vodka->run(FORWARD);
+  tonic->run(FORWARD);
+  delay(TWO_OUNCES);
+  vodka->run(RELEASE); // stop vodka
+  delay(TWO_OUNCES);
+  tonic->run(RELEASE); // stop tonic
 }
 
 
@@ -410,9 +435,16 @@ void vodkaTonic(Adafruit_DCMotor *vodka, Adafruit_DCMotor *tonic){
 void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *grapefruit){
   Serial.println("Sea Breeze");
   Serial.println();
-  drinkPour(vodka, (long)(ONE_OUNCE * 1.333));
-  drinkPour(cran, (long)(ONE_OUNCE * 4));
-  drinkPour(grapefruit, ONE_OUNCE);
+  // run all motors
+  vodka->run(FORWARD);
+  cran->run(FORWARD);
+  grapefruit->run(FORWARD);
+  delay(ONE_OUNCE);
+  grapefruit->run(RELEASE); // stop grapfruit
+  delay(0.3333 * ONE_OUNCE);
+  vodka->run(RELEASE); // stop vodka
+  delay(2.777 * ONE_OUNCE);
+  cran->run(RELEASE); // stop cranberry juice
 }
 
 /**
@@ -420,7 +452,7 @@ void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor
  * This drink contains 3 ounces of cranberry
  * 1 1/2 ounces of vodka and one ounce of orange juice
  * This drink should be served with ice
- * and lime juice/wedge
+ * and lime juice/wedge. This drink should have OJ at the bottom so that will run alone
  * 
  * @param-vodka: pointer to vodka motor
  * @param-cran: pointer to cranberry motor
@@ -430,9 +462,15 @@ void seaBreeze(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor
 void madras(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *oj){
   Serial.println("Madras");
   Serial.println();
-  drinkPour(vodka, (long)(ONE_OUNCE * 1.50));
-  drinkPour(cran, (long)(ONE_OUNCE * 3));
-  drinkPour(oj, ONE_OUNCE); 
+  // run oj to sit at the bottom
+  drinkPour(oj, ONE_OUNCE);
+  // run vodka and cran
+  vodka->run(FORWARD);
+  cran->run(FORWARD);
+  delay(1.5 * ONE_OUNCE);
+  vodka->run(RELEASE); // cancel vodka
+  delay(1.5 * ONE_OUNCE);
+  cran->run(RELEASE);
 }
 
 /**
@@ -460,8 +498,14 @@ void vodkaShot(Adafruit_DCMotor *vodka){
 void cokeAndRum(Adafruit_DCMotor *rum, Adafruit_DCMotor *coke){
   Serial.println("Coke and Rum");
   Serial.println();
-  drinkPour(rum, (long)(ONE_OUNCE * 4));
-  drinkPour(coke, (long)(ONE_OUNCE * 1.667));
+  // run all motors
+  rum->run(FORWARD);
+  coke->run(FORWARD);
+  delay(ONE_OUNCE * 1.667);
+  rum->run(RELEASE); // stop rum
+  delay(2.333 * ONE_OUNCE);
+  coke->run(RELEASE); // stop coke
+  
 }
 
 /**
@@ -478,9 +522,16 @@ void cokeAndRum(Adafruit_DCMotor *rum, Adafruit_DCMotor *coke){
 void daiquiri(Adafruit_DCMotor *rum, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *simpleSyrup){
   Serial.println("Daquiri");
   Serial.println();
-  drinkPour(rum, TWO_OUNCES);
-  drinkPour(limeJuice, ONE_OUNCE);
-  drinkPour(simpleSyrup, (long)(ONE_OUNCE * 0.5));
+  // run all motors
+  rum->run(FORWARD);
+  limeJuice->run(FORWARD);
+  simpleSyrup->run(FORWARD);
+  delay(ONE_OUNCE * 0.5);
+  simpleSyrup->run(RELEASE); // stop syrup
+  delay(ONE_OUNCE * 0.5);
+  limeJuice->run(RELEASE); // stop lime juice
+  delay(ONE_OUNCE);
+  rum->run(RELEASE); // stop rum
 }
 
 
@@ -497,8 +548,14 @@ void daiquiri(Adafruit_DCMotor *rum, Adafruit_DCMotor *limeJuice, Adafruit_DCMot
 void rumSpritz(Adafruit_DCMotor *rum, Adafruit_DCMotor *club){
   Serial.println("Rum Spritz");
   Serial.println();
-  drinkPour(rum, (long)(ONE_OUNCE * 1.5));
-  drinkPour(club, (long)(ONE_OUNCE * 3));
+  // run all motors
+  rum->run(FORWARD);
+  club->run(FORWARD);
+  delay(ONE_OUNCE * 1.5); 
+  rum->run(RELEASE); // stop rum
+  delay(ONE_OUNCE * 1.5);
+  club->run(RELEASE); // stop club
+  
 }
 
 
@@ -529,9 +586,16 @@ void rumShot(Adafruit_DCMotor *rum){
 void lemonMarg(Adafruit_DCMotor *tequila, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *simpleSyrup){
   Serial.println("Lemon Margarita");
   Serial.println();
-  drinkPour(tequila, TWO_OUNCES);
-  drinkPour(lemonJuice, (long)(ONE_OUNCE * 1.5));
-  drinkPour(simpleSyrup, (long)(ONE_OUNCE * .75));
+  // run all motors
+  tequila->run(FORWARD);
+  lemonJuice->run(FORWARD);
+  simpleSyrup->run(FORWARD);
+  delay(ONE_OUNCE * 0.75);
+  simpleSyrup->run(RELEASE); // stop the syrup
+  delay(ONE_OUNCE * 0.75);
+  lemonJuice->run(RELEASE); // stop lemon juice
+  delay(ONE_OUNCE * 0.5);
+  tequila->run(RELEASE);
 }
 
 /**
@@ -548,8 +612,16 @@ void lemonMarg(Adafruit_DCMotor *tequila, Adafruit_DCMotor *lemonJuice, Adafruit
 void tequilaSunrise(Adafruit_DCMotor *tequila, Adafruit_DCMotor *oj, Adafruit_DCMotor *grenadine){
   Serial.println("Tequila Sunrise");
   Serial.println();
-  drinkPour(tequila, (long)(ONE_OUNCE * 1.5));
-  drinkPour(oj, (long)(ONE_OUNCE * 3));
+
+  // only run tequila and oj
+  tequila->run(FORWARD);
+  oj->run(FORWARD);
+  delay(ONE_OUNCE * 1.5);
+  tequila->run(RELEASE); // stop tequila
+  delay(ONE_OUNCE * 1.5);
+  oj->run(RELEASE); // stop oj
+  
+  // pour grenadine last to give affect
   drinkPour(grenadine, (long)(ONE_OUNCE * 0.5));
 }
 
@@ -567,8 +639,15 @@ void tequilaSunrise(Adafruit_DCMotor *tequila, Adafruit_DCMotor *oj, Adafruit_DC
 void margarita(Adafruit_DCMotor *tequila, Adafruit_DCMotor *margaritaMix){
   Serial.println("Margarita");
   Serial.println();
-  drinkPour(tequila, ONE_OUNCE);
-  drinkPour(margaritaMix, (long)(ONE_OUNCE *3));
+
+  // run all motors
+  tequila->run(FORWARD);
+  margaritaMix->run(FORWARD);
+  delay(ONE_OUNCE);
+  tequila->run(RELEASE); // stop the tequuila
+  delay(TWO_OUNCES);
+  margaritaMix->run(RELEASE); // stop mix
+  
 }
 
 /**
@@ -599,8 +678,14 @@ void tequilaShot(Adafruit_DCMotor *tequila){
 void ginAndTonic(Adafruit_DCMotor *gin, Adafruit_DCMotor *tonic){
   Serial.println("Gin and Tonic");
   Serial.println();
-  drinkPour(gin, (long)(ONE_OUNCE * 3));
-  drinkPour(tonic, (long)(ONE_OUNCE * 4));
+
+  // run all of the motors
+  gin->run(FORWARD);
+  tonic->run(FORWARD);
+  delay(3* ONE_OUNCE);
+  gin->run(RELEASE); // stop gin
+  delay(ONE_OUNCE);
+  tonic->run(RELEASE); // stop tonic
 }
 
 /**
@@ -618,10 +703,20 @@ void ginAndTonic(Adafruit_DCMotor *gin, Adafruit_DCMotor *tonic){
 void tomCollins(Adafruit_DCMotor *gin, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *club, Adafruit_DCMotor *simpleSyrup){
   Serial.println("Tom Collins");
   Serial.println();
-  drinkPour(gin, (long)(ONE_OUNCE * 1.5));
-  drinkPour(lemonJuice, ONE_OUNCE);
-  drinkPour(club, TWO_OUNCES);
-  drinkPour(simpleSyrup, (long)(ONE_OUNCE * 0.5));
+
+  // run all of the motors
+  gin->run(FORWARD);
+  club->run(FORWARD);
+  simpleSyrup->run(FORWARD);
+  lemonJuice->run(FORWARD);
+  delay(ONE_OUNCE * 0.5);
+  simpleSyrup->run(RELEASE); // stop syrup
+  delay(ONE_OUNCE * 0.5);
+  lemonJuice->run(RELEASE);
+  delay(ONE_OUNCE * 0.5);
+  gin->run(RELEASE);
+  delay(ONE_OUNCE * 0.5);
+  club->run(RELEASE); // stop tonic
 }
 
 /**
@@ -638,8 +733,12 @@ void tomCollins(Adafruit_DCMotor *gin, Adafruit_DCMotor *lemonJuice, Adafruit_DC
 void saltyDog(Adafruit_DCMotor *gin, Adafruit_DCMotor *grapefruit){
   Serial.println("Salty Dog");
   Serial.println();
-  drinkPour(gin, TWO_OUNCES);
-  drinkPour(grapefruit, (long)(ONE_OUNCE * 4));
+  gin->run(FORWARD);
+  grapefruit->run(FORWARD);
+  delay(TWO_OUNCES);
+  gin->run(RELEASE);
+  delay(TWO_OUNCES);
+  grapefruit->run(RELEASE);
 }
 
 /**
@@ -657,9 +756,16 @@ void saltyDog(Adafruit_DCMotor *gin, Adafruit_DCMotor *grapefruit){
 void gimlet(Adafruit_DCMotor *gin, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *simpleSyrup){
   Serial.println("Gimlet");
   Serial.println();
-  drinkPour(gin, (long)(ONE_OUNCE * 2.50));
-  drinkPour(limeJuice, (long)(ONE_OUNCE * 0.50));
-  drinkPour(simpleSyrup, (long)(ONE_OUNCE * 0.50));
+
+  // run all motors
+  gin->run(FORWARD);
+  limeJuice->run(FORWARD);
+  simpleSyrup->run(FORWARD);
+  delay(ONE_OUNCE * 0.5);
+  limeJuice->run(RELEASE); // stop lime juice and syrup
+  simpleSyrup->run(RELEASE);
+  delay(TWO_OUNCES);
+  gin->run(RELEASE); // stop gin
 }
 
 
@@ -677,9 +783,17 @@ void gimlet(Adafruit_DCMotor *gin, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor
 void ginRickey(Adafruit_DCMotor *gin, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *club){
   Serial.println("Gin Rickey");
   Serial.println();
-  drinkPour(gin, TWO_OUNCES);
-  drinkPour(limeJuice, ONE_OUNCE);
-  drinkPour(club, (long)(ONE_OUNCE * 4));
+
+  // run all motors
+  gin->run(FORWARD);
+  limeJuice->run(FORWARD);
+  club->run(FORWARD);
+  delay(ONE_OUNCE);
+  limeJuice->run(RELEASE); // stop lime juice
+  delay(ONE_OUNCE);
+  gin->run(RELEASE); // stop gin
+  delay(TWO_OUNCES);
+  club->run(RELEASE); // stop gin
 }
 
 /*
