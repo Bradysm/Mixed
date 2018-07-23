@@ -10,16 +10,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/drink_page_background"
+    android:background="@drawable/background"
     tools:context=".TequilaActivity">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/app_name"
-        android:background="@drawable/beerig_logo_light"
-        android:foregroundGravity="center"
-        android:layout_centerInParent="true" />
 
     <ScrollView
         android:layout_width="match_parent"

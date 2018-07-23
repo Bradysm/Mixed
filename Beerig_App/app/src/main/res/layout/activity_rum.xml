@@ -10,24 +10,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/drink_page_background"
+    android:background="@drawable/background"
     tools:context=".RumActivity">
-
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/app_name"
-        android:background="@drawable/beerig_logo_light"
-        android:foregroundGravity="center"
-        android:layout_centerInParent="true" />
-
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
         <!-- Table layout used to represent the drinks in a user friendly fashion -->
         <TableLayout
             android:layout_width="match_parent"
@@ -40,8 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                android:gravity="center"
-                >
+                android:gravity="center">
 
 
                 <ImageView
@@ -49,26 +39,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/rum"
-                    android:src="@drawable/rum_title"
                     android:foregroundGravity="top"
-                    />
+                    android:src="@drawable/rum_title" />
 
             </TableRow>
 
             <!-- drink row 1 -->
-           <TableRow
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp">
 
                 <ImageButton
                     android:layout_width="wrap_content"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/rum_spritz_container"
-                    android:background="@android:color/transparent"
                     android:layout_margin="8dp"
-                    android:onClick="openRumSpritz"/>
-
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="openRumSpritz"
+                    android:src="@drawable/rum_spritz_container" />
 
 
                 <ImageButton
@@ -77,8 +65,8 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/coke_and_rum_container"
-                    android:onClick="openCokeAndRum"/>
+                    android:onClick="openCokeAndRum"
+                    android:src="@drawable/coke_and_rum_container" />
 
             </TableRow>
 
@@ -95,8 +83,8 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/daiquiri_container"
-                    android:onClick="openDaiquiri"/>
+                    android:onClick="openDaiquiri"
+                    android:src="@drawable/daiquiri_container" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -104,8 +92,8 @@
                     android:layout_margin="8dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/rum_shot"
-                    android:onClick="openRumShot"/>
+                    android:onClick="openRumShot"
+                    android:src="@drawable/rum_shot" />
             </TableRow>
         </TableLayout>
     </ScrollView>

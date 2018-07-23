@@ -11,17 +11,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/drink_page_background"
     tools:context=".HomeScreen" >
 
-    <ImageView
-        android:id="@+id/main_screen_background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/liquors"
-        android:background="@drawable/beerig_logo_light"
-        android:contentDescription="@string/app_name" />
 
     <ImageView
         android:id="@+id/choose_your_drink"
@@ -36,15 +27,15 @@
         android:id="@+id/liquors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_centerVertical="true"
-        android:layout_marginStart="8dp">
+        android:layout_marginStart="8dp"
+        android:layout_centerHorizontal="true">
 
         <ImageButton
             android:id="@+id/tequila"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
             android:background="@null"
             android:contentDescription="@string/tequila"
             android:src="@drawable/tequila_button"
@@ -58,12 +49,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:contentDescription="@string/rum"
-            android:src="@drawable/rum_button"
             android:clickable="true"
+            android:contentDescription="@string/rum"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:onClick="startRumActivity"/>
+            android:onClick="startRumActivity"
+            android:src="@drawable/rum_button" />
 
         <ImageButton
             android:id="@+id/gin"
@@ -91,24 +82,12 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/settings"
-        android:contentDescription="@string/app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:src="@drawable/bluetooth"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="16dp"/>
+
     <ImageButton
         android:id="@+id/party_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="-16dp"
-        android:layout_marginBottom="-60dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
         android:background="@android:color/transparent"
         android:clickable="true"
         android:contentDescription="@string/Start_Partying"

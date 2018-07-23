@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="72dp"
                 android:fontFamily="@font/sign_painter"
-                android:textColor="#FC8E85"
+                android:textColor="#FED05C"
                 android:textSize="56sp"
                 android:gravity="center"
                 android:layout_gravity="center" />
