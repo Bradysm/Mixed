@@ -62,8 +62,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private Button btnConnectDisconnect,btnSend;
     private EditText edtMessage;
 
-    // UI elements
-    private ImageView partyBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         messageListView.setAdapter(listAdapter);
         messageListView.setDivider(null);
         btnConnectDisconnect=(Button) findViewById(R.id.btn_select);
-        btnSend=(Button) findViewById(R.id.sendButton);
         edtMessage = (EditText) findViewById(R.id.sendText);
         service_init();
 
@@ -118,38 +115,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             }
         });
 
-
-        // Handle Send button (This needs to be added into the dialogue)
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText editText = (EditText) findViewById(R.id.sendText);
-                String message = editText.getText().toString();
-                byte[] value;
-                try {
-                    //send data to service
-                    value = message.getBytes("UTF-8");
-                    mService.writeRXCharacteristic(value);
-                    //Update the log with time stamp
-                    String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    listAdapter.add("["+currentDateTimeString+"] TX: "+ message);
-                    messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                    edtMessage.setText("");
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-
-
-        /*
-        * This is where the UI will be generated
-        * */
-
-        //partyBtn = findViewById(R.id.Start_Partying);
-        //runStartPartyingAnimation(partyBtn);
+        // this will change to the drink selection activity once a UART device is connected
         changeActivity();
     }
 
