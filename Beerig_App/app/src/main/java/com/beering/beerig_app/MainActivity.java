@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private BluetoothAdapter mBtAdapter = null;
     private ListView messageListView;
     private ArrayAdapter<String> listAdapter;
-    private Button btnConnectDisconnect,btnSend;
+    private Button btnConnectDisconnect;
     private EditText edtMessage;
 
 
@@ -170,7 +170,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                         Log.d(TAG, "UART_CONNECT_MSG");
                         btnConnectDisconnect.setText(R.string.disconnect);
                         edtMessage.setEnabled(true);
-                        btnSend.setEnabled(true);
                         ((TextView) findViewById(R.id.deviceName)).setText(mDevice.getName() + "- Ready");
                         listAdapter.add("["+currentDateTimeString+"] Connected to: "+ mDevice.getName());
                         messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
@@ -192,7 +191,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                         Log.d(TAG, "UART_DISCONNECT_MSG");
                         btnConnectDisconnect.setText("Connect");
                         edtMessage.setEnabled(false);
-                        btnSend.setEnabled(false);
                         ((TextView) findViewById(R.id.deviceName)).setText("Not Connected");
                         listAdapter.add("["+currentDateTimeString+"] Disconnected to: "+ mDevice.getName());
                         mState = UART_PROFILE_DISCONNECTED;
