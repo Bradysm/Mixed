@@ -63,7 +63,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:enabled="false"
-                android:text="Send" />
+                android:text="Send"
+                android:visibility="invisible"/>
 
         </RelativeLayout>
     </LinearLayout>

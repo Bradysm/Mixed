@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         >
 
+        <!-- Table layout used to represent the drinks in a user friendly fashion -->
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

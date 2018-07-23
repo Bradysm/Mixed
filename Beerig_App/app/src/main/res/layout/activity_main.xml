@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+@author Brady Murphy
+@author Andrew
+@version July 22, 2018
+-->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,21 +14,7 @@
     tools:context=".MainActivity"
     android:background="@drawable/background"
     android:clickable="true"
-    android:focusable="true"
-    android:onClick="startHomeActivity">
-
-
-    <!-- Background Image for main activity -->
-    <!-- Use if android:background in RelativeLayout is not working -->
-    <!--
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background" />
-     -->
+    android:focusable="true">
 
     <!-- Image for the 'Beerig - Personal Bartender' Logo -->
     <ImageView
@@ -53,7 +45,6 @@
         android:layout_alignParentBottom="true"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="startHomeActivity"
         android:background="@android:color/transparent"
         android:src="@drawable/start_partying_button" />
 
