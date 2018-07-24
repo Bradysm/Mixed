@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+@author Brady Murphy
+@version July 22, 2018
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/party_mode_dialogue">
+
+    <!-- Scroll View is used in case drink description is too long -->
+    <ScrollView
+        android:id="@+id/dialog_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/drink_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:fontFamily="@font/sign_painter"
+                android:textColor="#C0F7FE"
+                android:textSize="56sp"
+                android:gravity="center"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/drink_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textSize="28sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/drink_recipe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="32dp"
+                android:paddingBottom="8dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/dialog_button_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="24dp">
+
+        <ImageButton
+            android:id="@+id/pour_drink_party"
+            android:contentDescription="@string/pour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/get_lit_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@null"
+            />
+
+        <ImageButton
+            android:id="@+id/go_back_party"
+            android:contentDescription="@string/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/go_back_party_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@null" />
+
+    </LinearLayout>
+
+</RelativeLayout>

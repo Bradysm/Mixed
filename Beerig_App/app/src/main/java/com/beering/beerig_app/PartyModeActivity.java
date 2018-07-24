@@ -1,15 +1,20 @@
 package com.beering.beerig_app;
 
-import android.app.Dialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import java.security.SecureRandom;
 
 public class PartyModeActivity extends AppCompatActivity {
 
+    /**
+     * instance variables used to create the functionality
+     * of party mode
+     */
     private ImageView partyDescription;
     private DrinkList list = new DrinkList();
+    private SecureRandom randomNumber = new SecureRandom();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +34,18 @@ public class PartyModeActivity extends AppCompatActivity {
      * @param view current view
      */
     public void openPartyDialog(View view){
-        Drink random = list.getDrink("PARTY MODE");
-        ViewDialog dialog = new ViewDialog(this, random);
+        // create a random number to determine vodka or tequila
+        int randomNum = randomNumber.nextInt(2) + 1;
+        int randomShots = randomNumber.nextInt(4) + 1;
+        Drink randomDrink = null;
+
+        if(randomNum == 1)
+            randomDrink = list.getDrink("Vodka Shot");
+        else
+            randomDrink = list.getDrink("Tequila Shot");
+
+
+        PartyDialog dialog = new PartyDialog(this, randomDrink, randomShots);
         dialog.show();
     }
 
