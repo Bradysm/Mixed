@@ -13,8 +13,6 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
         Intent intent = getIntent();
 
-
-
     }
 
     // Methods to Open each Drink Activity
