@@ -13,91 +13,76 @@
     android:background="@drawable/background"
     tools:context=".TequilaActivity">
 
+    <!-- *Row for "Tequila" Title* -->
 
-    <ScrollView
+    <ImageView
+        android:id="@+id/tequila_screen_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:contentDescription="@string/rum"
+        android:src="@drawable/tequila_title" />
 
-        <!-- Table layout used to represent the drinks in a user friendly fashion -->
-        <TableLayout
-            android:layout_width="match_parent"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:contentDescription="@string/vodka"
+        android:focusable="true"
+        android:onClick="goBack"
+        android:src="@drawable/back_main_button" />
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tequila_screen_title">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:stretchColumns="*">
+            android:orientation="horizontal">
 
-            <!-- *Row for "Tequla" Title*
-                 *Should Scroll with drink elements* -->
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:gravity="center"
-                >
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/app_name"
+                android:onClick="openTequilaSunrise"
+                android:src="@drawable/tequila_sunrise_container" />
 
 
-                <ImageView
-                    android:id="@+id/tequla_screen_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/tequila"
-                    android:src="@drawable/tequila_title"
-                    android:foregroundGravity="top"
-                    />
-
-            </TableRow>
-
-            <!-- drink row 1 -->
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/tequila_sunrise_container"
-                    android:background="@android:color/transparent"
-                    android:layout_margin="8dp"
-                    android:onClick="openTequilaSunrise"/>
-
-
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/lemon_marg_container"
-                    android:onClick="openLemonMarg"/>
-
-            </TableRow>
-
-            <!-- drink row 2 -->
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:gravity="center">
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/app_name"
+                android:onClick="openLemonMarg"
+                android:src="@drawable/lemon_marg_container" />
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/margarita_container"
-                    android:onClick="openMargarita"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/app_name"
+                android:onClick="openMargarita"
+                android:src="@drawable/margarita_container" />
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/tequila_shot_container"
-                    android:onClick="openTequilaShot"/>
-            </TableRow>
-        </TableLayout>
-    </ScrollView>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/app_name"
+                android:onClick="openTequilaShot"
+                android:src="@drawable/tequila_shot_container" />
+        </LinearLayout>
+    </HorizontalScrollView>
 </RelativeLayout>

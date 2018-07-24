@@ -74,4 +74,11 @@ public class TequilaActivity extends AppCompatActivity {
         dialog.show();
 
     }
+
+    /**
+     * this will move back to the previous activity
+     */
+    public void goBack(View view){
+        finish();
+    }
 }

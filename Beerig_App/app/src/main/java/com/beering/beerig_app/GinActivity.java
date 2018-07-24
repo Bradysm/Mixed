@@ -96,4 +96,11 @@ public class GinActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * this will move back to the previous activity
+     */
+    public void goBack(View view){
+        finish();
+    }
+
 }

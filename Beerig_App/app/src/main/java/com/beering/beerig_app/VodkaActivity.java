@@ -113,7 +113,7 @@ public class VodkaActivity extends AppCompatActivity {
     /**
      * this will move back to the previous activity
      */
-    public void goBack(){
+    public void goBack(View view){
         finish();
     }
 }

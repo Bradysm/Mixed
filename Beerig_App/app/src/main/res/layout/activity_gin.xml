@@ -13,44 +13,46 @@
     android:background="@drawable/background"
     tools:context=".GinActivity">
 
-    <ScrollView
+    <!-- *Row for "Gin" Title* -->
+
+    <ImageView
+        android:id="@+id/gin_screen_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/rum"
+        android:src="@drawable/gin_title" />
 
-        <!-- Table layout used to represent the drinks in a user friendly fashion -->
-        <TableLayout
-            android:layout_width="match_parent"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/vodka"
+        android:src="@drawable/back_main_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="goBack"/>
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gin_screen_title">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:stretchColumns="*">
-
-            <!-- *Row for "Gin" Title*
-                 *Should Scroll with drink elements* -->
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:gravity="center">
-
-
-                <ImageView
-                    android:id="@+id/gin_screen_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/rum"
-                    android:foregroundGravity="top"
-                    android:src="@drawable/gin_title" />
-
-            </TableRow>
-
-            <!-- drink row 1 -->
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp">
+            android:orientation="horizontal">
 
                 <ImageButton
                     android:layout_width="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/gin_and_tonic_container"
@@ -60,25 +62,21 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/tom_collins_container"
                     android:onClick="openTomCollins"/>
 
-            </TableRow>
-
-            <!-- drink row 2 -->
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:gravity="center">
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/salty_dog_container"
@@ -87,24 +85,20 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/gimlet_container"
                     android:onClick="openGimlet" />
-            </TableRow>
-
-            <!-- drink row 3 -->
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:gravity="center">
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/gin_rickey_container"
@@ -113,12 +107,13 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/gin_shot_container"
                     android:onClick="openGinShot"/>
-            </TableRow>
-        </TableLayout>
-    </ScrollView>
+        </LinearLayout>
+    </HorizontalScrollView>
 </RelativeLayout>
