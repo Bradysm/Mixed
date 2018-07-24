@@ -109,4 +109,11 @@ public class VodkaActivity extends AppCompatActivity {
         dialog.show();
 
     }
+
+    /**
+     * this will move back to the previous activity
+     */
+    public void goBack(){
+        finish();
+    }
 }
