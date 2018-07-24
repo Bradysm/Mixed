@@ -39,7 +39,7 @@ public class PartyDialog extends Dialog{
     public PartyDialog(Activity a, Drink drink, int numShots) {
         super(a);
         this.activity = a;
-        this.drinkName = drink.getDrinkName();
+        this.drinkName = String.format("%s%s", drink.getDrinkName(), (numShots != 1 ? "'s" : ""));
         this.drinkDesc = String.format("A random alcohol was selected and you got %s's!" +
                 " Your generated number of shots is %d! Line em up! A shot will be poured every 30 seconds so get ready!"
                 , drinkName.toLowerCase(),
