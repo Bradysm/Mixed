@@ -29,7 +29,7 @@ public class PartyModeActivity extends AppCompatActivity {
      * @param view current view
      */
     public void openPartyDialog(View view){
-        Drink random = list.getDrink("random");
+        Drink random = list.getDrink("PARTY MODE");
         ViewDialog dialog = new ViewDialog(this, random);
         dialog.show();
     }

@@ -46,7 +46,8 @@
                 android:lines="1"
                 android:maxLength="20"
                 android:maxLines="1"
-                android:shadowRadius="1" />
+                android:shadowRadius="1"
+                android:visibility="invisible"/>
 
             <ListView
                 android:id="@+id/listMessage"
