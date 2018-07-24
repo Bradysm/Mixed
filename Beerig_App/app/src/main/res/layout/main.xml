@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/mixed_background">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_select"
@@ -16,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="Connect"
-            android:background="@color/peach"/>
+            android:background="@color/navy"/>
     </LinearLayout>
 
     <LinearLayout

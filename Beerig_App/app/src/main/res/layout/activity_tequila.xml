@@ -3,7 +3,7 @@
 <!--
 @author Brady Murphy
 @author Andrew
-@version July 10, 2018
+@version July 22, 2018
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -39,7 +39,7 @@
                     android:id="@+id/tequla_screen_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/rum"
+                    android:contentDescription="@string/tequila"
                     android:src="@drawable/tequila_title"
                     android:foregroundGravity="top"
                     />
