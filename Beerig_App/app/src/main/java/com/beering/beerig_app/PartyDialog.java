@@ -41,7 +41,8 @@ public class PartyDialog extends Dialog{
         this.activity = a;
         this.drinkName = String.format("%s%s", drink.getDrinkName(), (numShots != 1 ? "'s" : ""));
         this.drinkDesc = String.format("A random alcohol was selected and you got %s's!" +
-                " Your generated number of shots is %d! A shot will be poured every 30 seconds so get ready. Line 'em up!"
+                " Your generated number of shots is %d! " +
+                        "A shot will be poured every 30 seconds so get ready. Line 'em up!"
                 , drink.getDrinkName().toLowerCase(),
                 numShots);
         this.uartChar = drink.getUartCom();
@@ -70,20 +71,29 @@ public class PartyDialog extends Dialog{
         drinkBtn = (ImageButton) findViewById(R.id.pour_drink_party);
         drinkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                Toast.makeText(activity, "Enjoy the " + drinkName, Toast.LENGTH_SHORT)
-                        .show();
-                byte[] value;
-                try {
-                    //send data to service
-                    value = uartChar.getBytes("UTF-8");
-                    MainActivity.mService.writeRXCharacteristic(value);
+            public void onClick(View view) {
+                /*
+                 while the number of shots is not zero, pour another and wait 30 seconds
+                 */
+                while (shots != 0) {
+                    Toast.makeText(activity, "Enjoy the " + drinkName, Toast.LENGTH_SHORT)
+                            .show();
+                    byte[] value;
+                    try {
+                        //send data to service
+                        value = uartChar.getBytes("UTF-8");
+                        MainActivity.mService.writeRXCharacteristic(value);
 
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                    // implement the timer here, add a toast when it's ten seconds to pouring
+
+                    // decrement the shot number
+                    shots--;
                 }
-
             }
         });
 
