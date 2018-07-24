@@ -131,6 +131,16 @@ public final class DrinkList {
                 "1 shot of Rum!");
 
 
+        /*
+         *  <------ PartyMode Drink ------>
+         */
+
+        //Random Tequila/Vodka Shot
+        Drink random = new Drink("PARTY MODE", "Hope your Ready for the Challenge! Random Shots of tequila and vodka will be Poured!",
+                "", "???");
+
+
+
 
         // add any new drinks to the hash table as created
         // same order as above
@@ -164,6 +174,8 @@ public final class DrinkList {
         list.put(rumSpritz.getDrinkName(), rumSpritz);
         list.put(rumShot.getDrinkName(), rumShot);
 
+        //Party Mode
+        list.put(random.getDrinkName(), random);
 
     }
 

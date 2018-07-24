@@ -38,6 +38,7 @@
         android:clickable="true"
         android:contentDescription="@string/Start_Partying"
         android:focusable="true"
+        android:onClick="openPartyDialog"
         android:src="@drawable/party_button" />
 
     <!-- **Running into issues with this ImageView**

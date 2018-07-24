@@ -9,6 +9,7 @@ import android.widget.ImageView;
 public class PartyModeActivity extends AppCompatActivity {
 
     private ImageView partyDescription;
+    private DrinkList list = new DrinkList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +23,15 @@ public class PartyModeActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * this method will open the dialog box for Party Mode
+     *
+     * @param view current view
+     */
+    public void openPartyDialog(View view){
+        Drink random = list.getDrink("random");
+        ViewDialog dialog = new ViewDialog(this, random);
+        dialog.show();
+    }
 
 }

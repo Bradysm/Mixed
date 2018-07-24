@@ -96,6 +96,14 @@ public class ViewDialog extends Dialog {
 
     }
 
+    public void setDrinkName(String newDrink){
+        this.drinkName = newDrink;
+    }
+
+    public String getDrinkName(){
+        return drinkName;
+    }
+
 
 }
 
