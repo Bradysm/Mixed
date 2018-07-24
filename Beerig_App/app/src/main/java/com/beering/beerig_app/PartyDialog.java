@@ -94,6 +94,8 @@ public class PartyDialog extends Dialog{
                     // decrement the shot number
                     shots--;
                 }
+                dismiss();
+
             }
         });
 

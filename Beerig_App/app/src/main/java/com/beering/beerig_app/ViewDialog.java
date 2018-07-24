@@ -80,7 +80,7 @@ public class ViewDialog extends Dialog {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-
+                dismiss();
             }
         });
 
