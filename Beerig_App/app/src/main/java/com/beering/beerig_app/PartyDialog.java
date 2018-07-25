@@ -1,9 +1,11 @@
 package com.beering.beerig_app;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -16,11 +18,11 @@ import java.io.UnsupportedEncodingException;
 /**
  * @author Brady Murphy
  * @version July 24, 2018
- *
+ * <p>
  * This class is created to represent the functionality behind
  * the Party Mode dialog
  */
-public class PartyDialog extends Dialog{
+public class PartyDialog extends Dialog {
     // instance variables for UI
     public Activity activity;
     public Dialog dialog;
@@ -36,7 +38,9 @@ public class PartyDialog extends Dialog{
     private String drinkDesc;
     private String uartChar;
     private String drinkRecipe;
+    private long pourTime;
     private int shots;
+    private boolean timerDone;
 
     // constructor
     public PartyDialog(Activity a, Drink drink, int numShots) {
@@ -44,14 +48,16 @@ public class PartyDialog extends Dialog{
         this.activity = a;
         this.drinkName = String.format("%s%s", drink.getDrinkName(), (numShots != 1 ? "'s" : ""));
         this.drinkDesc = String.format("A random alcohol was selected and you got %s's!" +
-                " Your generated number of shots is %d! " +
+                        " Your generated number of shots is %d! " +
                         "A shot will be poured every 30 seconds so get ready. Line 'em up!"
                 , drink.getDrinkName().toLowerCase(),
                 numShots);
         this.uartChar = drink.getUartCom();
         this.drinkRecipe = String.format("%s * %d", drink.getRecipe(), numShots);
         this.shots = numShots;
+        this.pourTime = drink.getPourTime();
         this.setCanceledOnTouchOutside(false);
+        timerDone = false;
     }
 
     @Override
@@ -80,65 +86,69 @@ public class PartyDialog extends Dialog{
             @Override
             public void onClick(View view) {
                 /*
-                 while the number of shots is not zero, pour another and wait 30 seconds
+                 while the number of shots is not zero, pour another
                  */
-                while (shots != 0) {
-                    Toast.makeText(activity, "Enjoy the " + drinkName, Toast.LENGTH_SHORT)
-                            .show();
-                    byte[] value;
-                    try {
-                        //send data to service
-                        value = uartChar.getBytes("UTF-8");
-                        MainActivity.mService.writeRXCharacteristic(value);
+                byte[] value;
+                try {
+                    //send data to service
+                    value = uartChar.getBytes("UTF-8");
+                    MainActivity.mService.writeRXCharacteristic(value);
 
-                        // disable the buttons on the dialog and enable progress bar
-                        drinkBtn.setVisibility(View.INVISIBLE);
-                        backBtn.setVisibility(View.INVISIBLE);
-                        recipe.setText("");
+                    // disable the buttons on the dialog and enable progress bar
+                    drinkBtn.setVisibility(View.INVISIBLE);
+                    backBtn.setVisibility(View.INVISIBLE);
+                    recipe.setText("");
+                    description.setText("");
 
-                        // make the bar visible
-                        statusBar.setVisibility(View.VISIBLE);
-                        statusBar.setProgress(0);
-                        final long drinkTime = 10000;
+                    // make the bar visible
+                    statusBar.setVisibility(View.VISIBLE);
+                    statusBar.setProgress(0);
 
-                        // creates a countdown timer to update the user
-                        new CountDownTimer(drinkTime, 1000){
+                    // creates a countdown timer to use for the dialog
+                    new CountDownTimer(pourTime, 1000) {
+                        public void onTick(long milliSecondsUntilDone) {
+                            // update the description text to display time
+                            description.setText(String.format("%s %d",
+                                    "Seconds Remaining ", milliSecondsUntilDone / 1000));
+                            statusBar.setProgress((int) (milliSecondsUntilDone / pourTime));
+                        }
 
-                            public void onTick(long milliSecondsUntilDone){
-                                // update the description text to display time
+                        public void onFinish() {
+                            // Disable the status bars visibility
+                            statusBar.setVisibility(View.INVISIBLE);
+                            timerDone = true;
+                            // check to see if they have finished the challenge
+                            if (shots != 0) {
+                                // make the pour button visible if they didnt
                                 description.setText(String.format("%s %d",
-                                        "Seconds Remaining " , milliSecondsUntilDone / 1000));
-                                statusBar.setProgress((int)(milliSecondsUntilDone/drinkTime));
+                                        "Number of shots left", shots));
+                                drinkBtn.setVisibility(View.VISIBLE);
                             }
-                            public void onFinish(){
-                                Toast.makeText(activity, "Ready to pour another drink", Toast.LENGTH_LONG)
-                                        .show();
-                                description.setText(drinkDesc);
-                                recipe.setText(drinkRecipe);
 
-                            }
-                        }.start();
+                        }
+                    }.start();
 
-                    } catch (UnsupportedEncodingException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-
-
-                    // decrement the shot number
-                    shots--;
+                } catch (UnsupportedEncodingException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
                 }
-                dismiss();
+                // decrement the shot number and send data
+                shots--;
 
+                // check to see if there are any more shots to pour
+                if(shots == 0 && timerDone) {
+                    dismiss();
+                }
             }
+
         });
 
         //If user clicks to cancel
         //Take user back to Drink Activity
         backBtn = (ImageButton) findViewById(R.id.go_back_party);
-        backBtn.setOnClickListener(new View.OnClickListener(){
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 dismiss();
             }
         });
