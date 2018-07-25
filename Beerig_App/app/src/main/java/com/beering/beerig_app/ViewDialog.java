@@ -25,7 +25,6 @@ public class ViewDialog extends Dialog {
 
     // instance variables for the dialog
     public Activity activity;
-    public Dialog dialog;
     public ImageButton drinkBtn;
     public ImageButton backBtn;
     public TextView name;
@@ -45,6 +44,7 @@ public class ViewDialog extends Dialog {
         this.drinkDesc = drink.getDescription();
         this.uartChar = drink.getUartCom();
         this.drinkRecipe = drink.getRecipe();
+        this.setCanceledOnTouchOutside(false);
     }
 
     @Override
@@ -77,22 +77,33 @@ public class ViewDialog extends Dialog {
                     value = uartChar.getBytes("UTF-8");
                     MainActivity.mService.writeRXCharacteristic(value);
 
-                    new CountDownTimer(30000, 1000){
+                    // disable the buttons on the dialog
+                    drinkBtn.setClickable(false);
+                    backBtn.setClickable(false);
+                    recipe.setText("");
+
+                    // creates a countdown timer to update the user
+                    new CountDownTimer(10000, 1000){
                         public void onTick(long milliSecondsUntilDone){
-                            Toast.makeText(activity, "Seconds Remaining " + milliSecondsUntilDone / 1000, Toast.LENGTH_LONG)
-                                    .show();
+                            // update the description text to display time
+                            description.setText(String.format("%s %d",
+                                    "Seconds Remaining " , milliSecondsUntilDone / 1000));
                         }
                         public void onFinish(){
                             Toast.makeText(activity, "Ready to pour another drink", Toast.LENGTH_LONG)
                                     .show();
+                            drinkBtn.setClickable(true);
+                            backBtn.setClickable(true);
+                            description.setText(drinkDesc);
+                            recipe.setText(drinkRecipe);
+                            dismiss();
                         }
-                    };
+                    }.start();
 
                 } catch (UnsupportedEncodingException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                dismiss();
             }
         });
 
