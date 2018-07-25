@@ -7,6 +7,7 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class ViewDialog extends Dialog {
     public Activity activity;
     public ImageButton drinkBtn;
     public ImageButton backBtn;
+    public ProgressBar statusBar;
     public TextView name;
     public TextView description;
     public TextView recipe;
@@ -53,6 +55,9 @@ public class ViewDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.drink_dialog);
 
+        // get the progress bar
+        statusBar = (ProgressBar) findViewById(R.id.progressBar);
+
         //Display drink name and description
         description = (TextView) findViewById(R.id.drink_description);
         description.setText(drinkDesc);
@@ -77,25 +82,33 @@ public class ViewDialog extends Dialog {
                     value = uartChar.getBytes("UTF-8");
                     MainActivity.mService.writeRXCharacteristic(value);
 
-                    // disable the buttons on the dialog
-                    drinkBtn.setClickable(false);
-                    backBtn.setClickable(false);
+                    // disable the buttons on the dialog and enable progress bar
+                    drinkBtn.setVisibility(View.INVISIBLE);
+                    backBtn.setVisibility(View.INVISIBLE);
                     recipe.setText("");
 
+                    // make the bar visible
+                    statusBar.setVisibility(View.VISIBLE);
+                    statusBar.setProgress(0);
+                    final long drinkTime = 10000;
+
                     // creates a countdown timer to update the user
-                    new CountDownTimer(10000, 1000){
+                    new CountDownTimer(drinkTime, 1000){
+
                         public void onTick(long milliSecondsUntilDone){
                             // update the description text to display time
                             description.setText(String.format("%s %d",
                                     "Seconds Remaining " , milliSecondsUntilDone / 1000));
+                            statusBar.setProgress((int)(milliSecondsUntilDone/drinkTime));
                         }
                         public void onFinish(){
                             Toast.makeText(activity, "Ready to pour another drink", Toast.LENGTH_LONG)
                                     .show();
-                            drinkBtn.setClickable(true);
-                            backBtn.setClickable(true);
+                            drinkBtn.setVisibility(View.VISIBLE);
+                            backBtn.setVisibility(View.VISIBLE);
                             description.setText(drinkDesc);
                             recipe.setText(drinkRecipe);
+
                             dismiss();
                         }
                     }.start();

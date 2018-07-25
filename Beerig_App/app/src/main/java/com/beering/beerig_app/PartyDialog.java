@@ -3,9 +3,11 @@ package com.beering.beerig_app;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ public class PartyDialog extends Dialog{
     public Dialog dialog;
     public ImageButton drinkBtn;
     public ImageButton backBtn;
+    public ProgressBar statusBar;
     public TextView name;
     public TextView description;
     public TextView recipe;
@@ -48,6 +51,7 @@ public class PartyDialog extends Dialog{
         this.uartChar = drink.getUartCom();
         this.drinkRecipe = String.format("%s * %d", drink.getRecipe(), numShots);
         this.shots = numShots;
+        this.setCanceledOnTouchOutside(false);
     }
 
     @Override
@@ -65,6 +69,9 @@ public class PartyDialog extends Dialog{
         //Display drink recipe
         recipe = (TextView) findViewById(R.id.drink_recipe);
         recipe.setText(drinkRecipe);
+
+        // get the progress bar
+        statusBar = (ProgressBar) findViewById(R.id.progressBar);
 
         //If user clicks "pour it" button
         //Use this method to send data to Arduino
@@ -84,12 +91,39 @@ public class PartyDialog extends Dialog{
                         value = uartChar.getBytes("UTF-8");
                         MainActivity.mService.writeRXCharacteristic(value);
 
+                        // disable the buttons on the dialog and enable progress bar
+                        drinkBtn.setVisibility(View.INVISIBLE);
+                        backBtn.setVisibility(View.INVISIBLE);
+                        recipe.setText("");
+
+                        // make the bar visible
+                        statusBar.setVisibility(View.VISIBLE);
+                        statusBar.setProgress(0);
+                        final long drinkTime = 10000;
+
+                        // creates a countdown timer to update the user
+                        new CountDownTimer(drinkTime, 1000){
+
+                            public void onTick(long milliSecondsUntilDone){
+                                // update the description text to display time
+                                description.setText(String.format("%s %d",
+                                        "Seconds Remaining " , milliSecondsUntilDone / 1000));
+                                statusBar.setProgress((int)(milliSecondsUntilDone/drinkTime));
+                            }
+                            public void onFinish(){
+                                Toast.makeText(activity, "Ready to pour another drink", Toast.LENGTH_LONG)
+                                        .show();
+                                description.setText(drinkDesc);
+                                recipe.setText(drinkRecipe);
+
+                            }
+                        }.start();
+
                     } catch (UnsupportedEncodingException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
 
-                    // implement the timer here, add a toast when it's ten seconds to pouring
 
                     // decrement the shot number
                     shots--;
