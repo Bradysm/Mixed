@@ -33,19 +33,13 @@ public class ViewDialog extends Dialog {
     public TextView description;
     public TextView recipe;
 
-    private String drinkName;
-    private String drinkDesc;
-    private String uartChar;
-    private String drinkRecipe;
+    private Drink drink;
 
     // constructor
     public ViewDialog(Activity a, Drink drink) {
         super(a);
         this.activity = a;
-        this.drinkName = drink.getDrinkName();
-        this.drinkDesc = drink.getDescription();
-        this.uartChar = drink.getUartCom();
-        this.drinkRecipe = drink.getRecipe();
+        this.drink = drink;
         this.setCanceledOnTouchOutside(false);
     }
 
@@ -60,13 +54,13 @@ public class ViewDialog extends Dialog {
 
         //Display drink name and description
         description = (TextView) findViewById(R.id.drink_description);
-        description.setText(drinkDesc);
+        description.setText(drink.getDescription());
         name = (TextView) findViewById(R.id.drink_name);
-        name.setText(drinkName);
+        name.setText(drink.getDrinkName());
 
         //Display drink recipe
         recipe = (TextView) findViewById(R.id.drink_recipe);
-        recipe.setText(drinkRecipe);
+        recipe.setText(drink.getRecipe());
 
         //If user clicks "pour it" button
         //Use this method to send data to service
@@ -74,12 +68,12 @@ public class ViewDialog extends Dialog {
         drinkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                Toast.makeText(activity, "Enjoy the " + drinkName, Toast.LENGTH_SHORT)
+                Toast.makeText(activity, "Enjoy the " + drink.getDrinkName(), Toast.LENGTH_SHORT)
                         .show();
                 byte[] value;
                 try {
                     //send data to service
-                    value = uartChar.getBytes("UTF-8");
+                    value = drink.getUartCom().getBytes("UTF-8");
                     MainActivity.mService.writeRXCharacteristic(value);
 
                     // disable the buttons on the dialog and enable progress bar
@@ -90,7 +84,7 @@ public class ViewDialog extends Dialog {
                     // make the bar visible
                     statusBar.setVisibility(View.VISIBLE);
                     statusBar.setProgress(0);
-                    final long drinkTime = 10000;
+                    final long drinkTime = drink.getPourTime();
 
                     // creates a countdown timer to update the user
                     new CountDownTimer(drinkTime, 1000){
@@ -106,8 +100,8 @@ public class ViewDialog extends Dialog {
                                     .show();
                             drinkBtn.setVisibility(View.VISIBLE);
                             backBtn.setVisibility(View.VISIBLE);
-                            description.setText(drinkDesc);
-                            recipe.setText(drinkRecipe);
+                            description.setText(drink.getDescription());
+                            recipe.setText(drink.getRecipe());
 
                             dismiss();
                         }

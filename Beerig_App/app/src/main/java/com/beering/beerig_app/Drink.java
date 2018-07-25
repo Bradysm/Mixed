@@ -16,6 +16,7 @@ public final class Drink {
     private final String description; // describes the drink
     private final String uartCom; // this will be sent to the arduino
     private String recipe; // ingredients for each drink
+    private long pourTime; // time of each pour
     private StringBuilder builder = new StringBuilder(); //needed to append ingredients
 
     /**
@@ -24,11 +25,11 @@ public final class Drink {
      * @param desc description of the drink and contents
      * @param uart character value which will define the drink
      */
-    public Drink(String name, String desc, String uart, String... recipe) {
+    public Drink(String name, long time, String desc, String uart, String... recipe) {
         this.drinkName = name;
         this.description = desc;
         this.uartCom = uart;
-
+        this.pourTime = time;
         builder.append("Ingredients: ");
         for(String ingred: recipe){
             builder.append("\n- " + ingred);
@@ -72,6 +73,16 @@ public final class Drink {
      */
     public String getRecipe(){
         return recipe;
+    }
+
+    /**
+     * returns the time it takes to pour the drink
+     * in milliseconds
+     *
+     * @return long value representing time
+     */
+    public long getPourTime(){
+        return this.pourTime;
     }
 
 }

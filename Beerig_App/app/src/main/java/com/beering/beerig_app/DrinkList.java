@@ -31,32 +31,32 @@ public final class DrinkList {
          */
 
         //Vodka Cranberry
-        Drink vodkaCran = new Drink("Vodka Cranberry",
+        Drink vodkaCran = new Drink("Vodka Cranberry", 67500,
                 "Is made with vodka and cranberry juice. Light and refreshing. Add a lime for more flavor.", "a",
                 "1 shot of Vodka", "4 and 1/2 ounces of Cranberry", "Serve with a lime");
         //ScrewDriver
-        Drink screwdriver = new Drink("Screwdriver",
+        Drink screwdriver = new Drink("Screwdriver", 52500,
                 "Simple drink made with vodka and Orange Juice. Nothing like having an orange drink before gameday. Go Hokies!", "b",
                 "1 and 3/4 ounces vodka", "3 and 1/2 ounce of OJ", "Serve with ice");
         //Vodka Bull
-        Drink vodkaBull = new Drink("Vodka RedBull",
+        Drink vodkaBull = new Drink("Vodka RedBull", 60000,
                 "This drink will get you GOIN. Need a pick me up? Here you go. Contains vodka and RedBull", "c",
                 "2 shots of Vodka", "4 Ounces of RedBull", "Serve with a lime");
         //Vodka Tonic
-        Drink vodkaTonic = new Drink("Vodka Tonic",
+        Drink vodkaTonic = new Drink("Vodka Tonic", 60000,
                 "Very light drink that is refreshing after a long day. Add ice to glass and lime for some citrus flavor", "f", "1 shot of Vodka",
                 "2 ounces of Tonic");
         //Sea Breeze
-        Drink seaBreeze = new Drink("Seabreeze" ,
+        Drink seaBreeze = new Drink("Seabreeze" , 60000,
                 "Cabo? Ahhhh Sea Breeze you mean. A Sea Breeze is a cocktail containing vodka with cranberry juice and grapefruit juice.", "h",
                 "1 shot of vodka", "2 and 2/3 ounce of Cranberry", "1/3 ounce of Grapefruit");
         //Madras
-        Drink madras = new Drink("Madras",
+        Drink madras = new Drink("Madras", 45000,
                 "The Madras is a refreshing, fruity drink that lets you feel some summer anywhere. " +
                         "It consists of vodka, Oj, and cranberry juice." ,"q", "1 shot of vodka",
                         "1 and 1/2 ounce of Cranberry Juice", "1 and 1/2 ounce of Orange Juice");
         //Vodka Shot
-        Drink vodkaShot = new Drink("Vodka Shot", "Well.... Hope you make it home", "r",
+        Drink vodkaShot = new Drink("Vodka Shot", 30000, "Well.... Hope you make it home", "r",
                 "1 shot of Vodka!");
 
         /*
@@ -64,20 +64,20 @@ public final class DrinkList {
          */
 
         //Tequila Sunrise
-        Drink tequilaSunrise = new Drink("Tequila Sunrise",
+        Drink tequilaSunrise = new Drink("Tequila Sunrise", 45000,
                 "Want to feel like you're in cabo before your exam? This drink compromised of OJ, Tequila, and grenadine has you covered","d",
                 "3 shots of Tequila", "1 and 1/2 ounce of tequila", "1/2 of grenadine");
         //Margarita
-        Drink margarita = new Drink("Margarita",
+        Drink margarita = new Drink("Margarita", 45000,
                 "Want to be Cinco de messed up? No worries. We got your back with this marg made from Tequila and Jose Cuervo marg mix. Did someone say Tacos?",
                 "i", "1 shot of tequila", "2 ounces of Margarita mix");
         //Lemon Margarita
-        Drink lemonMarg = new Drink("Lemon Margarita",
+        Drink lemonMarg = new Drink("Lemon Margarita", 30000,
                 "Nice refreshing summer drink consisting of lemon juice, tequila, and simple syrup. " +
                         "Before ordering, rub rim of glass with lemon then dip in salt", "m",
                 "1 shot of tequila", "1/2 ounce of Lemon juice", "3/4 ounce of Simple syrup");
         //Tequila Shot
-        Drink tequilaShot = new Drink("Tequila Shot", "Make sure to get taco bell after a couple of these.", "s",
+        Drink tequilaShot = new Drink("Tequila Shot", 30000, "Make sure to get taco bell after a couple of these.", "s",
                     "1 shot of Tequila!");
 
         /*
@@ -85,29 +85,29 @@ public final class DrinkList {
          */
 
         //Gin and Tonic
-        Drink ginAndTonic = new Drink("Gin and Tonic",
+        Drink ginAndTonic = new Drink("Gin and Tonic", 60000,
                 "Very light drink that is refreshing after a long day. Add ice to glass and a lime for some citrus flavor", "e",
                 "1 and 1/2 shots of Gin", "1 ounce of Tonic");
         //Tom Collins
-        Drink tomCollins = new Drink("Tom Collins",
+        Drink tomCollins = new Drink("Tom Collins",30000,
                 "The Tom Collins is a Collins cocktail made from gin, lemon juice, sugar, and carbonated water. " +
                         "First memorialized in writing in 1876 by Jerry Thomas.","j", "1 shot of Gin", "1/2 ounce of Lemon juice",
                 "1/2 ounce of Club", "1/2 ounce of Simple syrup");
         //Gimlet
-        Drink gimlet = new Drink("Gimlet",
+        Drink gimlet = new Drink("Gimlet", 37500,
                 "The gimlet is a cocktail typically made of 2 part gin, 1 part lime juice, and soda.", "n",
                 "1 shot of Gin", "1/2 ounce of Lemon juice", "1/2 ounce of Simple syrup");
         //Gin Rickey
-        Drink ginRickey = new Drink("Gin Rickey",
+        Drink ginRickey = new Drink("Gin Rickey", 60000,
                 "The rickey is a highball drink made from gin , lime juice, and carbonated water.", "o", "1 shot of Gin",
                 "1 ounce of Lime juice", "2 ounces of Club");
         //Salty Dog
-        Drink saltyDog = new Drink("Salty Dog",
+        Drink saltyDog = new Drink("Salty Dog", 60000,
                 "A salty dog is a cocktail of gin, or vodka, and grapefruit juice, served with a salted rim. " +
                         "The salt is the only difference between a salty dog and a greyhound", "p",
                 "1 shot of Gin", "2 ounces of Grapefruit");
         //Gin Shot
-        Drink ginShot = new Drink("Gin Shot", "Uhh....Odd choice but okay", "u",
+        Drink ginShot = new Drink("Gin Shot", 30000, "Uhh....Odd choice but okay", "u",
                 "1 shot of Gin!");
 
         /*
@@ -115,19 +115,19 @@ public final class DrinkList {
          */
 
         //Coke and Rum
-        Drink cokeAndRum = new Drink("Coke and Rum",
+        Drink cokeAndRum = new Drink("Coke and Rum", 60000,
                 "Rum and Coke, or a Cuba Libre, is a highball cocktail consisting of cola, rum, and traditionally lime juice on ice.", "g",
                 "1 shot of Rum", "2 and 1/3 ounces of Coca Cola");
         //Daiquiri
-        Drink daiquiri = new Drink("Daiquiri", "Simple daiquiri made from rum, lime juice, and simple syrup",
+        Drink daiquiri = new Drink("Daiquiri", 30000,"Simple daiquiri made from rum, lime juice, and simple syrup",
                 "k", "1 shot of rum", "1/2 ounce of Lime juice", "1/2 ounce of Simple syrup");
         //Rum Spritz
-        Drink rumSpritz = new Drink("Rum Spritz",
+        Drink rumSpritz = new Drink("Rum Spritz", 45000,
                 "A simple, clean and easy drink to make consisting of rum and club soda. " +
                         "Add a lime for some citrus flavor", "l", "1 shot of rum",
                 "1 and 1/2 ounces of Club");
         //Rum Shot
-        Drink rumShot = new Drink("Rum Shot", "Why are you doing this? Heck with it, take two!", "t",
+        Drink rumShot = new Drink("Rum Shot", 30000,"Why are you doing this? Heck with it, take two!", "t",
                 "1 shot of Rum!");
 
 
