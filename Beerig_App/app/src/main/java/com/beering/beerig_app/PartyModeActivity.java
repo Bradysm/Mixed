@@ -49,4 +49,12 @@ public class PartyModeActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    /**
+     * this will finish the acitivity and take back to main screen
+     * @param view
+     */
+    public void goBack(View view){
+        finish();
+    }
+
 }

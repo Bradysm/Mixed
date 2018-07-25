@@ -6,7 +6,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/party_mode_dialogue">
+    android:background="@drawable/party_mode_dialogue"
+    android:animateLayoutChanges="true">
 
     <!-- Scroll View is used in case drink description is too long -->
     <ScrollView

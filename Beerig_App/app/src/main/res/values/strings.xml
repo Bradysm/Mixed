@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Beerig</string>
+    <string name="app_name">Mixed</string>
     <string name="Beerig_Logo">Beerig Logo</string>
     <string name="Start_Partying">Start Partying</string>
     <string name="tequila">Tequila</string>
@@ -55,5 +55,5 @@
     <string name="ble_not_supported">Bluetooth Low Energy not supported</string>
     <string name="scan">Scan</string>
     <string name="cancel">Cancel</string>
-    <string name="enjoy_beerig">Enjoy the Beerig!</string>
+    <string name="enjoy_beerig">Enjoy the Mixed!</string>
 </resources>
