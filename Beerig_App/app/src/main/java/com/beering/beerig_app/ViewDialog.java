@@ -3,6 +3,7 @@ package com.beering.beerig_app;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -63,7 +64,7 @@ public class ViewDialog extends Dialog {
         recipe.setText(drinkRecipe);
 
         //If user clicks "pour it" button
-        //Use this method to send data to Arduino
+        //Use this method to send data to service
         drinkBtn = (ImageButton) findViewById(R.id.pour_drink);
         drinkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +76,17 @@ public class ViewDialog extends Dialog {
                     //send data to service
                     value = uartChar.getBytes("UTF-8");
                     MainActivity.mService.writeRXCharacteristic(value);
+
+                    new CountDownTimer(30000, 1000){
+                        public void onTick(long milliSecondsUntilDone){
+                            Toast.makeText(activity, "Seconds Remaining " + milliSecondsUntilDone / 1000, Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                        public void onFinish(){
+                            Toast.makeText(activity, "Ready to pour another drink", Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    };
 
                 } catch (UnsupportedEncodingException e) {
                     // TODO Auto-generated catch block
@@ -95,15 +107,6 @@ public class ViewDialog extends Dialog {
         });
 
     }
-
-    public void setDrinkName(String newDrink){
-        this.drinkName = newDrink;
-    }
-
-    public String getDrinkName(){
-        return drinkName;
-    }
-
 
 }
 

@@ -37,7 +37,7 @@ public class PartyModeActivity extends AppCompatActivity {
         // create a random number to determine vodka or tequila
         int randomNum = randomNumber.nextInt(2) + 1;
         int randomShots = randomNumber.nextInt(4) + 1;
-        Drink randomDrink = null;
+        Drink randomDrink;
 
         if(randomNum == 1)
             randomDrink = list.getDrink("Vodka Shot");

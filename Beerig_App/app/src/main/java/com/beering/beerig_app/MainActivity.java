@@ -73,9 +73,17 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         mBtAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBtAdapter == null) {
             Toast.makeText(this, "Bluetooth is not available", Toast.LENGTH_LONG).show();
+
+            /*
+             *
+             * Please leave temporarily so I can work on app --Andrew
+             */
+            Intent goToHome = new Intent(this, HomeScreen.class);
+            MainActivity.this.startActivity(goToHome);
             finish();
-            return;
+            //return;
         }
+
         messageListView = (ListView) findViewById(R.id.listMessage);
         listAdapter = new ArrayAdapter<String>(this, R.layout.message_detail);
         messageListView.setAdapter(listAdapter);

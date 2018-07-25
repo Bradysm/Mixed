@@ -4,6 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 /**
  * HomeScreen of Mixer App. This is where user may navigate
@@ -15,12 +19,11 @@ import android.view.View;
  */
 public class HomeScreen extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-        Intent intent = getIntent();
-
     }
 
     // Methods to Open each Drink Activity
