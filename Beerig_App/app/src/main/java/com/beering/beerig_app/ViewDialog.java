@@ -23,8 +23,11 @@ import java.util.Date;
  * @version July 15 2018
  */
 public class ViewDialog extends Dialog {
-
-    // instance variables for the dialog
+    /**
+     * instance variables used to create the
+     * drink dialog. Contains the various views
+     * and Drink options to complete a drink order
+     */
     public Activity activity;
     public ImageButton drinkBtn;
     public ImageButton backBtn;
@@ -33,10 +36,13 @@ public class ViewDialog extends Dialog {
     public TextView description;
     public TextView recipe;
     public RandomFactList factList;
-
     private Drink drink;
 
-    // constructor
+    /**
+     * constructor to create Drink Dialog
+     * @param a activity that it's placed on
+     * @param drink drink to be poured
+     */
     public ViewDialog(Activity a, Drink drink) {
         super(a);
         this.activity = a;
@@ -94,7 +100,7 @@ public class ViewDialog extends Dialog {
                         public void onTick(long milliSecondsUntilDone){
                             // update the description text to display time
                             description.setText(String.format("%s %d",
-                                    "Seconds Remaining " , milliSecondsUntilDone / 1000));
+                                    "Pour time remaining " , milliSecondsUntilDone / 1000));
 
                         }
                         // this is called when the timer is over
@@ -117,8 +123,7 @@ public class ViewDialog extends Dialog {
             }
         });
 
-        //If user clicks to cancel
-        //Take user back to Drink Activity
+        // creates functionality for backBtn to take user back to Activity
         backBtn = (ImageButton) findViewById(R.id.go_back);
         backBtn.setOnClickListener(new View.OnClickListener(){
             @Override

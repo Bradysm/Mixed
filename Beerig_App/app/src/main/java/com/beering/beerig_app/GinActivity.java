@@ -6,6 +6,7 @@ import android.view.View;
 
 /**
  * this class is used to create the functionality of the Gin view
+ * provides onClick methods for all buttons within the activity
  *
  * @author Brady Murphy
  * @version July 16 2018
