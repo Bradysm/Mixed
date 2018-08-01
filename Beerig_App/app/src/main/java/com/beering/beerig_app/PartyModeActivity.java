@@ -50,8 +50,8 @@ public class PartyModeActivity extends AppCompatActivity {
     }
 
     /**
-     * this will finish the acitivity and take back to main screen
-     * @param view
+     * this will end the activity and take the user back to main screen
+     * @param view current View
      */
     public void goBack(View view){
         finish();

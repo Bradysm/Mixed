@@ -12,10 +12,11 @@
     <ScrollView
         android:id="@+id/dialog_scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" >
 
+        <!-- Main description section of the dialog -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,9 +85,22 @@
             android:src="@drawable/go_back_button"
             android:clickable="true"
             android:focusable="true"
-            android:background="@null" />
+            android:background="@null"
+            android:gravity="center"/>
 
     </LinearLayout>
+
+    <!-- TextView used to display the random fact -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/random_fact"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="16dp"
+        android:visibility="invisible"
+        android:textSize="28sp"
+        android:textColor="#FFFFFF"/>
 
     <ProgressBar
         android:id="@+id/progressBar"

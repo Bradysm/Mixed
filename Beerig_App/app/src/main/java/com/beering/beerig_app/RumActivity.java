@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 
 /**
+ * Creates the functionality for the rum activity
+ *
  * @author Brady Murphy
  * @author Andrew Haus
+ * @version Aug 1, 2018
  */
 public class RumActivity extends AppCompatActivity {
     /**
@@ -76,6 +79,8 @@ public class RumActivity extends AppCompatActivity {
 
     /**
      * this will move back to the previous activity
+     *
+     * @param view current View
      */
     public void goBack(View view){
         finish();

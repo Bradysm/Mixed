@@ -18,7 +18,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * @author Brady Murphy
  * @version July 24, 2018
- * <p>
+ *
  * This class is created to represent the functionality behind
  * the Party Mode dialog
  */

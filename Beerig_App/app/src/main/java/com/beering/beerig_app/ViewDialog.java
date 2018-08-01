@@ -28,10 +28,11 @@ public class ViewDialog extends Dialog {
     public Activity activity;
     public ImageButton drinkBtn;
     public ImageButton backBtn;
-    public ProgressBar statusBar;
+    public TextView randomFact;
     public TextView name;
     public TextView description;
     public TextView recipe;
+    public RandomFactList factList;
 
     private Drink drink;
 
@@ -49,8 +50,9 @@ public class ViewDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.drink_dialog);
 
-        // get the progress bar
-        statusBar = (ProgressBar) findViewById(R.id.progressBar);
+        // get the random fact and create fact list obj
+        factList = new RandomFactList();
+        randomFact = (TextView) findViewById(R.id.random_fact);
 
         //Display drink name and description
         description = (TextView) findViewById(R.id.drink_description);
@@ -82,19 +84,20 @@ public class ViewDialog extends Dialog {
                     recipe.setText("");
 
                     // make the bar visible
-                    statusBar.setVisibility(View.VISIBLE);
-                    statusBar.setProgress(0);
+                    randomFact.setVisibility(View.VISIBLE);
+                    randomFact.setText(factList.getFact());
                     final long drinkTime = drink.getPourTime();
 
                     // creates a countdown timer to update the user
                     new CountDownTimer(drinkTime, 1000){
-
+                        // called everytime a second goes by
                         public void onTick(long milliSecondsUntilDone){
                             // update the description text to display time
                             description.setText(String.format("%s %d",
                                     "Seconds Remaining " , milliSecondsUntilDone / 1000));
-                            statusBar.setProgress((int)(milliSecondsUntilDone/drinkTime));
+
                         }
+                        // this is called when the timer is over
                         public void onFinish(){
                             Toast.makeText(activity, "Ready to pour another drink", Toast.LENGTH_LONG)
                                     .show();
