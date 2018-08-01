@@ -51,7 +51,7 @@ public class RandomFactList {
      */
     public String getFact(){
         Integer num = randomNumberGen.nextInt(getNumberOfFacts()) + 1;
-        return factList.get(num).getFact();
+        return String.format("%s: %s", "Random Fact", factList.get(num).getFact());
     }
 
     /**

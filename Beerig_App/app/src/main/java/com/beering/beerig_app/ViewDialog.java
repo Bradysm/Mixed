@@ -99,8 +99,8 @@ public class ViewDialog extends Dialog {
                         // called everytime a second goes by
                         public void onTick(long milliSecondsUntilDone){
                             // update the description text to display time
-                            description.setText(String.format("%s %d",
-                                    "Pour time remaining " , milliSecondsUntilDone / 1000));
+                            description.setText(String.format("%s %d seconds",
+                                    "Pour time remaining: " , milliSecondsUntilDone / 1000));
 
                         }
                         // this is called when the timer is over

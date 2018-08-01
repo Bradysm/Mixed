@@ -98,9 +98,10 @@
         android:id="@+id/random_fact"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_margin="16dp"
+        android:layout_margin="32dp"
         android:visibility="invisible"
         android:textSize="28sp"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:gravity="center"/>
 
 </RelativeLayout>
