@@ -13,6 +13,7 @@
     android:background="@drawable/background"
     tools:context=".RumActivity">
 
+    <!-- Rum Screen Title -->
     <ImageView
         android:id="@+id/rum_screen_title"
         android:layout_width="match_parent"
@@ -20,6 +21,7 @@
         android:contentDescription="@string/rum"
         android:src="@drawable/rum_title" />
 
+    <!-- back button -->
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,12 +37,13 @@
         android:src="@drawable/back_main_button" />
 
 
+    <!-- Scroll view used to contain all drink buttons -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/rum_screen_title">
-        <!-- Table layout used to represent the drinks in a user friendly fashion -->
 
+        <!-- layout used to create a single parent for ScrollView -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

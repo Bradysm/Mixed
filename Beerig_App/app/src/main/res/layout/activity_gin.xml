@@ -14,7 +14,6 @@
     tools:context=".GinActivity">
 
     <!-- *Row for "Gin" Title* -->
-
     <ImageView
         android:id="@+id/gin_screen_title"
         android:layout_width="match_parent"
@@ -22,6 +21,7 @@
         android:contentDescription="@string/rum"
         android:src="@drawable/gin_title" />
 
+    <!-- back button -->
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,12 +36,13 @@
         android:focusable="true"
         android:onClick="goBack"/>
 
-
+    <!-- Scroll view used to contain all drink buttons -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/gin_screen_title">
 
+        <!-- layout used to create a single parent for ScrollView -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

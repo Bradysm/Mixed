@@ -57,6 +57,7 @@
         </LinearLayout>
     </ScrollView>
 
+    <!-- linear layout to contain buttons at bottom of dialog -->
     <LinearLayout
         android:id="@+id/dialog_button_layout"
         android:layout_width="wrap_content"
@@ -101,14 +102,5 @@
         android:visibility="invisible"
         android:textSize="28sp"
         android:textColor="#FFFFFF"/>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="154dp"
-        android:layout_height="291dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:visibility="invisible"/>
 
 </RelativeLayout>
