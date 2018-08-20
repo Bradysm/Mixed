@@ -37,6 +37,7 @@ public class PartyDialog extends Dialog {
     public TextView randomFact;
     public RandomFactList factList;
     public LottieAnimationView loading_anim;
+    public LoadingAnimationList animationList;
 
     // instance variables used to store drink values
     private String drinkName;
@@ -78,7 +79,9 @@ public class PartyDialog extends Dialog {
 
 
         //Loading screen
+        animationList = new LoadingAnimationList();
         loading_anim = findViewById(R.id.loading_anim);
+        loading_anim.setAnimation(animationList.getLoadingAnimation());
         loading_anim.setVisibility(View.INVISIBLE);
 
 

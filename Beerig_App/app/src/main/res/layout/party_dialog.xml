@@ -90,26 +90,20 @@
         android:foregroundGravity="center"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/party_penguin"
-        android:minHeight="150dp"
-        android:minWidth="150dp"/>
+        app:lottie_rawRes="@raw/party_penguin" />
 
     <!-- TextView used to display the random fact -->
     <TextView
+        android:id="@+id/random_fact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/random_fact"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="32dp"
-        android:visibility="invisible"
+        android:layout_below="@+id/loading_anim"
         android:textAlignment="center"
-        android:textSize="28sp"
+        android:paddingTop="90dp"
+        android:layout_marginTop="90dp"
         android:textColor="#FFFFFF"
-        android:gravity="bottom"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/loading_anim"
-        android:paddingTop="25dp"/>
+        android:textSize="28sp"
+        android:visibility="invisible"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
