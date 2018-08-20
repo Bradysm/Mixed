@@ -155,6 +155,9 @@ public class PartyDialog extends Dialog {
                                 description.setText(String.format("%s %d",
                                         "Number of shots left", shots));
                                 drinkBtn.setVisibility(View.VISIBLE);
+                                loading_anim.setAnimation(animationList.getLoadingAnimation());
+                                randomFact.setText(factList.getFact());
+
                             }
                             else {
                                 Toast.makeText(activity, "Ready to pour another drink", Toast.LENGTH_LONG)
@@ -172,11 +175,7 @@ public class PartyDialog extends Dialog {
                 }
                 // decrement the shot number and send data
                 shots--;
-
-                // check to see if there are any more shots to pour
-                if(shots == 0 && timerDone) {
-                    dismiss();
-                }
+                
             }
 
         });
