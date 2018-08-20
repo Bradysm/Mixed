@@ -246,6 +246,8 @@ void loop() {
       case 20:
         rumShot(rum);
         break;
+      case 21:
+        ginShot(gin);
       default: // catch any invalid order number
         break;
     }
@@ -591,6 +593,19 @@ void tequilaShot(Adafruit_DCMotor *tequila){
 
 
 // <------------------GIN--------------------->
+
+
+/**
+ * This method will pour one shot of gin
+ * 
+ * @param-gin: pointer to gin motor
+ * 
+ */
+void ginShot(Adafruit_DCMotor *gin){
+  gin->run(FORWARD);
+  delay(TWO_OUNCES);
+  gin->run(RELEASE);
+}
 
 /**
  * This method will make one gin and tonic

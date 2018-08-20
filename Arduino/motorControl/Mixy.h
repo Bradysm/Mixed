@@ -9,7 +9,7 @@
 
 /**
  * @author- Brady Murphy
- * @version-July 22, 2018
+ * @version-Aug 20, 2018
  */
 
 #include <Wire.h>
@@ -43,11 +43,12 @@ void saltyDog(Adafruit_DCMotor *gin, Adafruit_DCMotor *grapefruit);
 void madras(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cran, Adafruit_DCMotor *oj);
 void vodkaShot(Adafruit_DCMotor *vodka);
 void tequilaShot(Adafruit_DCMotor *tequila);
+void ginShot(Adafruit_DCMotor *gin);
 
 // drink pour prototype
 void drinkPour(Adafruit_DCMotor *motor, long time);
 
-// random functions
+// random functions helping to support initialization
 int lowerCaseToInt(int val);
 void error(const __FlashStringHelper*err);
 void releaseMotors(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafruit_DCMotor *orangeJuice, Adafruit_DCMotor *tequila, Adafruit_DCMotor *redBull,
