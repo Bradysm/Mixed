@@ -46,18 +46,6 @@
                 android:gravity="center"
                 android:layout_gravity="center"/>
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/loading_anim"
-                android:layout_width="186dp"
-                android:layout_height="187dp"
-                android:layout_gravity="center"
-                android:foregroundGravity="center"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/gift_popup" />
-
-
-
         </LinearLayout>
     </ScrollView>
 
@@ -93,6 +81,35 @@
 
     </LinearLayout>
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_anim"
+        android:layout_width="186dp"
+        android:layout_height="187dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:foregroundGravity="center"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/party_penguin"
+        android:minHeight="150dp"
+        android:minWidth="150dp"/>
+
+    <!-- TextView used to display the random fact -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/random_fact"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="32dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        android:textColor="#FFFFFF"
+        android:gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/loading_anim"
+        android:paddingTop="25dp"/>
 
     <ProgressBar
         android:id="@+id/progressBar"

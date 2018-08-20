@@ -71,9 +71,11 @@ public class PartyDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.party_dialog);
 
-        //randomFact = findViewById(R.id.random_fact);
-        //randomFact.setVisibility(View.INVISIBLE);
-        //randomFact.setText(factList.getFact());
+        randomFact = (TextView) findViewById(R.id.random_fact);
+        factList = new RandomFactList();
+        randomFact.setText(factList.getFact());
+        randomFact.setVisibility(View.INVISIBLE);
+
 
         //Loading screen
         loading_anim = findViewById(R.id.loading_anim);
@@ -86,12 +88,15 @@ public class PartyDialog extends Dialog {
         name = (TextView) findViewById(R.id.drink_name);
         name.setText(drinkName);
 
+        /* These features are currently replaced by randomFact and Loading_Anim
+
         //Display drink recipe
         //recipe = (TextView) findViewById(R.id.drink_recipe);
         //recipe.setText(drinkRecipe);
-
         // get the progress bar
-        statusBar = (ProgressBar) findViewById(R.id.progressBar);
+        //statusBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        */
 
         //If user clicks "pour it" button
         //Use this method to send data to Arduino
@@ -115,6 +120,9 @@ public class PartyDialog extends Dialog {
                     //recipe.setText("");
                     description.setText("");
 
+                    //Make random fact visible
+                    randomFact.setVisibility(View.VISIBLE);
+
                     // make the bar visible
                     //statusBar.setVisibility(View.VISIBLE);
                     //statusBar.setProgress(0);
@@ -136,6 +144,7 @@ public class PartyDialog extends Dialog {
                             // Disable the status bars visibility
                             //statusBar.setVisibility(View.INVISIBLE);
                             loading_anim.setVisibility(View.INVISIBLE);
+                            randomFact.setVisibility(View.INVISIBLE);
                             timerDone = true;
                             // check to see if they have finished the challenge
                             if (shots != 0) {

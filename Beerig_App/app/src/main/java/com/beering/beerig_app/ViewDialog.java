@@ -11,6 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.util.Date;
@@ -37,6 +39,7 @@ public class ViewDialog extends Dialog {
     public TextView recipe;
     public RandomFactList factList;
     private Drink drink;
+    private LottieAnimationView loading_anim;
 
     /**
      * constructor to create Drink Dialog
@@ -59,6 +62,10 @@ public class ViewDialog extends Dialog {
         // get the random fact and create fact list obj
         factList = new RandomFactList();
         randomFact = (TextView) findViewById(R.id.random_fact);
+
+        // Loading Animation
+        loading_anim = findViewById(R.id.loading_anim);
+        loading_anim.setVisibility(View.INVISIBLE);
 
         //Display drink name and description
         description = (TextView) findViewById(R.id.drink_description);
@@ -101,6 +108,10 @@ public class ViewDialog extends Dialog {
                             // update the description text to display time
                             description.setText(String.format("%s %d seconds",
                                     "Pour time remaining: " , milliSecondsUntilDone / 1000));
+
+                            //start loading animation
+                            loading_anim.playAnimation();
+                            loading_anim.setVisibility(View.VISIBLE);
 
                         }
                         // this is called when the timer is over
