@@ -40,6 +40,7 @@ public class ViewDialog extends Dialog {
     public RandomFactList factList;
     private Drink drink;
     private LottieAnimationView loading_anim;
+    private LoadingAnimationList animationList;
 
     /**
      * constructor to create Drink Dialog
@@ -64,7 +65,9 @@ public class ViewDialog extends Dialog {
         randomFact = (TextView) findViewById(R.id.random_fact);
 
         // Loading Animation
+        animationList = new LoadingAnimationList();
         loading_anim = findViewById(R.id.loading_anim);
+        loading_anim.setAnimation(animationList.getLoadingAnimation());
         loading_anim.setVisibility(View.INVISIBLE);
 
         //Display drink name and description
