@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -32,6 +34,9 @@ public class PartyDialog extends Dialog {
     public TextView name;
     public TextView description;
     public TextView recipe;
+    public TextView randomFact;
+    public RandomFactList factList;
+    public LottieAnimationView loading_anim;
 
     // instance variables used to store drink values
     private String drinkName;
@@ -66,6 +71,15 @@ public class PartyDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.party_dialog);
 
+        //randomFact = findViewById(R.id.random_fact);
+        //randomFact.setVisibility(View.INVISIBLE);
+        //randomFact.setText(factList.getFact());
+
+        //Loading screen
+        loading_anim = findViewById(R.id.loading_anim);
+        loading_anim.setVisibility(View.INVISIBLE);
+
+
         //Display drink name and description
         description = (TextView) findViewById(R.id.drink_description);
         description.setText(drinkDesc);
@@ -73,8 +87,8 @@ public class PartyDialog extends Dialog {
         name.setText(drinkName);
 
         //Display drink recipe
-        recipe = (TextView) findViewById(R.id.drink_recipe);
-        recipe.setText(drinkRecipe);
+        //recipe = (TextView) findViewById(R.id.drink_recipe);
+        //recipe.setText(drinkRecipe);
 
         // get the progress bar
         statusBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -90,6 +104,7 @@ public class PartyDialog extends Dialog {
                  */
                 byte[] value;
                 try {
+
                     //send data to service
                     value = uartChar.getBytes("UTF-8");
                     MainActivity.mService.writeRXCharacteristic(value);
@@ -97,12 +112,12 @@ public class PartyDialog extends Dialog {
                     // disable the buttons on the dialog and enable progress bar
                     drinkBtn.setVisibility(View.INVISIBLE);
                     backBtn.setVisibility(View.INVISIBLE);
-                    recipe.setText("");
+                    //recipe.setText("");
                     description.setText("");
 
                     // make the bar visible
-                    statusBar.setVisibility(View.VISIBLE);
-                    statusBar.setProgress(0);
+                    //statusBar.setVisibility(View.VISIBLE);
+                    //statusBar.setProgress(0);
 
                     // creates a countdown timer to use for the dialog
                     new CountDownTimer(pourTime, 1000) {
@@ -110,12 +125,17 @@ public class PartyDialog extends Dialog {
                             // update the description text to display time
                             description.setText(String.format("%s %d",
                                     "Seconds Remaining ", milliSecondsUntilDone / 1000));
-                            statusBar.setProgress((int) (milliSecondsUntilDone / pourTime));
+                            //statusBar.setProgress((int) (milliSecondsUntilDone / pourTime));
+
+                            //start loading animation
+                            loading_anim.playAnimation();
+                            loading_anim.setVisibility(View.VISIBLE);
                         }
 
                         public void onFinish() {
                             // Disable the status bars visibility
-                            statusBar.setVisibility(View.INVISIBLE);
+                            //statusBar.setVisibility(View.INVISIBLE);
+                            loading_anim.setVisibility(View.INVISIBLE);
                             timerDone = true;
                             // check to see if they have finished the challenge
                             if (shots != 0) {
@@ -123,6 +143,12 @@ public class PartyDialog extends Dialog {
                                 description.setText(String.format("%s %d",
                                         "Number of shots left", shots));
                                 drinkBtn.setVisibility(View.VISIBLE);
+                            }
+                            else {
+                                Toast.makeText(activity, "Ready to pour another drink", Toast.LENGTH_LONG)
+                                        .show();
+
+                                dismiss();
                             }
 
                         }

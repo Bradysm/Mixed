@@ -32,12 +32,24 @@ public class RandomFactList {
         RandomFact yourMom = new RandomFact("Did you know the oldest \"Your Mom\" joke was discovered on a 3,500 year old Babylonian Tablet.");
         RandomFact chocolateCows = new RandomFact("7% of Americans believe chocolate milk comes from brown cows.");
         RandomFact forwardAndBackwards = new RandomFact("The following can be read forwards and backwards: \nDo geese see God?");
+        RandomFact orange = new RandomFact("The first oranges weren't orange.");
+        RandomFact tenGallon = new RandomFact("A 10 gallon hat will only hold 3/4 of a gallon.");
+        RandomFact humNose = new RandomFact("You can't hum while holding your nose closed.");
+        RandomFact killBreath = new RandomFact("You can't kill yourself by holding your own breath");
+        RandomFact tongue = new RandomFact("The tongue is the strongest muscle in the body.");
+        RandomFact ketchup = new RandomFact("Ketchup was used as a medicine in the 1930's.");
 
         //Add Awesome facts to HashTable list
         factList.put(1, bangingHead);
         factList.put(2, yourMom);
         factList.put(3, chocolateCows);
         factList.put(4, forwardAndBackwards);
+        factList.put(5, orange);
+        factList.put(6, tenGallon);
+        factList.put(7, humNose);
+        factList.put(8, killBreath);
+        factList.put(9, tongue);
+        factList.put(10, ketchup);
 
     }
 
