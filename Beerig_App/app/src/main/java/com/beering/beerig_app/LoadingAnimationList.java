@@ -34,7 +34,6 @@ public class LoadingAnimationList {
         LoadingAnimation mugHead = new LoadingAnimation(R.raw.mughead);
         LoadingAnimation sunCloud = new LoadingAnimation(R.raw.sun_in_a_cloud);
         LoadingAnimation grab = new LoadingAnimation(R.raw.grab);
-        LoadingAnimation loadingAnim = new LoadingAnimation(R.raw.loading_animation);
         LoadingAnimation hourglass = new LoadingAnimation(R.raw.hourglass);
         LoadingAnimation chicken = new LoadingAnimation(R.raw.funky_chicken);
         LoadingAnimation hamster = new LoadingAnimation(R.raw.loading_hamster);
@@ -51,14 +50,13 @@ public class LoadingAnimationList {
         animList.put(5, mugHead);
         animList.put(6, sunCloud);
         animList.put(7, grab);
-        animList.put(8, loadingAnim);
-        animList.put(9, hourglass);
-        animList.put(10, chicken);
-        animList.put(11, hamster);
-        animList.put(12, rectangle);
-        animList.put(13, loading1);
-        animList.put(14, dottedLoading);
-        animList.put(15, cubo);
+        animList.put(8, hourglass);
+        animList.put(9, chicken);
+        animList.put(10, hamster);
+        animList.put(11, rectangle);
+        animList.put(12, loading1);
+        animList.put(13, dottedLoading);
+        animList.put(14, cubo);
 
     }
 

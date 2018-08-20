@@ -130,6 +130,10 @@ public class PartyDialog extends Dialog {
                     //statusBar.setVisibility(View.VISIBLE);
                     //statusBar.setProgress(0);
 
+                    //start loading animation
+                    loading_anim.playAnimation();
+                    loading_anim.setVisibility(View.VISIBLE);
+
                     // creates a countdown timer to use for the dialog
                     new CountDownTimer(pourTime, 1000) {
                         public void onTick(long milliSecondsUntilDone) {
@@ -138,9 +142,7 @@ public class PartyDialog extends Dialog {
                                     "Seconds Remaining ", milliSecondsUntilDone / 1000));
                             //statusBar.setProgress((int) (milliSecondsUntilDone / pourTime));
 
-                            //start loading animation
-                            loading_anim.playAnimation();
-                            loading_anim.setVisibility(View.VISIBLE);
+
                         }
 
                         public void onFinish() {
@@ -175,7 +177,7 @@ public class PartyDialog extends Dialog {
                 }
                 // decrement the shot number and send data
                 shots--;
-                
+
             }
 
         });

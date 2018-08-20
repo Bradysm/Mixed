@@ -104,6 +104,10 @@ public class ViewDialog extends Dialog {
                     randomFact.setText(factList.getFact());
                     final long drinkTime = drink.getPourTime();
 
+                    //start loading animation
+                    loading_anim.playAnimation();
+                    loading_anim.setVisibility(View.VISIBLE);
+
                     // creates a countdown timer to update the user
                     new CountDownTimer(drinkTime, 1000){
                         // called everytime a second goes by
@@ -111,10 +115,6 @@ public class ViewDialog extends Dialog {
                             // update the description text to display time
                             description.setText(String.format("%s %d seconds",
                                     "Pour time remaining: " , milliSecondsUntilDone / 1000));
-
-                            //start loading animation
-                            loading_anim.playAnimation();
-                            loading_anim.setVisibility(View.VISIBLE);
 
                         }
                         // this is called when the timer is over
@@ -125,6 +125,7 @@ public class ViewDialog extends Dialog {
                             backBtn.setVisibility(View.VISIBLE);
                             description.setText(drink.getDescription());
                             recipe.setText(drink.getRecipe());
+                            loading_anim.setVisibility(View.INVISIBLE);
 
                             dismiss();
                         }
