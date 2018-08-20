@@ -37,7 +37,12 @@ public class RandomFactList {
         RandomFact humNose = new RandomFact("You can't hum while holding your nose closed.");
         RandomFact killBreath = new RandomFact("You can't kill yourself by holding your own breath");
         RandomFact tongue = new RandomFact("The tongue is the strongest muscle in the body.");
-        RandomFact ketchup = new RandomFact("Ketchup was used as a medicine in the 1930's.");
+        RandomFact ketchup = new RandomFact("Ketchup was used as medicine in the 1930's.");
+        RandomFact drunk = new RandomFact("At any given time, 0.7% of the people in the world are drunk.");
+        RandomFact scotlandUnicorn = new RandomFact("Did you know Scotland's national animal is a Unicorn.");
+        RandomFact dogsScared = new RandomFact("Dogs are the only animals who run to their owners when scared.");
+        RandomFact hashtag = new RandomFact("The hashtag (or pound) is really called an 'Octotroph'");
+        RandomFact napoleon = new RandomFact("In France, it is illegal to name your pig 'Napoleon'");
 
         //Add Awesome facts to HashTable list
         factList.put(1, bangingHead);
@@ -50,7 +55,11 @@ public class RandomFactList {
         factList.put(8, killBreath);
         factList.put(9, tongue);
         factList.put(10, ketchup);
-
+        factList.put(11, drunk);
+        factList.put(12, scotlandUnicorn);
+        factList.put(13, dogsScared);
+        factList.put(14, hashtag);
+        factList.put(15, napoleon);
     }
 
 
