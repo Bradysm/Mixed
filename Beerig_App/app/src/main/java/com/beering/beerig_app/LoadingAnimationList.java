@@ -1,10 +1,5 @@
 package com.beering.beerig_app;
 
-import com.airbnb.lottie.L;
-import com.airbnb.lottie.LottieAnimationView;
-
-import org.json.JSONObject;
-
 import java.security.SecureRandom;
 import java.util.Hashtable;
 
@@ -28,9 +23,10 @@ public class LoadingAnimationList {
      * Constructor to create Hash Table of Loading Animations
      */
     public LoadingAnimationList(){
-
+        //Animation Hash Table list
         animList = new Hashtable<Integer, LoadingAnimation>();
 
+        // Loading Animations from res/raw/
         LoadingAnimation dinoDance = new LoadingAnimation(R.raw.dino_dance);
         LoadingAnimation gift = new LoadingAnimation(R.raw.gift_popup);
         LoadingAnimation loader = new LoadingAnimation(R.raw.loader);
@@ -47,6 +43,7 @@ public class LoadingAnimationList {
         LoadingAnimation dottedLoading = new LoadingAnimation(R.raw.dotted_loader);
         LoadingAnimation cubo = new LoadingAnimation(R.raw.cubo_livre);
 
+        // Adding Animations to animList
         animList.put(1, dinoDance);
         animList.put(2, gift);
         animList.put(3, loader);
