@@ -15,8 +15,8 @@
 // we will have to create a specific I2C address in the future
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(0x60); 
 Adafruit_MotorShield AFMS2 = Adafruit_MotorShield(0x61); // need to add a stacking value
-Adafruit_MotorShield AFMS3 = Adafruit_MotorShield(0x63); // need to add a stacking value
-Adafruit_MotorShield AFMS4 = Adafruit_MotorShield(0x64);
+Adafruit_MotorShield AFMS3 = Adafruit_MotorShield(0x62); // need to add a stacking value
+Adafruit_MotorShield AFMS4 = Adafruit_MotorShield(0x63);
 
 // Adafruit_MotorShield AFMS3 = Adafruit_MotorShield(); // need to add a stacking value
 // Or, create it with a different I2C address (say for stacking)
@@ -158,10 +158,10 @@ void setup() {
   Serial.println(F("*********************************************"));
 
   initializeMotorSpeed(vodka, cranberry, orangeJuice, tequila, redBull,  tonic, 
-    grenadine, gin, rum, coke, grapefruit, margaritaMix, simpleSyrup, lemonJuice, limeJuice);
+    grenadine, gin, rum, coke, grapefruit, margaritaMix, simpleSyrup, lemonJuice, limeJuice, club);
   
   releaseMotors(vodka, cranberry, orangeJuice, tequila, redBull,  tonic, 
-    grenadine, gin, rum, coke, grapefruit, margaritaMix, simpleSyrup, lemonJuice, limeJuice);
+    grenadine, gin, rum, coke, grapefruit, margaritaMix, simpleSyrup, lemonJuice, limeJuice, club);
   /************ END MOTOR SET UP *************/
 
   /************* DEFAULT DRINK ***************/
@@ -256,7 +256,7 @@ void loop() {
 
   // turn off the motors
   releaseMotors(vodka, cranberry, orangeJuice, tequila, redBull,  tonic, 
-    grenadine, gin, rum, coke, grapefruit, margaritaMix, simpleSyrup, lemonJuice, limeJuice);
+    grenadine, gin, rum, coke, grapefruit, margaritaMix, simpleSyrup, lemonJuice, limeJuice, club);
   
   // wait for one second
   delay(1000);
@@ -761,7 +761,7 @@ void drinkPour(Adafruit_DCMotor *motor, long time){
 */
 void releaseMotors(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafruit_DCMotor *orangeJuice, Adafruit_DCMotor *tequila, Adafruit_DCMotor *redBull,
   Adafruit_DCMotor *tonic, Adafruit_DCMotor *grenadine, Adafruit_DCMotor *gin, Adafruit_DCMotor *rum, Adafruit_DCMotor *coke, Adafruit_DCMotor *grapefruit,
-  Adafruit_DCMotor *margaritaMix, Adafruit_DCMotor *simpleSyrup, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *limeJuice){
+  Adafruit_DCMotor *margaritaMix, Adafruit_DCMotor *simpleSyrup, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *club){
   vodka->run(RELEASE);
   cranberry->run(RELEASE);
   orangeJuice->run(RELEASE);
@@ -777,6 +777,7 @@ void releaseMotors(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafrui
   simpleSyrup->run(RELEASE);
   lemonJuice->run(RELEASE);
   limeJuice->run(RELEASE);
+  club->run(RELEASE);
   
 }
 
@@ -788,7 +789,7 @@ void releaseMotors(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafrui
 */
 void initializeMotorSpeed(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafruit_DCMotor *orangeJuice, Adafruit_DCMotor *tequila, Adafruit_DCMotor *redBull,
   Adafruit_DCMotor *tonic, Adafruit_DCMotor *grenadine, Adafruit_DCMotor *gin, Adafruit_DCMotor *rum, Adafruit_DCMotor *coke, Adafruit_DCMotor *grapefruit,
-  Adafruit_DCMotor *margaritaMix, Adafruit_DCMotor *simpleSyrup, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *limeJuice){
+  Adafruit_DCMotor *margaritaMix, Adafruit_DCMotor *simpleSyrup, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *club){
 
   // Set the speed to start, from 0 (off) to 255 (max speed)
   vodka->setSpeed(250);
