@@ -831,6 +831,61 @@ void initializeMotorSpeed(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, 
   club->setSpeed(250);
   club->run(FORWARD);
 }
+
+/*
+ * This method will prime all of the motors so they're ready to start pouring 
+ * 
+ * @params-motors: pointer to every motor that is initialized
+*/
+void primeMotors(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafruit_DCMotor *orangeJuice, Adafruit_DCMotor *tequila, Adafruit_DCMotor *redBull,
+  Adafruit_DCMotor *tonic, Adafruit_DCMotor *grenadine, Adafruit_DCMotor *gin, Adafruit_DCMotor *rum, Adafruit_DCMotor *coke, Adafruit_DCMotor *grapefruit,
+  Adafruit_DCMotor *margaritaMix, Adafruit_DCMotor *simpleSyrup, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *club){
+  // run four motors for 10 seconds then release them
+  vodka->run(FORWARD);
+  cranberry->run(FORWARD);
+  orangeJuice->run(FORWARD);
+  tequila->run(RELEASE);
+  delay(10000);
+  vodka->run(RELEASE);
+  cranberry->run(RELEASE);
+  orangeJuice->run(RELEASE);
+  tequila->run(RELEASE);
+
+  // run four motors for 10 seconds then release them
+  redBull->run(FORWARD);
+  tonic->run(FORWARD);
+  grenadine->run(FORWARD);
+  gin->run(FORWARD);
+  delay(10000);
+  redBull->run(RELEASE);
+  tonic->run(RELEASE);
+  grenadine->run(RELEASE);
+  gin->run(RELEASE);
+
+  // run four motors for 10 seconds then release them
+  rum->run(FORWARD);
+  coke->run(FORWARD);
+  grapefruit->run(FORWARD);
+  margaritaMix->run(FORWARD);
+  delay(10000);
+  rum->run(RELEASE);
+  coke->run(RELEASE);
+  grapefruit->run(RELEASE);
+  margaritaMix->run(RELEASE);
+
+  // run four motors for 10 seconds then release them
+  simpleSyrup->run(FORWARD);
+  lemonJuice->run(FORWARD);
+  limeJuice->run(FORWARD);
+  club->run(FORWARD);
+  delay(10000);
+  simpleSyrup->run(RELEASE);
+  lemonJuice->run(RELEASE);
+  limeJuice->run(RELEASE);
+  club->run(RELEASE);
+  
+}
+
 /**
  * this will convert an ASCII value to int
  * for example, 'a' will result in 1

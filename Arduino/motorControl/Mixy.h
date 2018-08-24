@@ -1,3 +1,14 @@
+
+/**
+ * @author- Brady Murphy
+ * @version-Aug 24, 2018
+ * 
+ * This header file defines the functions used to control the motors for the Mixed machine.
+ * It also contains all of the packages needed to estabalish the bluetooth LE and motor shield 
+ * compatability between the Arduino and the respective shields.
+ */
+
+
 #include <Adafruit_ATParser.h>
 #include <Adafruit_BLE.h>
 #include <Adafruit_BLEBattery.h>
@@ -6,12 +17,6 @@
 #include <Adafruit_BLEMIDI.h>
 #include <Adafruit_BluefruitLE_SPI.h>
 #include <Adafruit_BluefruitLE_UART.h>
-
-/**
- * @author- Brady Murphy
- * @version-Aug 20, 2018
- */
-
 #include <Wire.h>
 #include <Adafruit_MotorShield.h>
 #include <Arduino.h>
@@ -48,7 +53,7 @@ void ginShot(Adafruit_DCMotor *gin);
 // drink pour prototype
 void drinkPour(Adafruit_DCMotor *motor, long time);
 
-// random functions helping to support initialization
+// functions helping to support initialization
 int lowerCaseToInt(int val);
 void error(const __FlashStringHelper*err);
 void releaseMotors(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafruit_DCMotor *orangeJuice, Adafruit_DCMotor *tequila, Adafruit_DCMotor *redBull,
@@ -56,6 +61,10 @@ void releaseMotors(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafrui
   Adafruit_DCMotor *margaritaMix, Adafruit_DCMotor *simpleSyrup, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *club);
 
 void initializeMotorSpeed(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafruit_DCMotor *orangeJuice, Adafruit_DCMotor *tequila, Adafruit_DCMotor *redBull,
+  Adafruit_DCMotor *tonic, Adafruit_DCMotor *grenadine, Adafruit_DCMotor *gin, Adafruit_DCMotor *rum, Adafruit_DCMotor *coke, Adafruit_DCMotor *grapefruit,
+  Adafruit_DCMotor *margaritaMix, Adafruit_DCMotor *simpleSyrup, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *club);
+
+void primeMotors(Adafruit_DCMotor *vodka, Adafruit_DCMotor *cranberry, Adafruit_DCMotor *orangeJuice, Adafruit_DCMotor *tequila, Adafruit_DCMotor *redBull,
   Adafruit_DCMotor *tonic, Adafruit_DCMotor *grenadine, Adafruit_DCMotor *gin, Adafruit_DCMotor *rum, Adafruit_DCMotor *coke, Adafruit_DCMotor *grapefruit,
   Adafruit_DCMotor *margaritaMix, Adafruit_DCMotor *simpleSyrup, Adafruit_DCMotor *lemonJuice, Adafruit_DCMotor *limeJuice, Adafruit_DCMotor *club);
 
