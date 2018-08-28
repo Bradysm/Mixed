@@ -60,10 +60,11 @@ public class HomeScreen extends AppCompatActivity {
 
     /**
      * this will launch a settings dialog onto the screen
+     *
      * @param view
      */
     public void openSettings(View view){
-        SettingsDialog dialog = new SettingsDialog(this, new Drink("Prime", 67500,
+        SettingsDialog dialog = new SettingsDialog(this, new Drink("Prime", 60000,
                 "Used to prime the motors", "z",
                 "Runs all of the motors"));
         dialog.show();

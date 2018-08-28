@@ -9,19 +9,15 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.airbnb.lottie.LottieAnimationView;
-
 import java.io.UnsupportedEncodingException;
-import java.text.DateFormat;
-import java.util.Date;
 
 /**
- * this class is used as a basic formatting for the dialog pop up
- * to be used for drink ordering
+ * this class is used as a basic formatting for the dialog
+ * to be used for settings. This will allow the user to prime
+ * the motors and see a thank you from the Mixed Team
  *
  * @author Brady Murphy
- * @version July 15 2018
+ * @version August 28 2018
  */
 public class SettingsDialog extends Dialog {
     /**
@@ -30,16 +26,10 @@ public class SettingsDialog extends Dialog {
      * and Drink options to complete a drink order
      */
     public Activity activity;
-    public ImageButton drinkBtn;
+    public ImageButton primeBtn;
     public ImageButton backBtn;
-    public TextView randomFact;
-    public TextView name;
-    public TextView description;
-    public TextView recipe;
-    public RandomFactList factList;
+    public TextView thankYou;
     private Drink drink;
-    private LottieAnimationView loading_anim;
-    private LoadingAnimationList animationList;
 
     /**
      * constructor to create Drink Dialog
@@ -51,6 +41,7 @@ public class SettingsDialog extends Dialog {
         this.activity = a;
         this.drink = drink;
         this.setCanceledOnTouchOutside(false);
+        thankYou = (TextView) findViewById(R.id.thank_you);
     }
 
     @Override
@@ -60,10 +51,10 @@ public class SettingsDialog extends Dialog {
         setContentView(R.layout.settings_dialog);
 
 
-        //If user clicks "pour it" button
+        //If user clicks "prime" button
         //Use this method to send data to service
-        drinkBtn = (ImageButton) findViewById(R.id.prime_button);
-        drinkBtn.setOnClickListener(new View.OnClickListener() {
+        primeBtn = (ImageButton) findViewById(R.id.prime_button);
+        primeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
                 byte[] value;
@@ -72,39 +63,25 @@ public class SettingsDialog extends Dialog {
                     value = drink.getUartCom().getBytes("UTF-8");
                     MainActivity.mService.writeRXCharacteristic(value);
 
-                    // disable the buttons on the dialog and enable progress bar
-                    drinkBtn.setVisibility(View.INVISIBLE);
+                    // make the buttons invisible and update thank you
+                    primeBtn.setVisibility(View.INVISIBLE);
                     backBtn.setVisibility(View.INVISIBLE);
-                    recipe.setText("");
-
-                    // make the bar visible
-                    randomFact.setVisibility(View.VISIBLE);
-                    randomFact.setText(factList.getFact());
                     final long drinkTime = drink.getPourTime();
+                    thankYou.setText(R.string.priming);
 
-                    //start loading animation
-                    loading_anim.playAnimation();
-                    loading_anim.setVisibility(View.VISIBLE);
 
                     // creates a countdown timer to update the user
                     new CountDownTimer(drinkTime, 1000){
                         // called everytime a second goes by
                         public void onTick(long milliSecondsUntilDone){
-                            // update the description text to display time
-                            description.setText(String.format("%s %d seconds",
-                                    "Pour time remaining: " , milliSecondsUntilDone / 1000));
-
                         }
                         // this is called when the timer is over
                         public void onFinish(){
-                            Toast.makeText(activity, "Ready to pour another drink", Toast.LENGTH_LONG)
+                            Toast.makeText(activity, "Motors Primed", Toast.LENGTH_LONG)
                                     .show();
-                            drinkBtn.setVisibility(View.VISIBLE);
+                            primeBtn.setVisibility(View.VISIBLE);
                             backBtn.setVisibility(View.VISIBLE);
-                            description.setText(drink.getDescription());
-                            recipe.setText(drink.getRecipe());
-                            loading_anim.setVisibility(View.INVISIBLE);
-
+                            thankYou.setText(R.string.thank_you);
                             dismiss();
                         }
                     }.start();

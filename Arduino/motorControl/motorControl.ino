@@ -248,6 +248,11 @@ void loop() {
         break;
       case 21:
         ginShot(gin);
+        break;
+      case 27:
+        primeMotors(vodka, cranberry, orangeJuice, tequila, redBull,tonic, 
+                    grenadine, gin, rum, coke, grapefruit, margaritaMix, simpleSyrup, lemonJuice, limeJuice, club);
+        break;
       default: // catch any invalid order number
         break;
     }
