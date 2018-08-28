@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Used for the settings dialog
+@author Brady Murphy
+@version 08/27/2018 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_settings_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/settings_dialog_background">
+
+    <!-- Settings title -->
+    <TextView
+        android:id="@+id/settings_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/sign_painter"
+        android:textColor="#FED05C"
+        android:textSize="56sp"
+        android:text="@string/settings"/>
+
+    <!-- thank you from the beerig team -->
+    <TextView
+        android:id="@+id/settings_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:text="@string/thank_you"
+        android:layout_below="@id/settings_title"/>
+
+    <!-- Linear layout used to control the buttons orientation within the dialog -->
+    <LinearLayout
+        android:id="@+id/vertical_button_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical">
+
+        <!-- Prime Button. This will prime all of the motors -->
+        <ImageButton
+            android:id="@+id/prime_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@null"
+            android:clickable="true"
+            android:contentDescription="@string/pour"
+            android:focusable="true"
+            android:src="@drawable/prime_button" />
+
+        <!-- go back button. This will take you back to the main screen -->
+        <ImageButton
+            android:id="@+id/go_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@null"
+            android:baselineAlignBottom="true"
+            android:clickable="true"
+            android:contentDescription="@string/cancel"
+            android:focusable="true"
+            android:src="@drawable/go_back_button" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

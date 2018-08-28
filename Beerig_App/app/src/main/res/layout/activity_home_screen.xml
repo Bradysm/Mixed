@@ -23,6 +23,16 @@
         android:foregroundGravity="top"
         android:src="@drawable/choose_title" />
 
+    <ImageButton
+        android:id="@+id/settings_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/setting_symbol"
+        android:background="@null"
+        android:onClick="openSettings"/>
+
     <LinearLayout
         android:id="@+id/liquors"
         android:layout_width="wrap_content"

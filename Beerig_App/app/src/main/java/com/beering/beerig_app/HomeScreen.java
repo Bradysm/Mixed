@@ -19,7 +19,6 @@ import android.widget.ImageView;
  */
 public class HomeScreen extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,5 +56,16 @@ public class HomeScreen extends AppCompatActivity {
     public void startPartyModeActivity(View view){
         Intent partyModeActivity = new Intent(this, PartyModeActivity.class);
         HomeScreen.this.startActivity(partyModeActivity);
+    }
+
+    /**
+     * this will launch a settings dialog onto the screen
+     * @param view
+     */
+    public void openSettings(View view){
+        SettingsDialog dialog = new SettingsDialog(this, new Drink("Prime", 67500,
+                "Used to prime the motors", "z",
+                "Runs all of the motors"));
+        dialog.show();
     }
 }
