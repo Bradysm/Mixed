@@ -31,7 +31,7 @@
         android:layout_marginRight="32dp"
         android:gravity="center"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:text="@string/thank_you"
         android:layout_below="@id/settings_title"/>
 
