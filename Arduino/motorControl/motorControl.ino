@@ -23,13 +23,13 @@ Adafruit_MotorShield AFMS4 = Adafruit_MotorShield(0x63);
 // Adafruit_MotorShield AFMS = Adafruit_MotorShield(0x61); 
 
 // Select which 'port' M1, M2, M3 or M4. In this case, M1
-Adafruit_DCMotor *vodka = AFMS.getMotor(1); // M1 shield 1
+Adafruit_DCMotor *redBull = AFMS.getMotor(1); // M1 shield 1
 Adafruit_DCMotor *cranberry = AFMS.getMotor(2); // M2 shield 1
 Adafruit_DCMotor *orangeJuice = AFMS.getMotor(3); // M3 shield 1
 Adafruit_DCMotor *tequila = AFMS.getMotor(4); // M4 shield 1
 
 // from shield 2
-Adafruit_DCMotor *redBull = AFMS2.getMotor(1);
+Adafruit_DCMotor *vodka = AFMS2.getMotor(1);
 Adafruit_DCMotor *tonic = AFMS2.getMotor(2);
 Adafruit_DCMotor *grenadine = AFMS2.getMotor(3);
 Adafruit_DCMotor *gin = AFMS2.getMotor(4);
