@@ -1,4 +1,4 @@
-# Beerig
+# Mixed
 Software developed to control Mixed machine
 
 The arduino software can be used and edited to add more drinks to the list.
